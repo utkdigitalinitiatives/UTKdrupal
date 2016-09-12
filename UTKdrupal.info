@@ -1,0 +1,15 @@
+name = UTKdrupal
+description = UT Libraries Drupal theme
+core = 7.x
+
+;Drupal 7 default regions:
+;Reference - http://themery.com/dgd7/theming/info-files
+regions[sidebar_first]  = Left sidebar
+regions[sidebar_second] = Right sidebar
+regions[content] = Content
+regions[header] = Header
+regions[footer] = Footer
+regions[highlighted] = Highlighted
+regions[help] = Help
+regions[page_top] = Page Top
+regions[page_bottom] = Page Bottom
