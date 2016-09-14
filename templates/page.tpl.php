@@ -90,7 +90,7 @@
                  <!--       <small><a href="http://www.utk.edu">Parent Unit</a></small> --></h2>
          </div>
          
-<!--          Begin Copied from Drupal system page.tpl header area line 86 to 106 -->
+<!--          Begin Copied from Drupal system page.tpl header area line 86 to 104 -->
 
       <?php if ($site_name || $site_slogan): ?>
         <div id="name-and-slogan">
@@ -111,10 +111,11 @@
           <?php endif; ?>
         </div> <!-- /#name-and-slogan -->
       <?php endif; ?>
+      <!--          End Copied from Drupal system page.tpl header area line 86 to 104 -->
 
+<!-- 	 Begin Header Region -->
       <?php print render($page['header']); ?>
-
-<!--          End Copied from Drupal system page.tpl header area line 86 to 106 -->
+<!-- 	 End Header Region -->
          
    		</header><!-- #masthead -->
 <!-- The UT Header ends here. -->
@@ -130,6 +131,14 @@
 <div id="primary" class="web-app-content-area">
 
 <div id="content" class="site-content site-content wide" role="main">
+	
+	<!-- 	 Begin Page Top Region -->
+	 <?php print render($page['page_top']); ?>
+	 <!-- 	 End Page Top Region -->
+	
+<!-- 	 Begin Help Region -->
+	 <?php print render($page['help']); ?>
+	 <!-- 	 End Help Region -->
 
 <!--          Begin Copied from Drupal system page.tpl content area line 126 to 135 -->
 <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
@@ -159,7 +168,14 @@
     <!--          End Copied from Drupal system page.tpl content area line 138 to 148 -->
 </div>
 
- <?php print render($page['footer']); ?>
+
+	<!-- 	 Begin Page Bottom Region -->
+	 <?php print render($page['page_bottom']); ?>
+	 <!-- 	 End Page Bottom Region -->
+	 
+	 <!-- 	 Begin Footer Region -->
+	 <?php print render($page['footer']); ?>
+	 <!-- 	 End Footer Region -->
 
 </div>
 
