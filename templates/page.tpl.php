@@ -89,6 +89,33 @@
            <h2 class="department"><a href="https://www.lib.utk.edu" title="University Libraries" rel="home">University Libraries</a>
                  <!--       <small><a href="http://www.utk.edu">Parent Unit</a></small> --></h2>
          </div>
+         
+<!--          Begin Copied from Drupal system page.tpl header area line 86 to 106 -->
+
+      <?php if ($site_name || $site_slogan): ?>
+        <div id="name-and-slogan">
+          <?php if ($site_name): ?>
+            <?php if ($title): ?>
+              <div id="site-name"><strong>
+                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+              </strong></div>
+            <?php else: /* Use h1 when the content title is empty */ ?>
+              <h1 id="site-name">
+                <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
+              </h1>
+            <?php endif; ?>
+          <?php endif; ?>
+
+          <?php if ($site_slogan): ?>
+            <div id="site-slogan"><?php print $site_slogan; ?></div>
+          <?php endif; ?>
+        </div> <!-- /#name-and-slogan -->
+      <?php endif; ?>
+
+      <?php print render($page['header']); ?>
+
+<!--          End Copied from Drupal system page.tpl header area line 86 to 106 -->
+         
    		</header><!-- #masthead -->
 <!-- The UT Header ends here. -->
 		
@@ -104,9 +131,35 @@
 
 <div id="content" class="site-content site-content wide" role="main">
 
-<?php print render($page['content']); ?>
+<!--          Begin Copied from Drupal system page.tpl content area line 126 to 135 -->
+<?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
+        <a id="main-content"></a>
+        <?php print render($title_prefix); ?>
+        <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
+        <?php print render($title_suffix); ?>
+        <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
+        <?php print render($page['help']); ?>
+        <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
+        <?php print render($page['content']); ?>
+        <?php print $feed_icons; ?>
+        <!--          End Copied from Drupal system page.tpl content area line 126 to 135 -->
+        
+        <!--          Begin Copied from Drupal system page.tpl content area line 138 to 148 -->
+              <?php if ($page['sidebar_first']): ?>
+        <div id="sidebar-first" class="column sidebar"><div class="section">
+          <?php print render($page['sidebar_first']); ?>
+        </div></div> <!-- /.section, /#sidebar-first -->
+      <?php endif; ?>
 
+      <?php if ($page['sidebar_second']): ?>
+        <div id="sidebar-second" class="column sidebar"><div class="section">
+          <?php print render($page['sidebar_second']); ?>
+        </div></div> <!-- /.section, /#sidebar-second -->
+      <?php endif; ?>
+    <!--          End Copied from Drupal system page.tpl content area line 138 to 148 -->
 </div>
+
+ <?php print render($page['footer']); ?>
 
 </div>
 
