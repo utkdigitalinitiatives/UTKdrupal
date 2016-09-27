@@ -69,7 +69,7 @@
       <!--[if lt IE 9]>
       <link rel='stylesheet' id='utthehill-ie-css'  href='https://www.lib.utk.edu/template/2016/library/css/ie.css?ver=2015-05-20' type='text/css' media='all' />
       <![endif]-->
-      <script type='text/javascript' src='//code.jquery.com/jquery-1.11.2.min.js'></script>
+      <!--<script type='text/javascript' src='//code.jquery.com/jquery-1.11.2.min.js'></script>-->
 
 
 
