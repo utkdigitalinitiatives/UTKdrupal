@@ -65,7 +65,7 @@
   		</script>
   		<noscript><link href="https://www.lib.utk.edu/template/2016/library/css/icons.fallback.css" rel="stylesheet"></noscript>
 
-<!--       <link rel='stylesheet' id='utthehill-style-css'  href='https://www.lib.utk.edu/template/2016/style.css?ver=2015-05-20' type='text/css' media='all' /> -->
+<link rel='stylesheet' id='utthehill-style-css'  href='https://www.lib.utk.edu/template/2016/style.css?ver=2015-05-20' type='text/css' media='all' />
       <!--[if lt IE 9]>
       <link rel='stylesheet' id='utthehill-ie-css'  href='https://www.lib.utk.edu/template/2016/library/css/ie.css?ver=2015-05-20' type='text/css' media='all' />
       <![endif]-->
