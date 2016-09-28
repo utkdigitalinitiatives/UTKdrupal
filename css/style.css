@@ -4,7 +4,7 @@
     text-shadow:none;
     }
     
-#toolbar a, .tabs a {
+#toolbar a, {
 	text-decoration: none;
 	background: none;
 	}
