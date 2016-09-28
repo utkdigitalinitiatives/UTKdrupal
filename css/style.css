@@ -1,1 +1,5 @@
-//This space intentionally left blank 
+/* Removes text shawdowing from lists: ex. the Drupal admin toolbar */
+
+.site-content li a {
+    text-shadow:none;
+    }
