@@ -142,7 +142,11 @@
 	 <!-- 	 End Help Region -->
 
 <!--          Begin Copied from Drupal system page.tpl content area line 126 to 135 -->
-<?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
+<?php if ($page['highlighted']): ?>
+<div id="highlighted">
+	<?php print render($page['highlighted']); ?>
+	</div>
+	<?php endif; ?>
         <a id="main-content"></a>
         <?php print render($title_prefix); ?>
         <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
@@ -156,9 +160,11 @@
         
         <!--          Begin Copied from Drupal system page.tpl content area line 138 to 148 -->
               <?php if ($page['sidebar_first']): ?>
-        <div id="sidebar-first" class="column sidebar"><div class="section">
+        <div id="sidebar-first" class="column sidebar">
+	        <div class="section">
           <?php print render($page['sidebar_first']); ?>
-        </div></div> <!-- /.section, /#sidebar-first -->
+	        </div>
+	        </div> <!-- /.section, /#sidebar-first -->
       <?php endif; ?>
 
       <?php if ($page['sidebar_second']): ?>
@@ -171,11 +177,11 @@
 
 
 	<!-- 	 Begin Page Bottom Region -->
-	 <?php print render($page['page_bottom']); ?>
+	<!--  <?php print render($page['page_bottom']); ?> -->
 	 <!-- 	 End Page Bottom Region -->
 	 
 	 <!-- 	 Begin Footer Region -->
-	 <?php print render($page['footer']); ?>
+<!-- 	 <?php print render($page['footer']); ?> -->
 	 <!-- 	 End Footer Region -->
 
 </div>
