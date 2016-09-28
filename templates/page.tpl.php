@@ -173,16 +173,16 @@
         </div></div> <!-- /.section, /#sidebar-second -->
       <?php endif; ?>
     <!--          End Copied from Drupal system page.tpl content area line 138 to 148 -->
-</div>
 
 
 	<!-- 	 Begin Page Bottom Region -->
-	<!--  <?php print render($page['page_bottom']); ?> -->
+	 <?php print render($page['page_bottom']); ?>
 	 <!-- 	 End Page Bottom Region -->
 	 
 	 <!-- 	 Begin Footer Region -->
-<!-- 	 <?php print render($page['footer']); ?> -->
+	 <?php print render($page['footer']); ?>
 	 <!-- 	 End Footer Region -->
+</div>
 
 </div>
 
