@@ -3,3 +3,8 @@
 .site-content li a {
     text-shadow:none;
     }
+    
+#toolbar a {
+	text-decoration: none;
+	background: none!important;
+	}
