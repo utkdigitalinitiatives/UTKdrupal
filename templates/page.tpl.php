@@ -130,7 +130,8 @@
 
 <div id="primary" class="web-app-content-area">
 
-<div id="content" class="" role="main">
+		<div id="content" class="site-content wide" role="main">
+
 	
 	<!-- 	 Begin Page Top Region -->
 	 <?php print render($page['page_top']); ?>
