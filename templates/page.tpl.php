@@ -156,14 +156,21 @@
         <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
         <?php print render($page['help']); ?>
         <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
+        
+                  <?php if ($page['sidebar_first']): ?>
+<p>The first sidebar exists!</p>
+      <?php endif; ?>
         <?php print render($page['content']); ?>
         <?php print $feed_icons; ?>
+       
+       
+       
         <!--          End Copied from Drupal system page.tpl content area line 126 to 135 -->
         
         <!--          Begin Copied from Drupal system page.tpl content area line 138 to 148 -->
               <?php if ($page['sidebar_first']): ?>
         <div id="sidebar-first" class="column sidebar">
-	        <div class="section">
+	        <div class="section">   <!-- Dan was here -->
           <?php print render($page['sidebar_first']); ?>
 	        </div>
 	        </div> <!-- /.section, /#sidebar-first -->
