@@ -149,6 +149,8 @@
 	<?php endif; ?>
 	<!--          End Highlighted Region -->
 	
+	
+	
         <a id="main-content"></a>
         <?php print render($title_prefix); ?>
         <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
@@ -157,46 +159,38 @@
         <?php print render($page['help']); ?>
         <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
         
-                  <?php if ($page['sidebar_first']): ?>
-<p>The first sidebar exists!</p>
-      <?php endif; ?>
-        <?php print render($page['content']); ?>
-        <?php print $feed_icons; ?>
-       
-       
-       
-        <!--          End Copied from Drupal system page.tpl content area line 126 to 135 -->
-        
-        <!--          Begin Copied from Drupal system page.tpl content area line 138 to 148 -->
+        <!-- 	 Begin First Sidebar Region -->
               <?php if ($page['sidebar_first']): ?>
-        <div id="sidebar-first" class="column sidebar">
-	        <div class="section">   <!-- Dan was here -->
+	        <div class="one-fourth column"> 
           <?php print render($page['sidebar_first']); ?>
 	        </div>
-	        </div> <!-- /.section, /#sidebar-first -->
-      <?php endif; ?>
-
-      <?php if ($page['sidebar_second']): ?>
-        <div id="tertiary" class="sidebar-container" role="complementary"><div class="section">
-          <?php print render($page['sidebar_second']); ?>
-        </div></div> <!-- /.section, /#sidebar-second -->
-      <?php endif; ?>
-    <!--          End Copied from Drupal system page.tpl content area line 138 to 148 -->
-	 
-	 <!-- 	 Begin Footer Region -->
+	       <?php endif; ?>
+	       <!-- 	 End First Sidebar Region -->
+	       
+      <div class="three-fourths column">
+        <?php print render($page['content']); ?>
+      </div>
+      <br class="clear">
+        <?php print $feed_icons; ?>
+        <br class="clear">
+        <!-- 	 Begin Second Sidebar Region -->
+        <?php print render($page['sidebar_second']); ?>
+        <!-- 	 End Second Sidebar Region -->
+        
+        <!-- 	 Begin Footer Region -->
 	 <?php print render($page['footer']); ?>
 	 <!-- 	 End Footer Region -->
+	 
+	<br class="clear">
 </div>
 
 </div>
-
-      
+          
 <!-- The UT Footer starts here. -->
 
 <!--  begin footer include -->
 <!--  begin #colophon -->
     <footer id="colophon" class="site-footer" role="contentinfo">
-   
   <div id="siteinfo">
 		<div id="meta-info">
       <p>
