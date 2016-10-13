@@ -82,12 +82,9 @@
   <?php print $scripts; ?>
 </head>
 <body class="dropnav page-template-template-nosidebar webapp <?php print $classes; ?>" <?php print $attributes;?>>
- 
-  <?php print $page_top; ?>
 
   <?php print $page; ?>
  
-  <?php print $page_bottom; ?>
  <script type='text/javascript' src='https://www.lib.utk.edu/template/2016/library/js/min/utk-min.js?ver=2015-05-20'></script> 
 </body>
 </html>
