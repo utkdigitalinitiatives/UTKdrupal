@@ -1,3 +1,21 @@
+/* 
+Font: Google Noto Sans
+UT Orange(HEX FF8200) = Hover
+Leconte(HEX 8D2048) = Visited Links
+Fountain(HEX 2197A9) = Links
+Limestone(HEX F0EDE3) =
+(HEX F6F6F6) = Side Bar
+Smokey(HEX 58595B) = Text
+
+weird-font { font-family:'NotoSans-Regular', Helvetica, Arial, Verdana; }
+*/
+
+@font-face{
+   font-family: 'NotoSans-Regular';
+   url('NotoSans-Regular.ttf')format('truetype')
+}
+
+
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
