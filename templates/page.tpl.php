@@ -73,7 +73,7 @@
  */
 ?>
 <!-- start page.tpl.php template -->
-  <!-- The UT Header begins here. -->
+<!-- The UT Header begins here. -->
 <!-- Will remove orange bar later for semantic html -->
 <div id="orange-bar"></div>
   
