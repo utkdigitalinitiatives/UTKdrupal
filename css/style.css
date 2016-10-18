@@ -1264,6 +1264,7 @@ footer{
 .footer-column{
 	width: 46.8%;
 	display: inline-block;
+	vertical-align: top;
 }
 
 .pipe-space {
@@ -1286,8 +1287,9 @@ footer{
 
 }
 
-#university-links{
-
+#university-links ul{
+	list-style: none;
+	width: 30%;
 }
 
 #system-indicia{
