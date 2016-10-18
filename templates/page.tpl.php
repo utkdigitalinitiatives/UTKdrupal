@@ -78,16 +78,16 @@
 <div id="orange-bar"></div>
   
 <div id="page">
-	  <div id="main">
+	<div id="main">
 	  <a class="sr-only" href="#content" title="Skip to content">Skip to content</a>	    
 
- <header id="ut-header" role="banner">
-         <h3 class="killer-logo"><a href="http://www.utk.edu">The University of Tennessee, Knoxville</a></h3>
-         <h2 class="sr-only"><a href="https://www.lib.utk.edu" rel="home">University Libraries</a></h2>
+	  <header id="ut-header" role="banner">
+	  <h3 class="killer-logo"><a href="http://www.utk.edu">The University of Tennessee, Knoxville</a></h3>
+	  	<h2 class="sr-only"><a href="https://www.lib.utk.edu" rel="home">University Libraries</a></h2>
         
-         <div id="site-title">
-           <h2><a href="https://www.lib.utk.edu" title="University Libraries" rel="home">University Libraries</a></h2>
-         </div>
+	  	<div id="site-title">
+	  	<h2><a href="https://www.lib.utk.edu" title="University Libraries" rel="home">University Libraries</a></h2>
+		</div>
          
 <!-- Begin Copied from Drupal system page.tpl header area line 86 to 104 -->
 
@@ -113,44 +113,40 @@
 <!-- End Copied from Drupal system page.tpl header area line 86 to 104 -->
 
 <!-- Begin Header Region -->
-      <?php print render($page['header']); ?>
+	<?php print render($page['header']); ?>
 <!-- End Header Region -->
          
 </header>
 <!-- The UT Header ends here. -->
 		
 <?php if($messages): ?>
-  <div id="messages">
-    <div class="section clearfix">
+<div id="messages">
+	<div class="section clearfix">
       <?php print $messages; ?>
     </div>
   </div>
 <?php endif; ?>
 
-<div id="primary" class="web-app-content-area">
+<div id="content-wrapper">
+	<div class="content" role="main">
 
-		<div id="content" class="site-content wide" role="main">
-
-	
 	<?php if ($breadcrumb): ?>
-      <div id="breadcrumb"><?php print $breadcrumb; ?></div>
+	<div id="breadcrumb"><?php print $breadcrumb; ?></div>
     <?php endif; ?>
 	
-<!-- 	 Begin Help Region -->
-	 <?php print render($page['help']); ?>
-	 <!-- 	 End Help Region -->
+<!-- Begin Help Region -->
+	<?php print render($page['help']); ?>
+<!-- End Help Region -->
 
-<!--          Begin Highlighted Region -->
-<?php if ($page['highlighted']): ?>
-<div id="highlighted">
+<!-- Begin Highlighted Region -->
+	<?php if ($page['highlighted']): ?>
+	<div id="highlighted">
 	<?php print render($page['highlighted']); ?>
 	</div>
 	<?php endif; ?>
-	<!--          End Highlighted Region -->
+<!-- End Highlighted Region -->
 	
-	
-	
-        <a id="main-content"></a>
+<a id="main-content"></a>
         <?php print render($title_prefix); ?>
         <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
         <?php print render($title_suffix); ?>
