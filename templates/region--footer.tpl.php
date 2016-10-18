@@ -5,8 +5,8 @@
 <!--  Begin Libraries footer -->
 
 <!--  begin #colophon -->
-    <footer id="site-footer" role="contentinfo">
-  <div id="siteinfo">
+<footer role="contentinfo">
+  <div id="site-info">
 		<div class="footer-column">
       <h2><a href="https://www.lib.utk.edu">University Libraries</a></h2>
 		</div>
