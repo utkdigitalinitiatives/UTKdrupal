@@ -162,5 +162,5 @@
 </div>
  
 	  </div>    
-</div> <!-- /#page>
+</div>
 <!-- end page.tpl.php template -->
