@@ -79,7 +79,7 @@
   
 <div id="page">
 	<div id="main">
-	  <a class="sr-only" href="#content" title="Skip to content">Skip to content</a>	    
+	<a class="sr-only" href="#content" title="Skip to content">Skip to content</a>	    
 
 	  <header id="ut-header" role="banner">
 	  <h3 class="killer-logo"><a href="http://www.utk.edu">The University of Tennessee, Knoxville</a></h3>
@@ -91,11 +91,12 @@
          
 <!-- Begin Copied from Drupal system page.tpl header area line 86 to 104 -->
 
-      <?php if ($site_name || $site_slogan): ?>
-        <div id="name-and-slogan">
-          <?php if ($site_name): ?>
-            <?php if ($title): ?>
-              <div id="site-name"><strong>
+<?php if ($site_name || $site_slogan): ?>
+<div id="name-and-slogan">
+<?php if ($site_name): ?>
+<?php if ($title): ?>
+        <div id="site-name">
+	              <strong>
                 <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home"><span><?php print $site_name; ?></span></a>
               </strong></div>
             <?php else: /* Use h1 when the content title is empty */ ?>
@@ -146,21 +147,34 @@
 	<?php endif; ?>
 <!-- End Highlighted Region -->
 	
-<a id="main-content"></a>
-        <?php print render($title_prefix); ?>
-        <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
-        <?php print render($title_suffix); ?>
-        <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
-        <?php print render($page['help']); ?>
-        <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
+	<?php print render($title_prefix); ?>
+	<?php if ($title): ?>
+	<h1 id="page-title">
+	<?php print $title; ?>
+	</h1>
+	<?php endif; ?>
+    
+	<?php print render($title_suffix); ?>
+	<?php if ($tabs): ?>
+	<div class="tabs">
+	<?php print render($tabs); ?>
+	</div>
+    <?php endif; ?>
         
-        <!-- 	 Begin First Sidebar Region -->
-              <?php if ($page['sidebar_first']): ?>
-	        <div class="one-fourth column"> 
-          <?php print render($page['sidebar_first']); ?>
+	<?php print render($page['help']); ?>
+	<?php if ($action_links): ?>
+	<ul class="action-links">
+	<?php print render($action_links); ?>
+	</ul>
+	<?php endif; ?>
+        
+ <!-- Begin First Sidebar Region -->
+ 	<?php if ($page['sidebar_first']): ?>
+	        <div class="left-sidebar"> 
+           <?php print render($page['sidebar_first']); ?>
 	        </div>
 	       <?php endif; ?>
-	       <!-- 	 End First Sidebar Region -->
+<!-- End First Sidebar Region -->
 	       
       <div class="three-fourths column">
         <?php print render($page['content']); ?>
