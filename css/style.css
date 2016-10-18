@@ -1191,7 +1191,8 @@ ul.secondary a.active {
 }
 
 #main{
-
+	float: left;
+	min-width: 1200px;
 }
 
 .sr-only{
