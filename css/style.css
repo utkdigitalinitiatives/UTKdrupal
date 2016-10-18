@@ -39,10 +39,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 :focus {
 	outline: 0;
 }
-body {
-	background: #A7A9AC;
-	line-height: 1;
-}
 
 /* Block elements */
 header, footer, section, article, aside {
@@ -162,11 +158,11 @@ th, tr, td {
 /* = Body, Common Classes & Wrap
 /*-----------------------------------------------------------------------------------*/
 body {
-	background: #f9f9f9;
+	background: #A7A9AC;
 	font-size: 14px;
 	line-height: 1.6em;
-	color: #333;
-	font-family: 'Lora', Helvetica Nue, Arial, Helvetica, sans-serif;
+	color: #58595B;
+	font-family: 'Lora', Helvetica Nue, Arial, Helvetica, sans-serif, NotoSans-Regular;
 }
 
 a {
