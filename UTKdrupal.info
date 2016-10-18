@@ -5,6 +5,7 @@ description = UT Libraries Drupal theme
 core = 7.x
 
 stylesheets[all][] = css/style.css
+stylesheets[print][] = css/print.css
 
 ;Drupal 7 default regions:
 regions[header] = Header 
