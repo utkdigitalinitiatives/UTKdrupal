@@ -175,10 +175,14 @@
 	        </div>
 	       <?php endif; ?>
 <!-- End First Sidebar Region -->
-	       
-      <div class="three-fourths column">
-        <?php print render($page['content']); ?>
-      </div>
+
+ <!-- Begin Content Region -->	       
+ 	<div class="content-container">
+ 		<?php print render($page['content']); ?>
+ 	</div>
+ <!-- End Content Region -->	
+      
+      
       <br class="clear">
         <?php print $feed_icons; ?>
         <br class="clear">
