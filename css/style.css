@@ -163,7 +163,6 @@ th, tr, td {
 /*-----------------------------------------------------------------------------------*
 /* = Body, Common Classes & Wrap
 /*-----------------------------------------------------------------------------------*/
-
 body {
   background: #f9f9f9;
   font-size: 14px;
@@ -1252,3 +1251,14 @@ border-left: 1px solid; border-right: 1px solid; height: 40px; margin-left: -36p
 
 .column-last{margin-right: 0px;}
 .column-first{margin-left: 0px;}
+
+#orange-bar{
+  display: block;
+  float: left;
+  min-height: 6px;
+  background: #ff8200;
+  width: 100%;
+  z-index: 2050;
+  clear: both;
+  color: #fff;
+}
