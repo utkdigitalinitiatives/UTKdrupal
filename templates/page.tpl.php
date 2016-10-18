@@ -194,8 +194,7 @@
 </div>
 
 </div>
-          
-
+ 
 	  </div>    
 </div> <!-- /#page>
 <!-- end page.tpl.php template -->
