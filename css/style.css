@@ -1288,6 +1288,7 @@ footer{
 #university-links ul{
 	list-style: none;
 	width: 30%;
+	float: left;
 }
 
 #system-indicia{
