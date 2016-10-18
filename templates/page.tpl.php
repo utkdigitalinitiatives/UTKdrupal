@@ -85,12 +85,11 @@
          <h3 class="killer-logo"><a href="http://www.utk.edu">The University of Tennessee, Knoxville</a></h3>
          <h2 class="sr-only"><a href="https://www.lib.utk.edu" rel="home">University Libraries</a></h2>
         
-         <div id="sitetitle-webapp">
-           <h2 class="department"><a href="https://www.lib.utk.edu" title="University Libraries" rel="home">University Libraries</a>
-                 <!--       <small><a href="http://www.utk.edu">Parent Unit</a></small> --></h2>
+         <div id="site-title">
+           <h2><a href="https://www.lib.utk.edu" title="University Libraries" rel="home">University Libraries</a></h2>
          </div>
          
-<!--          Begin Copied from Drupal system page.tpl header area line 86 to 104 -->
+<!-- Begin Copied from Drupal system page.tpl header area line 86 to 104 -->
 
       <?php if ($site_name || $site_slogan): ?>
         <div id="name-and-slogan">
@@ -111,13 +110,13 @@
           <?php endif; ?>
         </div> <!-- /#name-and-slogan -->
       <?php endif; ?>
-      <!--          End Copied from Drupal system page.tpl header area line 86 to 104 -->
+<!-- End Copied from Drupal system page.tpl header area line 86 to 104 -->
 
-<!-- 	 Begin Header Region -->
+<!-- Begin Header Region -->
       <?php print render($page['header']); ?>
-<!-- 	 End Header Region -->
+<!-- End Header Region -->
          
-   		</header><!-- #masthead -->
+</header>
 <!-- The UT Header ends here. -->
 		
 <?php if($messages): ?>
