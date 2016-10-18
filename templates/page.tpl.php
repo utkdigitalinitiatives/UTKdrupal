@@ -74,14 +74,14 @@
 ?>
 <!-- start page.tpl.php template -->
   <!-- The UT Header begins here. -->
-
-    <div id="orange-bar"></div>
+<!-- Will remove orange bar later for semantic html -->
+<div id="orange-bar"></div>
   
-<div id="page" class="hfeed site row-offcanvas">
-	  <div id="main" class="site-main">
-	  <a class="sr-only sr-only-focusable" href="#content" title="Skip to content">Skip to content</a>	    
+<div id="page">
+	  <div id="main">
+	  <a class="sr-only" href="#content" title="Skip to content">Skip to content</a>	    
 
- <header id="masthead-webapp" class="webapp-site-header" role="banner">
+ <header id="ut-header" role="banner">
          <h3 class="killer-logo"><a href="http://www.utk.edu">The University of Tennessee, Knoxville</a></h3>
          <h2 class="sr-only"><a href="https://www.lib.utk.edu" rel="home">University Libraries</a></h2>
         
@@ -280,6 +280,6 @@ Phone: (865) 974-4351<br />
   </div>
 		
 <!-- The UT Footer ends here. -->
-    
+	  </div>    
 </div> <!-- /#page>
 <!-- end page.tpl.php template -->
