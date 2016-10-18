@@ -1174,6 +1174,8 @@ ul.secondary a.active {
 .column-last{margin-right: 0px;}
 .column-first{margin-left: 0px;}
 
+
+/* UT Libraries Style */
 #orange-bar{
 	display: block;
 	float: left;
@@ -1196,7 +1198,7 @@ ul.secondary a.active {
 }
 
 .sr-only{
-
+	display: none;
 }
 
 #ut-header{
@@ -1244,9 +1246,50 @@ ul.secondary a.active {
 }
 
 #left-sidebar{
-
+	background-color: #f0ede3;
 }
 
 .content-container{
+
+}
+
+footer{
+	border-top: 6px solid #ff8200;
+}
+
+#site-info{
+
+}
+
+.footer-column{
+	width: 46.8%;
+	display: inline-block;
+}
+
+.pipe-space {
+
+}
+
+.social-media-icon{
+	padding-right: .5em;
+}
+
+#campus-footer{
+	background-color: #f0ede3;
+}
+
+#big-orange-logo{
+
+}
+
+#big-orange-logo a{
+
+}
+
+#university-links{
+
+}
+
+#system-indicia{
 
 }
