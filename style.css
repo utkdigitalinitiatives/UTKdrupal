@@ -1198,7 +1198,7 @@ ul.secondary a.active {
 }
 
 .sr-only{
-
+	display: none;
 }
 
 #ut-header{
@@ -1246,11 +1246,15 @@ ul.secondary a.active {
 }
 
 #left-sidebar{
-
+	background-color: #f0ede3;
 }
 
 .content-container{
 
+}
+
+footer{
+	border-top: 6px solid #ff8200;
 }
 
 #site-info{
@@ -1258,7 +1262,8 @@ ul.secondary a.active {
 }
 
 .footer-column{
-
+	width: 46.8%;
+	display: inline-block;
 }
 
 .pipe-space {
@@ -1270,7 +1275,7 @@ ul.secondary a.active {
 }
 
 #campus-footer{
-
+	background-color: #f0ede3;
 }
 
 #big-orange-logo{
