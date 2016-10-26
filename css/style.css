@@ -10,6 +10,7 @@ Rock (HEX A7A9AC)
 weird-font { font-family:'NotoSans-Regular', Helvetica, Arial, Verdana; }
 */
 
+@import url('reset.css');
 @font-face{
 	font-family: 'NotoSans-Regular';
 url('NotoSans-Regular.ttf')format('truetype')
@@ -1219,10 +1220,6 @@ ul.secondary a.active {
 
 }
 
-#content-wrapper {
-
-}
-
 .content {
 
 }
@@ -1293,4 +1290,59 @@ footer{
 
 #system-indicia{
 
+}
+
+body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    color:#333
+}
+
+p {
+    padding: 10px;
+}
+
+#message {
+    float: left;
+    height: 75px;
+    width: 100%;
+    background: #FF4633;
+}
+
+#wrapper {
+    width: 90%;
+    min-width: 1000px;
+    max-width: 2000px;
+    margin: 0 auto;
+}
+
+#header {
+    float: left;
+    height: 75px;
+    width: 100%;
+    background: #FF6633;
+}
+
+#content-wrapper {
+    float: left;
+    width: 100%;
+}
+
+#content {
+    background: #FFFFFF;
+    margin-left: 150px;
+}
+
+#leftcolumn {
+    float: left;
+    background: #CC33FF;
+    width: 150px;
+    margin-left: -100%;
+}
+
+#footer {
+    min-height: 40px;
+    width: 100%;
+    background: #33FF66;
+    clear: both;
 }

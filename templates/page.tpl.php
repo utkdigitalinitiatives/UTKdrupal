@@ -74,87 +74,129 @@
 ?>
 <!-- start page.tpl.php template -->
 <!-- The UT Header begins here. -->
+
 <!-- Will remove orange bar later for semantic html -->
 <div id="orange-bar"></div>
-<div id="page">
-	<div id="main">
-		<a class="sr-only" href="#content" title="Skip to content">Skip to content</a>
-		<!-- Begin Header Region -->
-		<?php print render($page['header']); ?>
-		<!-- End Header Region -->
-		<?php
-			if ($messages): ?>
-		<div id="messages">
-			<div class="section clearfix">
-				<?php print $messages; ?>
-			</div>
-		</div>
-		<?php endif; ?>
-		<div id="content-wrapper">
-			<div class="content" role="main">
+
+<div id="wrapper">
+	<a class="sr-only" href="#content" title="Skip to content">Skip to content</a>
+				<!-- Begin Header Region -->
+        <div id="header">
+					<?php print render($page['header']); ?>
+            <p>This is the Header</p>
+        </div>
+				<!-- End Header Region -->
+				<!-- Begin Message Region -->
 				<?php
-					if ($breadcrumb): ?>
-				<div id="breadcrumb"><?php
-					print $breadcrumb; ?></div>
-				<?php endif; ?>
-				<!-- Begin Help Region -->
-				<?php print render($page['help']); ?>
-				<!-- End Help Region -->
-				<!-- Begin Highlighted Region -->
-				<?php
-					if ($page['highlighted']): ?>
-				<div id="highlighted">
-					<?php print render($page['highlighted']); ?>
+					if ($messages): ?>
+					<div id="message">
+							<p>This is the message</p>
+					<div class="section clearfix">
+						<?php print $messages; ?>
+					</div>
 				</div>
 				<?php endif; ?>
-				<!-- End Highlighted Region -->
-				<?php print render($title_prefix); ?>
-				<?php
-					if ($title): ?>
-				<h1 id="page-title">
-					<?php print $title; ?>
-				</h1>
-				<?php endif; ?>
-				<?php print render($title_suffix); ?>
-				<?php
-					if ($tabs): ?>
-				<div class="tabs">
-					<?php print render($tabs); ?>
+				<!-- End Message Region -->
+
+        <div id="content-wrapper">
+					<div id="content">
+
+						<!-- Begin Breadcrumb Region -->
+						<?php
+							if ($breadcrumb): ?>
+							<div id="breadcrumb"><?php
+							print $breadcrumb; ?></div>
+						<?php endif; ?>
+						<!-- End Breadcrumb Region -->
+						<!-- Begin Help Region -->
+						<?php print render($page['help']); ?>
+						<!-- End Help Region -->
+						<!-- Begin Highlighted Region -->
+						<?php
+							if ($page['highlighted']): ?>
+						<div id="highlighted">
+							<?php print render($page['highlighted']); ?>
+						</div>
+						<?php endif; ?>
+						<!-- End Highlighted Region -->
+            <p>content</p>
+						<!-- Begin Content Title Region -->
+						<?php print render($title_prefix); ?>
+						<?php
+							if ($title): ?>
+						<h1 id="page-title">
+							<?php print $title; ?>
+						</h1>
+						<?php endif; ?>
+						<?php print render($title_suffix); ?>
+						<!-- End Content Title Region -->
+						<!-- Begin Content Tab Region -->
+						<?php
+							if ($tabs): ?>
+						<div class="tabs">
+							<?php print render($tabs); ?>
+						</div>
+						<?php endif; ?>
+						<?php print render($page['help']); ?>
+						<!-- Begin Content Tab Region -->
+
+						<!-- Begin Content Region -->
+						<div class="content-container">
+							<?php
+								print render($page['content']); ?>
+						</div>
+						<!-- End Content Region -->
+						<br class="clear">
+						<?php
+							print $feed_icons; ?>
+						<br class="clear">
+						<!-- End Content Region -->
+          </div>
 				</div>
-				<?php endif; ?>
-				<?php print render($page['help']); ?>
-				<?php
-					if ($action_links): ?>
-				<ul class="action-links">
-					<?php print render($action_links); ?>
-				</ul>
-				<?php endif; ?>
-				<!-- Begin First Sidebar Region -->
-				<?php
-					if ($page['sidebar_first']): ?>
-				<div class="left-sidebar">
+
+        <div id="leftcolumn">
+            <p>Left</p>
+						<!-- Begin Action Links Region -->
+						<?php
+							if ($action_links): ?>
+						<ul class="action-links">
+							<?php print render($action_links); ?>
+						</ul>
+						<?php endif; ?>
+						<!-- Begin Action Links Region -->
+
+						<!-- Begin First Sidebar Region -->
+						<?php
+							if ($page['sidebar_first']): ?>
+						<div class="left-sidebar">
+							<?php
+								print render($page['sidebar_first']); ?>
+						</div>
+						<?php endif; ?>
+						<!-- End First Sidebar Region -->
+
+						<!-- Begin Second Sidebar Region -->
+						<?php
+							if ($page['sidebar_second']): ?>
+						<div class="left-sidebar">
+							<?php
+								print render($page['sidebar_second']); ?>
+						</div>
+						<?php endif; ?>
+						<!-- End Second Sidebar Region -->
+        </div>
+        <div id="footer">
+					<!-- Begin Footer Region -->
 					<?php
-						print render($page['sidebar_first']); ?>
-				</div>
-				<?php endif; ?>
-				<!-- End First Sidebar Region -->
-				<!-- Begin Content Region -->
-				<div class="content-container">
-					<?php
-						print render($page['content']); ?>
-				</div>
-				<!-- End Content Region -->
-				<br class="clear">
-				<?php
-					print $feed_icons; ?>
-				<br class="clear">
-				<!-- Begin Footer Region -->
-				<?php
-					print render($page['footer']); ?>
-				<!-- End Footer Region -->
-				<br class="clear">
-			</div>
-		</div>
-	</div>
-</div>
-<!-- end page.tpl.php template -->
+						if ($page['footer']): ?>
+							<div class="footer">
+							<?php
+								print render($page['footer']); ?>
+							</div>
+					<?php endif; ?>
+					<!-- End Footer Region -->
+						<p>This is the Footer</p>
+
+						<br class="clear">
+        </div>
+    </div>
