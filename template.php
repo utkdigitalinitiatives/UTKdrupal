@@ -13,3 +13,7 @@
  * hook_form_FORM_ID_alter(), and hook_page_alter(). See api.drupal.org for more information about
  * _alter functions. Or link to this file's description https://www.drupal.org/node/1728096
 */
+function UTKdrupal_preprocess_page(&$variables) {
+global $base_path;
+  $variables['logopath'] = $base_path.'/' . drupal_get_path('theme','THEME') . '/logo.png';
+ }

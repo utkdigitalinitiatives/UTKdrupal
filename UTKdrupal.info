@@ -2,7 +2,7 @@
 
 name = UTKdrupal
 description = UT Libraries Drupal theme
-screenshot = screenshot.png
+package = Core
 version = OCTOBER Branch
 core = 7.x
 

@@ -81,16 +81,19 @@
 <div id="wrapper">
 	<a class="sr-only" href="#content" title="Skip to content">Skip to content</a>
 				<!-- Begin Header Region -->
-        <div id="header">
+        <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>">
+					<?php if ($logo): ?>
+			      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+			        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
+			      </a>
+			    <?php endif; ?>
 					<?php print render($page['header']); ?>
-            <p>This is the Header</p>
         </div>
 				<!-- End Header Region -->
 				<!-- Begin Message Region -->
 				<?php
 					if ($messages): ?>
 					<div id="message">
-							<p>This is the message</p>
 					<div class="section clearfix">
 						<?php print $messages; ?>
 					</div>
@@ -100,7 +103,6 @@
 
         <div id="content-wrapper">
 					<div id="content">
-
 						<!-- Begin Breadcrumb Region -->
 						<?php
 							if ($breadcrumb): ?>
@@ -119,7 +121,6 @@
 						</div>
 						<?php endif; ?>
 						<!-- End Highlighted Region -->
-            <p>content</p>
 						<!-- Begin Content Title Region -->
 						<?php print render($title_prefix); ?>
 						<?php
@@ -153,9 +154,7 @@
 						<!-- End Content Region -->
           </div>
 				</div>
-
         <div id="leftcolumn">
-            <p>Left</p>
 						<!-- Begin Action Links Region -->
 						<?php
 							if ($action_links): ?>
@@ -184,6 +183,7 @@
 						</div>
 						<?php endif; ?>
 						<!-- End Second Sidebar Region -->
+						<p style="clear:both;"></p>
         </div>
         <div id="footer">
 					<!-- Begin Footer Region -->
@@ -194,9 +194,15 @@
 								print render($page['footer']); ?>
 							</div>
 					<?php endif; ?>
+					<div class='footerrows'>
+						<div class='footerblock'><h3>Library Title</h3></div>
+						<div class='footerblock'><h3>Library Address</h3></div>
+					</div>
+					<div class='footerrows footerbottomrow'>
+						<div class='footerblock'><h3>Big Orange Logo</h3></div>
+						<div class='footerblock'><h3>Library Search Block</h3></div>
+					</div>
 					<!-- End Footer Region -->
-						<p>This is the Footer</p>
-
 						<br class="clear">
         </div>
     </div>
