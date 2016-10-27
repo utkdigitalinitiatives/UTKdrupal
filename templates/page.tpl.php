@@ -79,130 +79,135 @@
 <div id="orange-bar"></div>
 
 <div id="wrapper">
-	<a class="sr-only" href="#content" title="Skip to content">Skip to content</a>
-				<!-- Begin Header Region -->
-        <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu': 'without-secondary-menu'; ?>">
-					<?php if ($logo): ?>
-			      <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-			        <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
-			      </a>
-			    <?php endif; ?>
-					<?php print render($page['header']); ?>
+    <a class="sr-only" href="#content" title="Skip to content">Skip to content</a>
+    <!-- Begin Header Region -->
+    <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu' : 'without-secondary-menu'; ?>">
+        <?php if ($logo): ?>
+            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+                <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
+            </a>
+        <?php endif; ?>
+        <?php print render($page['header']); ?>
+    </div>
+    <!-- End Header Region -->
+    <!-- Begin Message Region -->
+    <?php
+    if ($messages): ?>
+        <div id="message">
+            <div class="section clearfix">
+                <?php print $messages; ?>
+            </div>
         </div>
-				<!-- End Header Region -->
-				<!-- Begin Message Region -->
-				<?php
-					if ($messages): ?>
-					<div id="message">
-					<div class="section clearfix">
-						<?php print $messages; ?>
-					</div>
-				</div>
-				<?php endif; ?>
-				<!-- End Message Region -->
+    <?php endif; ?>
+    <!-- End Message Region -->
 
-        <div id="content-wrapper">
-					<div id="content">
-						<!-- Begin Breadcrumb Region -->
-						<?php
-							if ($breadcrumb): ?>
-							<div id="breadcrumb"><?php
-							print $breadcrumb; ?></div>
-						<?php endif; ?>
-						<!-- End Breadcrumb Region -->
-						<!-- Begin Help Region -->
-						<?php print render($page['help']); ?>
-						<!-- End Help Region -->
-						<!-- Begin Highlighted Region -->
-						<?php
-							if ($page['highlighted']): ?>
-						<div id="highlighted">
-							<?php print render($page['highlighted']); ?>
-						</div>
-						<?php endif; ?>
-						<!-- End Highlighted Region -->
-						<!-- Begin Content Title Region -->
-						<?php print render($title_prefix); ?>
-						<?php
-							if ($title): ?>
-						<h1 id="page-title">
-							<?php print $title; ?>
-						</h1>
-						<?php endif; ?>
-						<?php print render($title_suffix); ?>
-						<!-- End Content Title Region -->
-						<!-- Begin Content Tab Region -->
-						<?php
-							if ($tabs): ?>
-						<div class="tabs">
-							<?php print render($tabs); ?>
-						</div>
-						<?php endif; ?>
-						<?php print render($page['help']); ?>
-						<!-- Begin Content Tab Region -->
+    <div id="content-wrapper">
+        <div id="content">
+            <!-- Begin Breadcrumb Region -->
+            <?php
+            if ($breadcrumb): ?>
+                <div id="breadcrumb"><?php
+                    print $breadcrumb; ?></div>
+            <?php endif; ?>
+            <!-- End Breadcrumb Region -->
+            <!-- Begin Help Region -->
+            <?php print render($page['help']); ?>
+            <!-- End Help Region -->
+            <!-- Begin Highlighted Region -->
+            <?php
+            if ($page['highlighted']): ?>
+                <div id="highlighted">
+                    <?php print render($page['highlighted']); ?>
+                </div>
+            <?php endif; ?>
+            <!-- End Highlighted Region -->
+            <!-- Begin Content Title Region -->
+            <?php print render($title_prefix); ?>
+            <?php
+            if ($title): ?>
+                <h1 id="page-title">
+                    <?php print $title; ?>
+                </h1>
+            <?php endif; ?>
+            <?php print render($title_suffix); ?>
+            <!-- End Content Title Region -->
+            <!-- Begin Content Tab Region -->
+            <?php
+            if ($tabs): ?>
+                <div class="tabs">
+                    <?php print render($tabs); ?>
+                </div>
+            <?php endif; ?>
+            <?php print render($page['help']); ?>
+            <!-- Begin Content Tab Region -->
 
-						<!-- Begin Content Region -->
-						<div class="content-container">
-							<?php
-								print render($page['content']); ?>
-						</div>
-						<!-- End Content Region -->
-						<br class="clear">
-						<?php
-							print $feed_icons; ?>
-						<br class="clear">
-						<!-- End Content Region -->
-          </div>
-				</div>
-        <div id="leftcolumn">
-						<!-- Begin Action Links Region -->
-						<?php
-							if ($action_links): ?>
-						<ul class="action-links">
-							<?php print render($action_links); ?>
-						</ul>
-						<?php endif; ?>
-						<!-- Begin Action Links Region -->
-
-						<!-- Begin First Sidebar Region -->
-						<?php
-							if ($page['sidebar_first']): ?>
-						<div class="left-sidebar">
-							<?php
-								print render($page['sidebar_first']); ?>
-						</div>
-						<?php endif; ?>
-						<!-- End First Sidebar Region -->
-
-						<!-- Begin Second Sidebar Region -->
-						<?php
-							if ($page['sidebar_second']): ?>
-						<div class="left-sidebar">
-							<?php
-								print render($page['sidebar_second']); ?>
-						</div>
-						<?php endif; ?>
-						<!-- End Second Sidebar Region -->
-						<p style="clear:both;"></p>
-        </div>
-        <div id="footer">
-					<!-- Begin Footer Region -->
-					<?php
-						if ($page['footer']): ?>
-							<div class="footer">
-							<?php
-								print render($page['footer']); ?>
-							</div>
-					<?php endif; ?>
-					<div class='footerrows'>
-						<div class='footerblock'><h3>Library Title</h3></div>
-						<div class='footerblock'><h3>Library Address</h3></div>
-					</div>
-					<div class='footerrows footerbottomrow'>
-						<div class='footerblock'><h3>Big Orange Logo</h3></div>
-						<div class='footerblock'><h3>Library Search Block</h3></div>
-					</div>
-					<!-- End Footer Region -->
-						<br class="clear">
+            <!-- Begin Content Region -->
+            <div class="content-container">
+                <?php
+                print render($page['content']); ?>
+            </div>
+            <!-- End Content Region -->
+            <br class="clear">
+            <?php
+            print $feed_icons; ?>
+            <br class="clear">
+            <!-- End Content Region -->
         </div>
     </div>
+    <div id="leftcolumn">
+        <!-- Begin Action Links Region -->
+        <?php
+        if ($action_links): ?>
+            <ul class="action-links">
+                <?php print render($action_links); ?>
+            </ul>
+        <?php endif; ?>
+        <!-- Begin Action Links Region -->
+
+        <!-- Begin First Sidebar Region -->
+        <?php
+        if ($page['sidebar_first']): ?>
+            <div class="left-sidebar">
+                <?php
+                print render($page['sidebar_first']); ?>
+            </div>
+        <?php endif; ?>
+        <!-- End First Sidebar Region -->
+
+        <!-- Begin Second Sidebar Region -->
+        <?php
+        if ($page['sidebar_second']): ?>
+            <div class="left-sidebar">
+                <?php
+                print render($page['sidebar_second']); ?>
+            </div>
+        <?php endif; ?>
+        <!-- End Second Sidebar Region -->
+        <p style="clear:both;"></p>
+    </div>
+    <div id="footer">
+        <!-- Begin Footer Region -->
+        <?php
+        if ($page['footer']): ?>
+            <div class="footer">
+                <?php
+                print render($page['footer']); ?>
+            </div>
+        <?php endif; ?>
+        <div class='footerrows'>
+            <div class='footerblock'><h3>Library Title</h3></div>
+            <div class='footerblock'><h3>Library Address</h3></div>
+        </div>
+        <div class='footerrows footerbottomrow'>
+            <div class='footerblock'><h3>Big Orange Logo</h3></div>
+            <div class='footerblock'><h3>Library Search Block</h3></div>
+        </div>
+        <div id="system-indicia">
+            - <p>The flagship campus of <a href="http://tennessee.edu">the University of Tennessee System</a> and
+                partner in <a href="http://www.tntransferpathway.org/">the Tennessee Transfer Pathway</a>.</p>
+            -
+        </div>
+        <!-- End Footer Region -->
+        <br class="clear">
+    </div>
+</div>
