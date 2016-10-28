@@ -1277,14 +1277,18 @@ ul.secondary a.active {
 
 }
 
-#university-links ul{
-	list-style: none;
-	width: 30%;
-	float: left;
+.university-links {
+	list-style:none;
+	width:25%;
+	float:left;
 }
 
-#system-indicia{
-
+#system-indicia {
+	float:left;
+	width:100%;
+	background:#58595b;
+	color:#fff;
+	font-size:12px;
 }
 
 
