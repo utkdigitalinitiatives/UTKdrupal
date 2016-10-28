@@ -39,3 +39,13 @@ function UTKdrupal_form_search_block_form_alter(&$form, &$form_state, $form_id) 
     // Alternative (HTML5) placeholder attribute instead of using the javascript
     $form['search_block_form']['#attributes']['placeholder'] = t('Search');
 }
+
+/*
+ * Implementation of hook_form_alter()
+ */
+function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
+	// dsm($form_id);
+	// if($form_id == "search_block_form"){
+  //   dsm($form);
+  // }
+}
