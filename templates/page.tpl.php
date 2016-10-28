@@ -217,8 +217,8 @@
 		
         <div class='footer-block'>
 	      <form method="post" action="http://google.tennessee.edu/search">
-          <div class="form-group">
-             <input type="text" class="form-control" name="q"  maxlength="256" onfocus="if(this.value == 'Search utk.edu') { this.value = ''; }" value="Search utk.edu">
+          <div class="campus-search-form">
+             <input type="text" class="campus-search-form-input" name="q"  maxlength="256" onfocus="if(this.value == 'Search utk.edu') { this.value = ''; }" value="Search utk.edu">
           </div>
           <input type="submit" name="btnG" class="btn btn-orange"  value="Go">
       
