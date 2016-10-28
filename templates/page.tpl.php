@@ -185,29 +185,75 @@
         <!-- End Second Sidebar Region -->
         <p style="clear:both;"></p>
     </div>
-    <div id="footer">
-        <!-- Begin Footer Region -->
+    <!-- Begin Footer Region -->
         <?php
         if ($page['footer']): ?>
-            <div class="footer">
+            <div id="footer-drupal">
                 <?php
                 print render($page['footer']); ?>
             </div>
         <?php endif; ?>
-        <div class='footerrows'>
-            <div class='footerblock'><h3>Library Title</h3></div>
-            <div class='footerblock'><h3>Library Address</h3></div>
+        <!-- End Footer Region -->
+        
+    <div id="footer">
+        <div class='footer-row'>
+            <div class='footer-block'>
+	            <h3>University Libraries</h3>
+	        </div>
+            
+            <div class='footer-block'>
+	            <p>1015 Volunteer Boulevard<br /> 
+				Knoxville, TN 37996-1000<br />
+				Phone: (865) 974-4351</p>
+			</div>
         </div>
-        <div class='footerrows footerbottomrow'>
-            <div class='footerblock'><h3>Big Orange Logo</h3></div>
-            <div class='footerblock'><h3>Library Search Block</h3></div>
+        
+        <div class='footer-row footer-bottom-row'>
+            <div class='footer-block'>
+	            <p><strong>The University of Tennessee, Knoxville</strong><br />
+				Knoxville, Tennessee 37996<br />
+				865-974-1000</p>
+		</div>
+		
+        <div class='footer-block'>
+	      <form method="post" action="http://google.tennessee.edu/search">
+          <div class="form-group">
+             <input type="text" class="form-control" name="q"  maxlength="256" onfocus="if(this.value == 'Search utk.edu') { this.value = ''; }" value="Search utk.edu">
+          </div>
+          <input type="submit" name="btnG" class="btn btn-orange"  value="Go">
+      
+          <input type="hidden" name="output" value="xml_no_dtd">
+          <input type="hidden" name="oe" value="UTF-8">
+          <input type="hidden" name="ie" value="UTF-8">
+          <input type="hidden" name="ud" value="1">
+          <input type="hidden" name="site" value="Knoxville">
+          <input type="hidden" name="client" value="utk_translate_frontend">
+          <input type="hidden" name="entqr" value="3">
+          <input type="hidden" name="qtype" class="searchtext" value="utk" title="search type">
+          <input type="hidden" name="proxystylesheet" value="utk_translate_frontend">
+      </form>
+	      
+	     <ul class="university-links">
+            <li><a href="http://www.utk.edu/events/">Events</a></li>
+            <li><a href="http://www.utk.edu/maps/">Map</a></li>
+          </ul>  
+         <ul class="university-links">
+            <li><a href="http://www.utk.edu/alpha/">A-Z </a></li>
+            <li><a href="http://directory.utk.edu">Directory</a></li>
+          </ul>  
+          <ul class="university-links">
+            <li><a href="http://www.utk.edu/admissions/">Apply</a></li>
+            <li><a href="http://giveto.utk.edu">Give to UT</a></li>
+        </ul> 
         </div>
+        
+        </div>
+       
         <div id="system-indicia">
-            - <p>The flagship campus of <a href="http://tennessee.edu">the University of Tennessee System</a> and
-                partner in <a href="http://www.tntransferpathway.org/">the Tennessee Transfer Pathway</a>.</p>
-            -
+        	<p>The flagship campus of <a href="http://tennessee.edu">the University of 					Tennessee System</a> and partner in 													<a href="http://www.tntransferpathway.org/">the Tennessee Transfer 						Pathway</a>.</p>
         </div>
         <!-- End Footer Region -->
         <br class="clear">
     </div>
 </div>
+
