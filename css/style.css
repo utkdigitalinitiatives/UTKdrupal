@@ -11,6 +11,7 @@ weird-font { font-family:'NotoSans-Regular', Helvetica, Arial, Verdana; }
 */
 
 @import url('reset.css');
+@import url('icons.css');
 
 @font-face {
   font-family: 'NotoSans';
