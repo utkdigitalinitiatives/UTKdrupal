@@ -90,16 +90,6 @@
         <?php print render($page['header']); ?>
     </div>
     <!-- End Header Region -->
-    <!-- Begin Message Region -->
-    <?php
-    if ($messages): ?>
-        <div id="message">
-            <div class="section clearfix">
-                <?php print $messages; ?>
-            </div>
-        </div>
-    <?php endif; ?>
-    <!-- End Message Region -->
 
     <div id="content-wrapper">
         <div id="content">
@@ -110,8 +100,24 @@
                     print $breadcrumb; ?></div>
             <?php endif; ?>
             <!-- End Breadcrumb Region -->
+						<!-- Begin Message Region -->
+				    <?php
+				    if ($messages): ?>
+				        <div id="message">
+				            <div class="section clearfix">
+				                <?php print $messages; ?>
+				            </div>
+				        </div>
+				    <?php endif; ?>
+				    <!-- End Message Region -->
+
             <!-- Begin Help Region -->
-            <?php print render($page['help']); ?>
+						<?php
+						if ($page['help']): ?>
+								<div id="help">
+										<?php print render($page['help']); ?>
+								</div>
+						<?php endif; ?>
             <!-- End Help Region -->
             <!-- Begin Highlighted Region -->
             <?php
@@ -131,16 +137,25 @@
             <?php endif; ?>
             <?php print render($title_suffix); ?>
             <!-- End Content Title Region -->
+
             <!-- Begin Content Tab Region -->
             <?php
             if ($tabs): ?>
                 <div class="tabs">
+									<!-- Begin Action Links Region -->
+									<?php
+									if ($action_links): ?>
+											<ul class="tabs primary">
+													<?php print render($action_links); ?>
+											</ul>
+									<?php endif; ?>
+									<!-- Begin Action Links Region -->
+
                     <?php print render($tabs); ?>
+
                 </div>
             <?php endif; ?>
-            <?php print render($page['help']); ?>
             <!-- Begin Content Tab Region -->
-
             <!-- Begin Content Region -->
             <div class="content-container">
                 <?php
@@ -155,15 +170,6 @@
         </div>
     </div>
     <div id="leftcolumn">
-        <!-- Begin Action Links Region -->
-        <?php
-        if ($action_links): ?>
-            <ul class="action-links">
-                <?php print render($action_links); ?>
-            </ul>
-        <?php endif; ?>
-        <!-- Begin Action Links Region -->
-
         <!-- Begin First Sidebar Region -->
         <?php
         if ($page['sidebar_first']): ?>
@@ -171,6 +177,7 @@
                 <?php
                 print render($page['sidebar_first']); ?>
             </div>
+
         <?php endif; ?>
         <!-- End First Sidebar Region -->
 
@@ -178,6 +185,8 @@
         <?php
         if ($page['sidebar_second']): ?>
             <div class="left-sidebar">
+							<ul class="action-links"><li><a href="/islandora/object/islandora%3Agradthes/manage/overview/ingest">Submit</a></li>
+							</ul>
                 <?php
                 print render($page['sidebar_second']); ?>
             </div>
@@ -194,34 +203,34 @@
             </div>
         <?php endif; ?>
         <!-- End Footer Region -->
-        
+
     <div id="footer">
         <div class='footer-row'>
             <div class='footer-block'>
 	            <h3>University Libraries</h3>
 	        </div>
-            
+
             <div class='footer-block'>
-	            <p>1015 Volunteer Boulevard<br /> 
+	            <p>1015 Volunteer Boulevard<br />
 				Knoxville, TN 37996-1000<br />
 				Phone: (865) 974-4351</p>
 			</div>
         </div>
-        
+
         <div class='footer-row footer-bottom-row'>
             <div class='footer-block'>
 	            <p><strong>The University of Tennessee, Knoxville</strong><br />
 				Knoxville, Tennessee 37996<br />
 				865-974-1000</p>
 		</div>
-		
+
         <div class='footer-block'>
 	      <form method="post" action="http://google.tennessee.edu/search">
           <div class="campus-search-form">
              <input type="text" class="campus-search-form-input" name="q"  maxlength="256" onfocus="if(this.value == 'Search utk.edu') { this.value = ''; }" value="Search utk.edu">
           </div>
           <input type="submit" name="btnG" class=""  value="Go">
-      
+
           <input type="hidden" name="output" value="xml_no_dtd">
           <input type="hidden" name="oe" value="UTF-8">
           <input type="hidden" name="ie" value="UTF-8">
@@ -232,23 +241,23 @@
           <input type="hidden" name="qtype" class="searchtext" value="utk" title="search type">
           <input type="hidden" name="proxystylesheet" value="utk_translate_frontend">
       </form>
-	      
+
 	     <ul class="university-links">
             <li><a href="http://www.utk.edu/events/">Events</a></li>
             <li><a href="http://www.utk.edu/maps/">Map</a></li>
-          </ul>  
+          </ul>
          <ul class="university-links">
             <li><a href="http://www.utk.edu/alpha/">A-Z </a></li>
             <li><a href="http://directory.utk.edu">Directory</a></li>
-          </ul>  
+          </ul>
           <ul class="university-links">
             <li><a href="http://www.utk.edu/admissions/">Apply</a></li>
             <li><a href="http://giveto.utk.edu">Give to UT</a></li>
-        </ul> 
+        </ul>
         </div>
-        
+
         </div>
-       
+
         <div id="system-indicia">
         	<p>The flagship campus of <a href="http://tennessee.edu">the University of 	Tennessee System</a> and partner in <a href="http://www.tntransferpathway.org/">the Tennessee Transfer Pathway</a>.</p>
         </div>
@@ -256,4 +265,3 @@
         <br class="clear">
     </div>
 </div>
-
