@@ -18,7 +18,6 @@ function UTKdrupal_preprocess_page(&$variables) {
   $variables['logopath'] = $base_path.'/' . drupal_get_path('theme','UTKdrupal') . '/logo.png';
 }
 
-
 /**
 * hook_form_FORM_ID_alter
 */
@@ -35,7 +34,6 @@ function UTKdrupal_form_search_block_form_alter(&$form, &$form_state, $form_id) 
     $form['search_block_form']['#attributes']['onfocus'] = "if (this.value == 'Search') {this.value = '';}";
     // Prevent user from searching the default text
     $form['#attributes']['onsubmit'] = "if(this.search_block_form.value=='Search'){ alert('Please enter a search'); return false; }";
-
     // Alternative (HTML5) placeholder attribute instead of using the javascript
     $form['search_block_form']['#attributes']['placeholder'] = t('Search');
 }
@@ -44,8 +42,72 @@ function UTKdrupal_form_search_block_form_alter(&$form, &$form_state, $form_id) 
  * Implementation of hook_form_alter()
  */
 function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
-	// dsm($form_id);
-	// if($form_id == "search_block_form"){
-  //   dsm($form);
-  // }
+	dsm($form_id);
+}
+
+/**
+ * Implements hook_preprocess().
+ */
+function UTKdrupal_preprocess_islandora_large_image(&$variables) {
+  $variables['large_image_preprocess_function_variable'] = "TESTING LARGE IMAGE PREPROCESS FUNCTION IN THEME";
+}
+/**
+ * Implements hook_form_alter().
+ */
+function UTKdrupal_form_islandora_solr_simple_search_form_alter(&$form, &$form_state, $form_id) {
+  $form['simple']['islandora_simple_search_query']['#attributes']['placeholder'] = t("Search Repository");
+}
+
+/**
+ * Theme suggestion preprocess for islandora:sp_basic_image_collection
+ */
+function UTKdrupal_preprocess_islandora_basic_collection_wrapper__islandora_sp_basic_image_collection(&$variables) {
+  // From here, we can do something entirely different for this particular collection, based on PID
+  // Editing or adding to the variables array here will make it available in the overridden template,
+  // In this case, 'islandora-basic-collection-wrapper--islandora-sp-basic-image-collection.tpl.php'
+  $variables['template_preprocess_function_variable'] = "TESTING THE TEMPLATE PREPROCESS FUNCTION, UNIQUE TO BASIC IMAGE";
+}
+/**
+ * Implements hook_preprocess_block().
+ */
+function UTKdrupal_preprocess_block(&$variables) {
+  // Preprocess block based on delta.
+  if ($variables['block']->{"delta"} == "simple") {
+    // Could do something fancy here i suppose.
+    $variables['classes_array'][] = 'fun-class';
+    $variables['title_attributes_array']['class'] = array(
+      'fun-title-attributes',
+      'class-two-here',
+    );
+    // Add additional attributes as required.
+  }
+}
+function UTKdrupal_preprocess_region(&$variables) {
+  // Region preprocessing, switch on region name in var's, $variables['region']  <-name
+}
+function UTKdrupal_js_alter(&$javascript) {
+}
+function UTKdrupal_css_alter(&$css) {
+}
+
+/**
+ * Render a block unique to this themes layouts.
+ *
+ * @param string $module
+ *   The module providing the block.
+ * @param string $delta
+ *   The delta of the block
+ *
+ * @return string
+ *   The rendered block's HTML content.
+ */
+function UTKdrupal_block_render($module, $delta, $as_renderable = FALSE) {
+  $block = block_load($module, $delta);
+  $block_content = _block_render_blocks(array($block));
+  $build = _block_get_renderable_array($block_content);
+  if ($as_renderable) {
+    return $build;
+  }
+  $block_rendered = drupal_render($build);
+  return $block_rendered;
 }
