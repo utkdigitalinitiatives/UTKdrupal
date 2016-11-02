@@ -187,7 +187,7 @@
             <div class="left-sidebar">	
 	    <ul class="action-links">
 	    <li><a href="/islandora/object/islandora%3Agradthes/manage/overview/ingest">Submit</a></li> 
-	<li><a href="/islandora/object/utk.ir%3Atd#overlay=islandora/object/utk.ir%253Atd/manage/overview/ingest">Summit2</a></li>
+	<li><a href="/islandora/object/utk.ir%3Atd#overlay=islandora/object/utk.ir%253Atd/manage/overview/ingest">Submit2</a></li>
 						
 	</ul>
                 <?php
