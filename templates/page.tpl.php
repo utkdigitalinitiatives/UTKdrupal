@@ -184,9 +184,11 @@
         <!-- Begin Second Sidebar Region -->
         <?php
         if ($page['sidebar_second']): ?>
-            <div class="left-sidebar">
-							<ul class="action-links"><li><a href="/islandora/object/islandora%3Agradthes/manage/overview/ingest">Submit</a></li>
-							</ul>
+            <div class="left-sidebar">	
+	    <ul class="action-links">
+	<li><a href="/islandora/object/utk.ir%3Atd#overlay=islandora/object/utk.ir%253Atd/manage/overview/ingest">Submit</a></li>
+						
+	</ul>
                 <?php
                 print render($page['sidebar_second']); ?>
             </div>
