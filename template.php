@@ -42,7 +42,7 @@ function UTKdrupal_form_search_block_form_alter(&$form, &$form_state, $form_id) 
  * Implementation of hook_form_alter()
  */
 function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
-	dsm($form_id);
+	// dsm($form_id);
 }
 
 /**
@@ -110,4 +110,12 @@ function UTKdrupal_block_render($module, $delta, $as_renderable = FALSE) {
   }
   $block_rendered = drupal_render($build);
   return $block_rendered;
+}
+
+/**
+ * Implements hook_preprocess_feedback_simple().
+ */
+function UTKdrupal_preprocess_feedback_simple(&$variables) {
+  // Add .automodal class.
+  $variables['class'][] = 'automodal';
 }
