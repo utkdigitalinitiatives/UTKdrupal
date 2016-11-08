@@ -1209,19 +1209,27 @@ ul.secondary a.active {
 	display: none;
 }
 
-#logo{
-  float: left; /* LTR */
-}
-#logo img{
-	height: 50px;
+#university-logo{
   float: left;
-  padding: 15px 15px 15px 10px; /* LTR */
+  width: 25%;
+  height: 75px;
 }
-
-#site-title{
-	/*  switching from site-title-webapp */
+#islandora-solr-simple-search-form #edit-submit{
+	display:none;
 }
-
+#go_search{
+	margin: 20px;
+	height: 40px;
+	width: 40px;
+	position: relative;
+	bottom: 12px
+}
+.bottom-footer-text a {
+	color: #fff;
+}
+.bottom-footer-text{
+	padding: 12px 0 0px 25%;
+}
 .section{
 
 }
