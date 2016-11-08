@@ -226,6 +226,11 @@
 
         <div class='footer-row footer-bottom-row'>
             <div class='footer-block'>
+							<div id="big-orange-logo-wrapper">
+								<div id="big-orange-logo">
+									<a href="#" id="big-orange-logo-link"></a>
+								</div>
+							</div>
 	            <p><strong>The University of Tennessee, Knoxville</strong><br />
 				Knoxville, Tennessee 37996<br />
 				865-974-1000</p>

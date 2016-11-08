@@ -1214,6 +1214,14 @@ ul.secondary a.active {
   width: 25%;
   height: 75px;
 }
+
+big-orange-logo-wrapper {
+  float: left;
+  width: 25%;
+  height: 75px;
+	background-color: blue;
+}
+
 #islandora-solr-simple-search-form #edit-submit{
 	display:none;
 }
