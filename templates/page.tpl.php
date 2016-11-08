@@ -70,6 +70,11 @@
  * @see html.tpl.php
  *
  * @ingroup themeable
+ * 			<?php if ($logo): ?>
+ * 					<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+ * 							<img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
+ * 					</a>
+ * 			<?php endif; ?>
  */
 ?>
 <!-- start page.tpl.php template -->
@@ -79,14 +84,14 @@
 <div id="orange-bar"></div>
 
 <div id="wrapper">
-    <a class="sr-only" href="#content" title="Skip to content">Skip to content</a>
     <!-- Begin Header Region -->
     <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu' : 'without-secondary-menu'; ?>">
-        <?php if ($logo): ?>
-            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-                <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
-            </a>
-        <?php endif; ?>
+      <div id="university-logo-wrapper">
+				<div id="university-logo">
+					<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"></a>
+				</div>
+			</div>
+			<a class="sr-only" href="#content" title="Skip to content">Skip to content</a>
         <?php print render($page['header']); ?>
     </div>
     <!-- End Header Region -->
