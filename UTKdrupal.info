@@ -8,6 +8,7 @@ core = 7.x
 
 stylesheets[all][] = css/style.css
 stylesheets[print][] = css/print.css
+stylesheets[screen and (max-width: 1024px)][] = css/small.css
 
 ;Drupal 7 default regions:
 regions[header] = Header
@@ -37,6 +38,6 @@ settings[toggle_slogan] = 1
 settings[toggle_node_user_picture] = 1
 settings[toggle_comment_user_picture] = 1
 settings[toggle_comment_user_verification] = 1
-settings[toggle_favicon] = 0
+settings[toggle_favicon] = 1
 settings[toggle_main_menu] = 1
 settings[toggle_secondary_menu] = 1
