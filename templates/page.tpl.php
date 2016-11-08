@@ -236,8 +236,7 @@
           <div class="campus-search-form">
              <input type="text" class="campus-search-form-input" name="q"  maxlength="256" onfocus="if(this.value == 'Search utk.edu') { this.value = ''; }" value="Search utk.edu">
           </div>
-          <input type="submit" name="btnG" class=""  value="Go">
-
+          <input type="submit" name="btnG" id="go_search"  value="Go">
           <input type="hidden" name="output" value="xml_no_dtd">
           <input type="hidden" name="oe" value="UTF-8">
           <input type="hidden" name="ie" value="UTF-8">
@@ -266,7 +265,7 @@
         </div>
 
         <div id="system-indicia">
-        	<p>The flagship campus of <a href="http://tennessee.edu">the University of 	Tennessee System</a> and partner in <a href="http://www.tntransferpathway.org/">the Tennessee Transfer Pathway</a>.</p>
+        	<p class="bottom-footer-text">The flagship campus of <a href="http://tennessee.edu">the University of Tennessee System</a> and partner in <a href="http://www.tntransferpathway.org/">the Tennessee Transfer Pathway</a>.</p>
         </div>
         <!-- End Footer Region -->
         <br class="clear">
