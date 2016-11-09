@@ -1523,3 +1523,6 @@ big-orange-logo-wrapper {
 	margin-left: 25%;
 	padding: 20px;
 }
+#edit-titleinfo-title, #edit-origininfo {
+	border-color: red;
+}
