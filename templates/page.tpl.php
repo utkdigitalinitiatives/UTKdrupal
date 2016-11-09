@@ -191,7 +191,10 @@
         if ($page['sidebar_second']): ?>
             <div class="left-sidebar">
 	    <ul class="action-links">
-              <?php
+	<li><a href="/islandora/object/utk.ir%3Atd#overlay=islandora/object/utk.ir%253Atd/manage/overview/ingest">Submit</a></li>
+
+	</ul>
+                <?php
                 print render($page['sidebar_second']); ?>
             </div>
         <?php endif; ?>
