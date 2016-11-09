@@ -394,26 +394,27 @@ input[type="button"]:hover {
 	padding: 0;
 	list-style: none;
 }
-/*#leftcolumn ul.menu { line-height: 1.0 }*/
+#leftcolumn ul.menu {
+	width: 200px;
+	line-height: 1.0 }
 #leftcolumn ul {
-	/*position: absolute;*/
-	/*top: -999em;*/
-	width: 160px; /* left offset of submenus need to match (see below) */
+	width: 160px;
 }
+
 #leftcolumn ul.menu ul li { width: 100% }
 #leftcolumn ul.menu li:hover {
 	visibility: inherit; /* fixes IE7 'sticky bug' */
 }
-#leftcolumnEDITTINGTHIS ul.menu li {
-	width: 100%;
-	margin: auto;
-	float: left;
-	position: relative;
-	border: 0;
-	line-height: 1;
-	color: #58595b;
-	height: 50px;
-	border-bottom: 1px solid #dbdcde;
+#leftcolumn ul.menu li {
+		/*width: 100%;*/
+	/*margin: auto;*/
+	/*float: left;*/
+	/*position: relative;*/
+	/*border: 0;*/
+	/*line-height: 1;*/
+	/*color: #58595b;*/
+	/*height: 50px;*/
+	/*border-bottom: 1px solid #dbdcde;*/
 }
 #leftcolumn ul.menu a {
 	display: block;
@@ -440,12 +441,14 @@ input[type="button"]:hover {
 /* navigation skin ***/
 #leftcolumn ul.menu {
 	/*float: left;*/
-	margin-bottom: 1em;
+	/*margin-bottom: 1em;*/
 }
 #leftcolumn ul.menu a {
+	font-size: 14px;
+	line-height: 1.8;
+	color: #58595b;
 	height: 55px;
 	/*line-height: 55px;*/
-	font-size: 13px;
 	/*font-weight: bold;*/
 	/*color: #ddd;*/
 	padding: 0 20px;
@@ -1188,12 +1191,17 @@ ul.secondary a.active {
 	margin: 8px;
 }
 #leftcolumn input{
-	width: 225px;
+  margin-top: 22px;
+  margin-bottom: 22px;
+	width: 315%;
 }
 .csl-entry{
 	padding: 20px;
 }
-
+#user-login-form input, #user-login-form .form-item{
+	margin: 0;
+}
+#user-login-form div div.item-list{ display: none;}
 
 /* UT Libraries Styles */
 #orange-bar{
