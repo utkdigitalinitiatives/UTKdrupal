@@ -93,6 +93,17 @@
 			</div>
 			<a class="sr-only" href="#content" title="Skip to content">Skip to content</a>
         <?php print render($page['header']); ?>
+				<!-- Begin site_slogan -->
+				<div id="banner-section">
+					<div class="site_slogan">
+						<?php
+            if ($site_slogan): ?>
+                <h1 id="site_slogan"><?php
+                    print $site_slogan; ?></h1>
+            <?php endif; ?>
+					</div>
+				</div>
+				<!-- End site_slogan -->
     </div>
     <!-- End Header Region -->
 
