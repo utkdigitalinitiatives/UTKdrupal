@@ -385,21 +385,21 @@ input[type="button"]:hover {
 }
 .contextual-links-region{ width: 236px;}
 /*** ESSENTIAL Navigation Style ***/
-#leftcolumn ul.menu,
-#leftcolumn ul.menu * {
+#block-privatemsg-privatemsg-menu ul.menu, #leftcolumn ul.menu,
+#block-privatemsg-privatemsg-menu ul *, #leftcolumn ul.menu * {
 	margin: 0;
 	padding: 0;
 	list-style: none;
 }
-#leftcolumn ul.menu {
+#block-privatemsg-privatemsg-menu ul.menu, #leftcolumn ul.menu {
 	width: 200px;
 	line-height: 1.0 }
 #leftcolumn ul {
 	width: 160px;
 }
 
-#leftcolumn ul.menu ul li { width: 100% }
-#leftcolumn ul.menu li:hover {
+#block-privatemsg-privatemsg-menu ul li, #leftcolumn ul.menu ul li { width: 100% }
+#block-privatemsg-privatemsg-menu ul.menu li:hover, #leftcolumn ul.menu li:hover {
 	visibility: inherit; /* fixes IE7 'sticky bug' */
 }
 #leftcolumn ul.menu li {
@@ -413,20 +413,20 @@ input[type="button"]:hover {
 	/*height: 50px;*/
 	/*border-bottom: 1px solid #dbdcde;*/
 }
-#leftcolumn ul.menu a {
+#block-privatemsg-privatemsg-menu ul.menu a, #leftcolumn ul.menu a {
 	display: block;
 	position: relative;
 }
-#leftcolumn ul.menu li:hover ul,
-#leftcolumn ul.menu li.sfHover ul {
+#block-privatemsg-privatemsg-menu ul.menu li:hover ul, #leftcolumn ul.menu li:hover ul,
+#block-privatemsg-privatemsg-menu ul.menu li.sfHover ul, #leftcolumn ul.menu li.sfHover ul {
 	left: 0;
 	top: 55px; /* match top ul list item height */
 	z-index: 99;
 }
-#leftcolumn ul.menu ul li:hover li ul.menu,
-#leftcolumn ul.menu ul li.sfHover li ul.menu { top: -999em }
-#leftcolumn ul.menu ul li:hover ul.menu,
-#leftcolumn ul.menu ul li.sfHover ul.menu {
+#block-privatemsg-privatemsg-menu ul.menu ul li:hover li ul.menu, #leftcolumn ul.menu ul li:hover li ul.menu,
+#block-privatemsg-privatemsg-menu ul.menu ul li.sfHover li ul.menu, #leftcolumn ul.menu ul li.sfHover li ul.menu { top: -999em }
+#block-privatemsg-privatemsg-menu ul.menu ul li:hover ul.menu, #leftcolumn ul.menu ul li:hover ul.menu,
+#block-privatemsg-privatemsg-menu ul.menu ul li.sfHover ul.menu, #leftcolumn ul.menu ul li.sfHover ul.menu {
 	left: 160px;
 	top: 0;
 }
@@ -436,11 +436,11 @@ input[type="button"]:hover {
 .menu ul, .menu li {width: 100%;}
 
 /* navigation skin ***/
-#leftcolumn ul.menu {
+#block-privatemsg-privatemsg-menu ul, #leftcolumn ul.menu {
 	/*float: left;*/
 	/*margin-bottom: 1em;*/
 }
-#leftcolumn ul.menu a {
+#block-privatemsg-privatemsg-menu ul a, #leftcolumn ul.menu a {
 	font-size: 14px;
 	line-height: 1.8;
 	color: #58595b;
