@@ -178,15 +178,6 @@
     </div>
   </div>
   <div id="leftcolumn">
-    <!-- Begin First Sidebar Region -->
-    <?php
-      if ($page['sidebar_first']): ?>
-    <div class="left-sidebar">
-      <?php
-        print render($page['sidebar_first']); ?>
-    </div>
-    <?php endif; ?>
-    <!-- End First Sidebar Region -->
     <!-- Begin Second Sidebar Region -->
     <?php
       if ($page['sidebar_second']): ?>
@@ -198,6 +189,16 @@
     </div>
     <?php endif; ?>
     <!-- End Second Sidebar Region -->
+
+    <!-- Begin First Sidebar Region -->
+    <?php
+      if ($page['sidebar_first']): ?>
+    <div class="left-sidebar">
+      <?php
+        print render($page['sidebar_first']); ?>
+    </div>
+    <?php endif; ?>
+    <!-- End First Sidebar Region -->
     <p style="clear:both;"></p>
   </div>
   <!-- Begin Footer Region -->
