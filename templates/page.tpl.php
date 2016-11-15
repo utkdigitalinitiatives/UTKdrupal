@@ -84,9 +84,7 @@
   <!-- Begin Header Region -->
   <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu' : 'without-secondary-menu'; ?>">
     <div id="university-logo-wrapper">
-      <div id="university-logo">
-        <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"></a>
-      </div>
+      <a href="http://www.utk.edu"><div id="university-logo"></div></a>
     </div>
     <a class="sr-only" href="#content" title="Skip to content">Skip to content</a>
     <?php print render($page['header']); ?>
