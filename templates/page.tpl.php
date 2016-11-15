@@ -223,9 +223,7 @@
     <div class='footer-row footer-bottom-row'>
       <div class='footer-block'>
         <div id="big-orange-logo-wrapper">
-          <div id="big-orange-logo">
-            <a href="#" id="big-orange-logo-link"></a>
-          </div>
+          <a href="http://www.utk.edu/"><div id="big-orange-logo"></div></a>
         </div>
         <p><strong>The University of Tennessee, Knoxville</strong><br />
           Knoxville, Tennessee 37996<br />
