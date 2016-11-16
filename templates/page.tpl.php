@@ -93,8 +93,8 @@
       <div class="site_slogan">
         <?php
           if ($site_slogan): ?>
-            <h1 id="site_slogan"><?php
-          print $site_slogan; ?></h1>
+            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><h1 id="site_slogan"><?php
+          print $site_slogan; ?></h1></a>
         <?php endif; ?>
       </div>
     </div>
