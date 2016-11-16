@@ -100,8 +100,8 @@
       <div class="site_slogan">
         <?php
           if ($site_slogan): ?>
-            <h1 id="site_slogan"><?php
-          print $site_slogan; ?></h1>
+            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><h1 id="site_slogan"><?php
+          print $site_slogan; ?></h1></a>
         <?php endif; ?>
       </div>
     </div>
@@ -218,7 +218,7 @@
   <div id="footer">
     <div class='footer-row'>
       <div class='footer-block'>
-        <h3>University Libraries</h3>
+        <h3><a href="https://www.lib.utk.edu">University Libraries</a></h3>
       </div>
       <div class='footer-block'>
         <p>1015 Volunteer Boulevard<br />
@@ -230,9 +230,7 @@
     <div class='footer-row footer-bottom-row'>
       <div class='footer-block'>
         <div id="big-orange-logo-wrapper">
-          <div id="big-orange-logo">
-            <a href="#" id="big-orange-logo-link"></a>
-          </div>
+          <a href="http://www.utk.edu/"><div id="big-orange-logo"></div></a>
         </div>
         <p><strong>The University of Tennessee, Knoxville</strong><br />
           Knoxville, Tennessee 37996<br />
