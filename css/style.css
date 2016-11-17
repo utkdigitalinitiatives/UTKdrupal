@@ -158,6 +158,7 @@ a {
 }
 a:hover {
 	text-decoration: none;
+	color: #ff8200;
 }
 p { margin: 0 0 1em }
 
@@ -554,7 +555,7 @@ background-image: none;
 #block-privatemsg-privatemsg-menu ul a {
 	padding: 0;
 	}
-	
+
 #block-privatemsg-privatemsg-menu ul li {
 	height: 55px;
 /* 	border-bottom: 1px solid #dbdcde; */
