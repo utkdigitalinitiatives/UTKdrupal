@@ -112,17 +112,11 @@ function UTKdrupal_block_render($module, $delta, $as_renderable = FALSE) {
   return $block_rendered;
 }
 
-/**
- * Implements hook_preprocess_feedback_simple().
- */
-function UTKdrupal_preprocess_feedback_simple(&$variables) {
-  // Add .automodal class.
-  $variables['class'][] = 'automodal';
-}
-// Setup but not enabled
-// function UTKdrupal_preprocess_page(&$variables) {
-//   $status = drupal_get_http_header("status");
-//   if($status == '404 Not Found') {
-//     $variables['theme_hook_suggestions'][] = 'page__404';
-//   }
-// }
+/** Setup but not enabled
+ * function UTKdrupal_preprocess_page(&$variables) {
+ *   $status = drupal_get_http_header("status");
+ *   if($status == '404 Not Found') {
+ *     $variables['theme_hook_suggestions'][] = 'page__404';
+ *   }
+ * }
+*/
