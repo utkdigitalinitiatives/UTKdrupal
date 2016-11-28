@@ -1553,4 +1553,8 @@ big-orange-logo-wrapper {
 }
 #auth_box .form-submit {
   background-color: #FF8200;
+  color: #FFF;
+}
+#auth_box label{
+  color: #58595B;
 }
