@@ -1543,3 +1543,14 @@ big-orange-logo-wrapper {
 #edit-titleinfo-title, #edit-origininfo {
 	border-color: red;
 }
+/**
+ * Local Login Form
+ */
+#auth_box {
+  background-color: #F0EDE3;
+  padding: 20px;
+  margin: 20px auto;
+}
+#auth_box .form-submit {
+  background-color: #FF8200;
+}
