@@ -12,7 +12,7 @@
    * - $base_path: The base URL path of the Drupal installation. At the very
    *   least, this will always default to /.
    * - $directory: The directory the template is located in, e.g. modules/system
-   *   or themes/bartik.
+   *   or themes/UTKdrupal.
    * - $is_front: TRUE if the current page is the front page.
    * - $logged_in: TRUE if the user is registered and signed in.
    * - $is_admin: TRUE if the user has permission to access administration pages.
@@ -69,12 +69,12 @@
    * @see html.tpl.php
    *
    * @ingroup themeable
-   * 			<?php if ($logo): ?>
-* 					<a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
-* 							<img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
-* 					</a>
-* 			<?php endif; ?>
-*/
+   *       <?php if ($logo): ?>
+   *           <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+   *               <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
+   *           </a>
+   *       <?php endif; ?>
+   */
 ?>
 <!-- Begin of Access Denied Check and redirrect to login -->
 <?php
