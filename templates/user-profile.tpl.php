@@ -36,6 +36,11 @@
  * <?php print render($user_profile); ?>
  */
 ?>
+<br/>
+<hr>
+<h1>List of my submissions</h1>
+<div><p>Currently <span style="font-weight:bold;">0</span> are pending</p><br/><br/>
+</div>
 <hr>
 <br/>
 <div id="user-profile">
