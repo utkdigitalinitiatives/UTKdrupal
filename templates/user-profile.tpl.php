@@ -62,8 +62,9 @@ foreach ($ri_search as $resultItem) {
 $islandora_user_submission_list .= "</ul>\n";
 ?>
   <h1>List of my submissions</h1>
-  <div><p>Currently <span style="font-weight:bold;"><?php print $needs_approval ?></span> are waiting for approval</p><br/><br/>
+  <div><p>Currently <span style="font-weight:bold;"><?php print $needs_approval ?></span> <?php if ($needs_approval === 1)  { print "is";} else {print "are";} ?> waiting for approval</p>
   <?php print $islandora_user_submission_list ?>
+  <br/><br/>
   </div>
   <hr>
   <div id="user-profile">
