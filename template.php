@@ -42,7 +42,7 @@ function UTKdrupal_form_search_block_form_alter(&$form, &$form_state, $form_id) 
  * Implementation of hook_form_alter()
  */
 function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
-	// dsm($form_id);
+  // dsm($form_id);
 }
 
 /**
@@ -112,17 +112,27 @@ function UTKdrupal_block_render($module, $delta, $as_renderable = FALSE) {
   return $block_rendered;
 }
 
+/** Setup but not enabled
+ * function UTKdrupal_preprocess_page(&$variables) {
+ *   $status = drupal_get_http_header("status");
+ *   if($status == '500') {
+ *     $variables['theme_hook_suggestions'][] = 'page';
+ *   }
+ * }
+*/
+
+// $account = user_load($node->uid);
+// $pm_link_text = t('Send a PM to Author');
+// $pm_url = privatemsg_get_link($account) . '/' . t('RE: @title', array('@title' => $node->title));
+// $pm_link = l($pm_link_text, $pm_url, array('query' => array(drupal_get_destination())));
+
 /**
- * Implements hook_preprocess_feedback_simple().
+ * Implements template_preprocess_page().
  */
-function UTKdrupal_preprocess_feedback_simple(&$variables) {
-  // Add .automodal class.
-  $variables['class'][] = 'automodal';
+function UTKdrupal_preprocess_user_profile(&$variables) {
+  unset($variables['user_profile']['summary']['member_for']['#title']);
+  unset($variables['user_profile']['summary']['member_for']['#markup']);
+  unset($variables['user_profile']['summary']['member_for']['#type']);
+  unset($variables['user_profile']['summary']['member_for']);
+  $variables['user_profile']['summary']['#title']='';
 }
-// Setup but not enabled
-// function UTKdrupal_preprocess_page(&$variables) {
-//   $status = drupal_get_http_header("status");
-//   if($status == '404 Not Found') {
-//     $variables['theme_hook_suggestions'][] = 'page__404';
-//   }
-// }
