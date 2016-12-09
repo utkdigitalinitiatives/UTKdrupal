@@ -42,8 +42,28 @@
 		if ($user_profile): ?>
 			<?php print render($user_profile); ?>
 	<?php endif; ?>
+<?php
+$my_login_user_name = $user->name;
+$my_sparql_submissions = <<<SPARQL
+SELECT DISTINCT ?pid  ?label
+WHERE { ?pid <info:fedora/fedora-system:def/model#label> ?label .
+        ?pid <info:fedora/fedora-system:def/model#ownerId> '$my_login_user_name' .
+        ?pid <fedora-model:state> <fedora-model:Inactive> .
+  }
+SPARQL;
+$tuque = islandora_get_tuque_connection();
+$ri_search = $tuque->repository->ri->sparqlQuery($my_sparql_submissions);
+$islandora_user_submission_list = "<ul class='islandora_user_submission_list'>\n";
+$needs_approval = 0;
+foreach ($ri_search as $resultItem) {
+  $islandora_user_submission_list .= "<li><a href='/islandora/object/" . $resultItem['pid']['value'] . "'>" . $resultItem['label']['value'] . "</a></li>";
+  ++$needs_approval;
+}
+$islandora_user_submission_list .= "</ul>\n";
+?>
   <h1>List of my submissions</h1>
-  <div><p>Currently <span style="font-weight:bold;">0</span> are waiting for approval</p><br/><br/>
+  <div><p>Currently <span style="font-weight:bold;"><?php print $needs_approval ?></span> are waiting for approval</p><br/><br/>
+  <?php print $islandora_user_submission_list ?>
   </div>
   <hr>
   <div id="user-profile">
