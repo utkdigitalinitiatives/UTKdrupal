@@ -1560,3 +1560,11 @@ big-orange-logo-wrapper {
 #edit-upload-document .form-type-checkboxes label {
   color: #FF8200;
 }
+
+/* Islandora Solr Facet */
+
+ul.islandora-solr-facet {
+	list-style: none;
+	margin-left: 10px;
+}
+     
