@@ -3,6 +3,18 @@
  * @file
  * Template.php - functions to manipulate Drupal's default markup.
  *
+ * Drupal Print Message drupal_set_message()
+ *   dpm($input, $name = NULL);
+ * Drupal Variable Dump
+ *   dvm($input, $name = NULL);
+ *   dsm($form_id);
+ * Drupal Pretty-Print prints to browser
+ *   dpr($input, $return = FALSE, $name = NULL);
+ * Drupal arguments
+ *   dargs();
+ * dd();
+ * ddebug_backtrace();
+ * db_queryd($query, $args = array());
 */
 
 /**
@@ -42,8 +54,8 @@ function UTKdrupal_form_search_block_form_alter(&$form, &$form_state, $form_id) 
  * Implementation of hook_form_alter()
  */
 function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
-  // dsm($form_id);
 }
+
 
 /**
  * Implements hook_preprocess().
@@ -115,8 +127,8 @@ function UTKdrupal_block_render($module, $delta, $as_renderable = FALSE) {
 /** Setup but not enabled
  * function UTKdrupal_preprocess_page(&$variables) {
  *   $status = drupal_get_http_header("status");
- *   if($status == '500') {
- *     $variables['theme_hook_suggestions'][] = 'page';
+ *   if($status == '404') {
+ *     $variables['theme_hook_suggestions'][] = '404_page';
  *   }
  * }
 */
@@ -130,9 +142,36 @@ function UTKdrupal_block_render($module, $delta, $as_renderable = FALSE) {
  * Implements template_preprocess_page().
  */
 function UTKdrupal_preprocess_user_profile(&$variables) {
+
   unset($variables['user_profile']['summary']['member_for']['#title']);
   unset($variables['user_profile']['summary']['member_for']['#markup']);
   unset($variables['user_profile']['summary']['member_for']['#type']);
   unset($variables['user_profile']['summary']['member_for']);
   $variables['user_profile']['summary']['#title']='';
+}
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+	// dpm(get_defined_vars());
+	if ($root_path == 'user/%') {
+    // Change the first tab title from 'View' to 'Profile'.
+    if ($data['tabs'][0]['output'][0]['#link']['title'] == t('View')) {
+      $data['tabs'][0]['output'][0]['#link']['title'] = t('Profile');
+    }
+    if ($data['tabs'][0]['output'][1]['#link']['title'] == t('Edit')) {
+      $data['tabs'][0]['output'][1]['#link']['title'] = t('Edit Profile');
+    }
+  }
+	if ($root_path == 'islandora/object/%/manage' || $root_path == 'islandora/object/%') {
+    if ($data['tabs'][0]['output'][1]['#link']['title'] == t('Manage')) {
+      $data['tabs'][0]['output'][1]['#link']['title'] = t('Manage Files');
+      $data['tabs'][0]['output'][1]['#link']['href'] = $router_item['href'] . '/manage/datastreams';
+  	} else if ($data['tabs'][0]['output'][2]['#link']['title'] == t('Manage')) {
+      $data['tabs'][0]['output'][2]['#link']['title'] = t('Manage Files');
+      $data['tabs'][0]['output'][2]['#link']['href'] = $router_item['href'] . '/manage/datastreams';
+			$data['tabs'][0]['output'][1]['#link']['title'] = t('');
+    }
+	}
 }
