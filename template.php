@@ -154,6 +154,9 @@ function UTKdrupal_preprocess_user_profile(&$variables) {
  * Implements hook_menu_local_tasks_alter().
  */
 function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+  if ($data['tabs'][0]['output'][1]['#link']['title'] == t('Document')) {
+      $data['tabs'][0]['output'][1]['#link']['title'] = t('');
+  }
   // dpm(get_defined_vars());
   if ($root_path == 'user/%') {
     // Change the first tab title from 'View' to 'Profile'.
