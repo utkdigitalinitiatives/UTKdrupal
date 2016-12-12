@@ -244,6 +244,10 @@ fieldset {
 
 .filter-help a { font-size: 0.857em; padding: 2px 20px 0; }
 
+.form-item {
+	clear: both;
+}
+
 .filter-wrapper .form-item label { margin-right: 10px; }
 
 fieldset legend { background: #dbdbdb; border: 1px solid #ccc; border-bottom: none; display: block; height: 2em;
