@@ -158,23 +158,26 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
     // dpm(get_defined_vars());
     if ($root_path == 'user/%') {
       // Change the first tab title from 'View' to 'Profile'.
-
-      if ($data['tabs'][0]['output'][0]['#link']['title'] == t('View')) {
-        $data['tabs'][0]['output'][0]['#link']['title'] = t('Profile');
-      }
-      if ($data['tabs'][0]['output'][1]['#link']['title'] == t('Edit')) {
-        $data['tabs'][0]['output'][1]['#link']['title'] = t('Edit Profile');
+      if(isset($data['tabs'][0]) && is_array($data['tabs'][0])){
+        foreach ($data['tabs'][0]['output'] as $key => $value) {
+          if ($value['#link']['title'] == t('View')){
+            $data['tabs'][0]['output'][$key]['#link']['title'] = t('Profile');
+          }
+          if ($value['#link']['title'] == t('Edit')){
+            $data['tabs'][0]['output'][$key]['#link']['title'] = t('Edit Profile');
+          }
+        }
       }
     }
     if ($root_path == 'islandora/object/%/manage/datastreams' || $root_path == 'islandora/object/%') {
-			if(isset($data['tabs'][0]) && is_array($data['tabs'][0])){
+      if(isset($data['tabs'][0]) && is_array($data['tabs'][0])){
         foreach ($data['tabs'][0]['output'] as $key => $value) {
           if ($value['#link']['title'] == t('Document')){
             unset($data['tabs'][0]['output'][$key]);
           }
-					if ($value['#link']['title'] == t('Manage')){
+          if ($value['#link']['title'] == t('Manage')){
             $data['tabs'][0]['output'][$key]['#link']['title'] = t('Manage Files');
-						$data['tabs'][0]['output'][$key]['#link']['href'] = $router_item['href'] . '/manage/datastreams';
+            $data['tabs'][0]['output'][$key]['#link']['href'] = $router_item['href'] . '/manage/datastreams';
           }
         }
       }
@@ -186,6 +189,6 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
     // dpm(get_defined_vars());
   }
   if (in_array('authUser-role', $user->roles)) {
-    //
+    // User if Needed
   }
 }
