@@ -182,13 +182,19 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
         }
       }
     }
+		global $user;
+		if (in_array('authUser-role', $user->roles)) {
+			if ($root_path == 'messages/new') {
+				drupal_goto('/');
+			}
+		}
   }
   // Check if the user has the 'admin' role.
   global $user;
   if (in_array('administrator', $user->roles)) {
     // dpm(get_defined_vars());
   }
-  if (in_array('authUser-role', $user->roles)) {
+  if (in_array('authenticated user', $user->roles)) {
     // User if Needed
   }
 }
