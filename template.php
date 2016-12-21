@@ -54,6 +54,68 @@ function UTKdrupal_form_search_block_form_alter(&$form, &$form_state, $form_id) 
  * Implementation of hook_form_alter()
  */
 function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
+  // drupal_set_message("This is the form id : $form_id");
+  if($form_id == 'islandora_ingest_form'){
+    // if(isset($form_state['build_info']['args'][1])){
+    // drupal_set_message("This is the form id : $form_id");
+    // dargs();
+    // [0]['form_step_id']['#value']
+    // Build this as a separate variable, otherwise it gets clobbered in the
+    // foreach loop.
+    $form_inner = array();
+    foreach (element_children($form) as $child_key) {
+     $form_inner[$child_key] = $form[$child_key];
+     unset($form[$child_key]);
+    }
+
+    $form['inner'] = $form_inner;
+    $form['inner']['#prefix'] = '<div class="entityform-form-elements">
+      <ol class="progress-track">
+        <li class="progress-done">
+          <center>
+            <div class="icon-wrap">
+              <svg class="icon-state icon-down-arrow" viewBox="0 0 512 512">
+            <path d="m479 201c0 10-4 19-11 26l-186 186c-7 7-16 11-26 11c-10 0-19-4-26-11l-186-186c-7-7-11-16-11-26c0-10 4-19 11-26l21-21c8-7 17-11 26-11c11 0 19 4 26 11l139 139l139-139c7-7 15-11 26-11c9 0 18 4 26 11l21 21c7 8 11 16 11 26z"></path>
+                <use xlink:href="#icon-check-mark"></use>
+              </svg>
+            </div>
+            <span class="progress-text">Begin submission</span>
+          </center>
+        </li>
+        <li class="progress-done progress-current">
+          <center>
+            <div class="icon-wrap">
+            <svg class="icon-state icon-down-arrow" viewBox="0 0 512 512">
+          <path d="m479 201c0 10-4 19-11 26l-186 186c-7 7-16 11-26 11c-10 0-19-4-26-11l-186-186c-7-7-11-16-11-26c0-10 4-19 11-26l21-21c8-7 17-11 26-11c11 0 19 4 26 11l139 139l139-139c7-7 15-11 26-11c9 0 18 4 26 11l21 21c7 8 11 16 11 26z"></path>
+              <use xlink:href="#icon-check-mark"></use>
+            </svg>
+            </div>
+            <span class="progress-text">Description</span>
+          </center>
+        </li>
+        <li class="progress-todo">
+          <center>
+            <div class="icon-wrap">
+              <svg class="icon-state icon-check-mark">
+                <use xlink:href="#icon-check-mark"></use>
+              </svg>
+            </div>
+            <span class="progress-text">Upload Files</span>
+          </center>
+        </li>
+        <li class="progress-todo">
+          <center>
+            <div class="icon-wrap">
+              <svg class="icon-state icon-check-mark">
+                <use xlink:href="#icon-check-mark"></use>
+              </svg>
+            </div>
+            <span class="progress-text">Submitted for Review</span>
+          </center>
+        </li>
+      </ol>';
+    $form['inner']['#suffix'] = '</div>';
+    }
 }
 
 
@@ -182,19 +244,19 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
         }
       }
     }
-		global $user;
-		if (in_array('authUser-role', $user->roles)) {
-			if ($root_path == 'messages/new') {
-				drupal_goto('/');
-			}
-		}
+    global $user;
+    if (in_array('authUser-role', $user->roles)) {
+      if ($root_path == 'messages/new') {
+        drupal_goto('/');
+      }
+    }
   }
   // Check if the user has the 'admin' role.
   global $user;
   if (in_array('administrator', $user->roles)) {
-    // dpm(get_defined_vars());
+    //dpm(get_defined_vars());
   }
   if (in_array('authenticated user', $user->roles)) {
-    // User if Needed
+   // Test
   }
 }

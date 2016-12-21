@@ -12,6 +12,8 @@ weird-font { font-family:'NotoSans-Regular', Helvetica, Arial, Verdana; }
 
 @import url('normalize.css');
 @import url('icons.css');
+@import url('progress.css');
+
 :root {
   --utorange: #FF8200;
   --leconte: #8D2048;
