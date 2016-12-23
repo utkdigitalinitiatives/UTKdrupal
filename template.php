@@ -15,9 +15,17 @@
  * dd();
  * ddebug_backtrace();
  * db_queryd($query, $args = array());
-*/
+ *
+ * Additional Examples of functions
+ * function UTKdrupal_preprocess_region(&$variables) {
+ *   // Region preprocessing, switch on region name in var's, $variables['region']  <-name
+ * }
+ * function UTKdrupal_js_alter(&$javascript) {
+ * }
+ * function UTKdrupal_css_alter(&$css) {
+ * }
 
-/**
+ *
  * Modify any theme hooks variables or add your own variables, using preprocess or process functions.
  * Override any theme function. That is, replace a module's default theme function with one you write.
  * Call hook_*_alter() functions which allow you to alter various parts of Drupal's internals, including
@@ -25,49 +33,75 @@
  * hook_form_FORM_ID_alter(), and hook_page_alter(). See api.drupal.org for more information about
  * _alter functions. Or link to this file's description https://www.drupal.org/node/1728096
 */
-function UTKdrupal_preprocess_page(&$variables) {
-  global $base_path;
-  $variables['logopath'] = $base_path.'/' . drupal_get_path('theme','UTKdrupal') . '/logo.png';
+
+/**
+ * Pragma (HTTP/1.0) and cache-control (HTTP/1.1) Prevent the client from caching the response.
+ * @method UTKdrupal_page_headers
+ */
+function UTKdrupal_page_headers(){
+  drupal_set_html_head('<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">');
+  drupal_set_html_head('<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">');
 }
 
 /**
-* hook_form_FORM_ID_alter
-*/
-function UTKdrupal_form_search_block_form_alter(&$form, &$form_state, $form_id) {
-    $form['search_block_form']['#title'] = t('Search'); // Change the text on the label element
-    $form['search_block_form']['#title_display'] = 'invisible'; // Toggle label visibilty
-    $form['search_block_form']['#size'] = 20;  // define size of the textfield
-    $form['search_block_form']['#default_value'] = t('Search'); // Set a default value for the textfield
-    // $form['actions']['submit']['#value'] = t('GO!'); // Change the text on the submit button
-    // $form['actions']['submit'] = array('#type' => 'image_button', '#src' => base_path() . path_to_theme() . '/images/search-button.png');
+ * Set Logo path and $head variable in page.tpl.php is updated from what it was originally set to in template_preprocess_page().
+ * @method UTKdrupal_preprocess_page
+ * @param  [type]                    $variables Page variables
+ * @param  [type]                    $hook      URL Hooks
+ */
+function UTKdrupal_preprocess_page(&$variables, $hook) {
+  global $base_path;
+  $variables['logopath'] = $base_path.'/' . drupal_get_path('theme','UTKdrupal') . '/logo.png';
+  if(drupal_is_front_page()) {
+    drupal_set_html_head('');
+    $variables['head'] = drupal_get_html_head();
+  }
+}
 
-    // Add extra attributes to the text box
+
+/**
+ * Change the text on the label element, Toggle label visibilty, define size of
+ * the textfield, Set a default value for the textfield, Add extra attributes to
+ * the text box, Prevent user from searching the default text, Alternative
+ * (HTML5) placeholder attribute instead of using the javascript
+ * @method UTKdrupal_form_search_block_form_alter
+ * @param  [type]                                 $form       Form Name
+ * @param  [type]                                 $form_state Form State Name
+ * @param  [type]                                 $form_id    Node ID
+*/
+ /**
+ * hook_form_FORM_ID_alter
+ */
+function UTKdrupal_form_search_block_form_alter(&$form, &$form_state, $form_id) {
+    $form['search_block_form']['#title'] = t('Search');
+    $form['search_block_form']['#title_display'] = 'invisible';
+    $form['search_block_form']['#size'] = 20;
+    $form['search_block_form']['#default_value'] = t('Search');
     $form['search_block_form']['#attributes']['onblur'] = "if (this.value == '') {this.value = 'Search';}";
     $form['search_block_form']['#attributes']['onfocus'] = "if (this.value == 'Search') {this.value = '';}";
-    // Prevent user from searching the default text
     $form['#attributes']['onsubmit'] = "if(this.search_block_form.value=='Search'){ alert('Please enter a search'); return false; }";
-    // Alternative (HTML5) placeholder attribute instead of using the javascript
     $form['search_block_form']['#attributes']['placeholder'] = t('Search');
 }
+
+
+/**
+ * `Progress Bar on top of the Submission Form`
+ * @method UTKdrupal_form_alter
+ * @param  [type]               $form       Form Name
+ * @param  [type]               $form_state Form State Name
+ * @param  [type]               $form_id    Node ID for the form
+ */
 
 /*
  * Implementation of hook_form_alter()
  */
 function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
-  // drupal_set_message("This is the form id : $form_id");
   if($form_id == 'islandora_ingest_form'){
-    // if(isset($form_state['build_info']['args'][1])){
-    // drupal_set_message("This is the form id : $form_id");
-    // dargs();
-    // [0]['form_step_id']['#value']
-    // Build this as a separate variable, otherwise it gets clobbered in the
-    // foreach loop.
     $form_inner = array();
     foreach (element_children($form) as $child_key) {
      $form_inner[$child_key] = $form[$child_key];
      unset($form[$child_key]);
     }
-
     $form['inner'] = $form_inner;
     $form['inner']['#prefix'] = '<div class="entityform-form-elements">
       <ol class="progress-track">
@@ -118,13 +152,25 @@ function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
     }
 }
 
-
+/**
+ * This needs to be deleted.
+ * @method UTKdrupal_preprocess_islandora_large_image
+ * @param  [type]                                     $variables [description]
+ */
 /**
  * Implements hook_preprocess().
  */
 function UTKdrupal_preprocess_islandora_large_image(&$variables) {
   $variables['large_image_preprocess_function_variable'] = "TESTING LARGE IMAGE PREPROCESS FUNCTION IN THEME";
 }
+
+/**
+ * Adds a placeholder attribute to the search query
+ * @method UTKdrupal_form_islandora_solr_simple_search_form_alter
+ * @param  [type]                                                 $form       Form Name
+ * @param  [type]                                                 $form_state Form State Name
+ * @param  [type]                                                 $form_id    Node ID for the Form
+ */
 /**
  * Implements hook_form_alter().
  */
@@ -132,37 +178,40 @@ function UTKdrupal_form_islandora_solr_simple_search_form_alter(&$form, &$form_s
   $form['simple']['islandora_simple_search_query']['#attributes']['placeholder'] = t("Search Repository");
 }
 
+
+/**
+ * From here, we can do something entirely different for this particular collection, based on PID
+ * Editing or adding to the variables array here will make it available in the overridden template,
+ * In this case, 'islandora-basic-collection-wrapper--islandora-sp-basic-image-collection.tpl.php'
+ * @method UTKdrupal_preprocess_islandora_basic_collection_wrapper__islandora_sp_basic_image_collection
+ * @param  [type]                                                                                       $variables [description]
+ */
 /**
  * Theme suggestion preprocess for islandora:sp_basic_image_collection
  */
 function UTKdrupal_preprocess_islandora_basic_collection_wrapper__islandora_sp_basic_image_collection(&$variables) {
-  // From here, we can do something entirely different for this particular collection, based on PID
-  // Editing or adding to the variables array here will make it available in the overridden template,
-  // In this case, 'islandora-basic-collection-wrapper--islandora-sp-basic-image-collection.tpl.php'
   $variables['template_preprocess_function_variable'] = "TESTING THE TEMPLATE PREPROCESS FUNCTION, UNIQUE TO BASIC IMAGE";
 }
+
+/**
+ * Preprocess block based on delta.
+ * @method UTKdrupal_preprocess_block
+ * @param  [type]                     $variables [description]
+ */
+
 /**
  * Implements hook_preprocess_block().
  */
 function UTKdrupal_preprocess_block(&$variables) {
-  // Preprocess block based on delta.
   if ($variables['block']->{"delta"} == "simple") {
-    // Could do something fancy here i suppose.
     $variables['classes_array'][] = 'fun-class';
     $variables['title_attributes_array']['class'] = array(
       'fun-title-attributes',
       'class-two-here',
     );
-    // Add additional attributes as required.
   }
 }
-function UTKdrupal_preprocess_region(&$variables) {
-  // Region preprocessing, switch on region name in var's, $variables['region']  <-name
-}
-function UTKdrupal_js_alter(&$javascript) {
-}
-function UTKdrupal_css_alter(&$css) {
-}
+
 
 /**
  * Render a block unique to this themes layouts.
@@ -186,25 +235,17 @@ function UTKdrupal_block_render($module, $delta, $as_renderable = FALSE) {
   return $block_rendered;
 }
 
-/** Setup but not enabled
- * function UTKdrupal_preprocess_page(&$variables) {
- *   $status = drupal_get_http_header("status");
- *   if($status == '404') {
- *     $variables['theme_hook_suggestions'][] = '404_page';
- *   }
- * }
-*/
-
-// $account = user_load($node->uid);
-// $pm_link_text = t('Send a PM to Author');
-// $pm_url = privatemsg_get_link($account) . '/' . t('RE: @title', array('@title' => $node->title));
-// $pm_link = l($pm_link_text, $pm_url, array('query' => array(drupal_get_destination())));
 
 /**
- * Implements template_preprocess_page().
+ * Hide fields from the user profile
+ * @method UTKdrupal_preprocess_user_profile
+ * @param  [type]                            $variables [description]
+ */
+
+ /**
+  * Implements template_preprocess_page().
  */
 function UTKdrupal_preprocess_user_profile(&$variables) {
-
   unset($variables['user_profile']['summary']['member_for']['#title']);
   unset($variables['user_profile']['summary']['member_for']['#markup']);
   unset($variables['user_profile']['summary']['member_for']['#type']);

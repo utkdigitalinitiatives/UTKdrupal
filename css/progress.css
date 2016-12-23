@@ -1,5 +1,5 @@
 svg:not(:root) {
-	overflow: hidden;
+  overflow: hidden;
 }
 
 .entityform-form-elements ol.progress-track {
@@ -46,13 +46,13 @@ svg:not(:root) {
   -moz-transition: border-color 1s ease-in-out;
 }
 .entityform-form-elements ol.progress-track li.progress-done .icon-down-arrow {
-	position: relative;
+  position: relative;
   top: 10%;
   left: 0;
 }
 .entityform-form-elements ol.progress-track li.progress-done.progress-current .icon-wrap {
   background-color: #FF8200;
-	border: 5px solid hsla(31, 100%, 50%, 0.02);
+  border: 5px solid hsla(31, 100%, 50%, 0.02);
 }
 .entityform-form-elements ol.progress-track li.progress-done.progress-current .icon-wrap .icon-check-mark {
   /*display: block;*/
@@ -61,8 +61,8 @@ svg:not(:root) {
   /*display: block;*/
 }
 .entityform-form-elements ol.progress-track li.progress-done .icon-wrap {
-	position: absolute;
-	top: -25px;
+  position: absolute;
+  top: -25px;
   background-color: #2197A9;
   border: 5px solid #2197A9;
 }
