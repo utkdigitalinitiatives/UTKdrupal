@@ -1575,6 +1575,12 @@ big-orange-logo-wrapper {
   color: #FF8200;
 }
 
+
+/* Islandora Solr Pager */
+ .islandora-solr-content li.pager {
+  border-bottom: 1px solid black;
+}
+
 /* Islandora Solr Facet */
 ul.islandora-solr-facet {
   list-style: none;
