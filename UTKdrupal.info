@@ -9,6 +9,7 @@ core = 7.x
 stylesheets[all][] = css/style.css
 stylesheets[print][] = css/print.css
 stylesheets[screen and (max-width: 1024px)][] = css/small.css
+stylesheets[all][] = css/progress.css
 
 ;Drupal 7 default regions:
 regions[header] = Header
