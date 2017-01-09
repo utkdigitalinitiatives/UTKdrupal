@@ -279,7 +279,8 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
         }
       }
     }
-    if ($root_path == 'islandora/object/%/manage/datastreams' || $root_path == 'islandora/object/%') {
+    $possibleUrls = array('islandora/object/%/manage/datastreams', 'islandora/object/%', 'islandora/object/%/manage');
+    if (in_array($root_path, $possibleUrls, true)) {
       if(isset($data['tabs'][0]) && is_array($data['tabs'][0])){
         foreach ($data['tabs'][0]['output'] as $key => $value) {
           if ($value['#link']['title'] == t('Document')){
