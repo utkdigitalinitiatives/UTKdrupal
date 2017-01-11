@@ -1413,16 +1413,6 @@ big-orange-logo-wrapper {
     margin-right: 2%;
 }
 
-.campus-search-form-input {
-    width: 400px;
-    height: 25px;
-    padding: 6px 12px;
-    background-color: #fff;
-    background-image: none;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
 .footer-column{
   width: 46.8%;
   display: inline-block;
@@ -1573,6 +1563,25 @@ big-orange-logo-wrapper {
 
 #edit-upload-document .form-type-checkboxes label {
   color: #FF8200;
+}
+
+/* UT search box class, originally called called .form-control in UT styles */
+/* .form-text is for Drupal / Islandora search boxes */
+
+.campus-search-form-input, .form-text {
+	border-color:#00746f;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+	box-shadow:inset 0 1px 1px rgba(0,0,0,.075);
+	height:44px;
+	width: 100%;
+	z-index:50;
+	border: 1px solid #ccc;
+}
+
+.campus-search-form-input:focus {
+	border-color:#00413e;
+	-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #00dad1;
+	box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 6px #00dad1;
 }
 
 
