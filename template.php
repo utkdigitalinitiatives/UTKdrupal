@@ -103,12 +103,22 @@ function UTKdrupal_form_search_block_form_alter(&$form, &$form_state, $form_id) 
  * Implementation of hook_form_alter()
  */
 function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
-  if($form_id == 'islandora_ingest_form'){
+  // if form id = xml_form_builder_ingest_form
+  // if form id = islandora_scholar_pdf_upload_form
+  $possibleForms = array('xml_form_builder_ingest_form', 'islandora_scholar_pdf_upload_form');
+  if(in_array($form_id, $possibleForms, true)) {
     $form_inner = array();
     foreach (element_children($form) as $child_key) {
      $form_inner[$child_key] = $form[$child_key];
      unset($form[$child_key]);
     }
+    $formStage = "progress-current";
+    $formStage2 = "progress-todo";
+    if($form_id == 'islandora_scholar_pdf_upload_form') {
+      $formStage = "";
+      $formStage2 = "progress-done progress-current";
+    }
+
     $form['inner'] = $form_inner;
     $form['inner']['#prefix'] = '<div class="entityform-form-elements">
       <ol class="progress-track">
@@ -123,7 +133,7 @@ function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
             <span class="progress-text">Begin submission</span>
           </center>
         </li>
-        <li class="progress-done progress-current">
+        <li class="progress-done ' . $formStage . '">
           <center>
             <div class="icon-wrap">
             <svg class="icon-state icon-down-arrow" viewBox="0 0 512 512">
@@ -134,10 +144,11 @@ function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
             <span class="progress-text">Description</span>
           </center>
         </li>
-        <li class="progress-todo">
+        <li class="' . $formStage2 . '">
           <center>
             <div class="icon-wrap">
-              <svg class="icon-state icon-check-mark">
+            <svg class="icon-state icon-down-arrow" viewBox="0 0 512 512">
+          <path d="m479 201c0 10-4 19-11 26l-186 186c-7 7-16 11-26 11c-10 0-19-4-26-11l-186-186c-7-7-11-16-11-26c0-10 4-19 11-26l21-21c8-7 17-11 26-11c11 0 19 4 26 11l139 139l139-139c7-7 15-11 26-11c9 0 18 4 26 11l21 21c7 8 11 16 11 26z"></path>
                 <use xlink:href="#icon-check-mark"></use>
               </svg>
             </div>
