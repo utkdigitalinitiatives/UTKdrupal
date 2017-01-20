@@ -92,11 +92,11 @@ function UTKdrupal_form_search_block_form_alter(&$form, &$form_state, $form_id) 
 
 
 /**
- * UTKdrupal_form_alter adds the banner image to illustrate submission progress
+ * `Progress Bar on top of the Submission Form`
  * @method UTKdrupal_form_alter
- * @param  [type]               $form       [description]
- * @param  [type]               $form_state [description]
- * @param  [type]               $form_id    [description]
+ * @param  [type]               $form       Form Name
+ * @param  [type]               $form_state Form State Name
+ * @param  [type]               $form_id    Node ID for the form
  */
 
 /*
@@ -307,7 +307,7 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
   // Check if the user has the 'admin' role.
   global $user;
   if (in_array('administrator', $user->roles)) {
-    // dpm(get_defined_vars());
+    //dpm(get_defined_vars());
   }
   if (in_array('authenticated user', $user->roles)) {
   //  dpm(get_defined_vars());
