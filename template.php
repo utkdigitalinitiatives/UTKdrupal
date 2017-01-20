@@ -103,24 +103,17 @@ function UTKdrupal_form_search_block_form_alter(&$form, &$form_state, $form_id) 
  * Implementation of hook_form_alter()
  */
 function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
-  // if form id = xml_form_builder_ingest_form
-  // if form id = islandora_scholar_pdf_upload_form
+  // Use this to debug the form
+  // dsm($form_id);
   $possibleForms = array('xml_form_builder_ingest_form', 'islandora_scholar_pdf_upload_form');
   if(in_array($form_id, $possibleForms, true)) {
-    $form_inner = array();
-    foreach (element_children($form) as $child_key) {
-     $form_inner[$child_key] = $form[$child_key];
-     unset($form[$child_key]);
-    }
     $formStage = "progress-current";
     $formStage2 = "progress-todo";
     if($form_id == 'islandora_scholar_pdf_upload_form') {
       $formStage = "";
       $formStage2 = "progress-done progress-current";
     }
-
-    $form['inner'] = $form_inner;
-    $form['inner']['#prefix'] = '<div class="entityform-form-elements">
+    $form['#prefix'] = '<div class="entityform-form-elements">
       <ol class="progress-track">
         <li class="progress-done">
           <center>
@@ -166,8 +159,8 @@ function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
           </center>
         </li>
       </ol>';
-    $form['inner']['#suffix'] = '</div>';
     }
+  return $form;
 }
 
 /**
@@ -317,6 +310,7 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
     //dpm(get_defined_vars());
   }
   if (in_array('authenticated user', $user->roles)) {
-   // Test
+  //  dpm(get_defined_vars());
+  //  dsm($form_id);
   }
 }
