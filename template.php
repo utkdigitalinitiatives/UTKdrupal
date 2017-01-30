@@ -52,10 +52,10 @@ function UTKdrupal_page_headers(){
 function UTKdrupal_preprocess_page(&$variables, $hook) {
   global $base_path;
   $variables['logopath'] = $base_path.'/' . drupal_get_path('theme','UTKdrupal') . '/logo.png';
-  if(drupal_is_front_page()) {
+  /* if(drupal_is_front_page()) {
     drupal_set_html_head('');
     $variables['head'] = drupal_get_html_head();
-  }
+  } */
 	$header = drupal_get_http_header("status");
   if($header == "404 Not Found") {
     $variables['theme_hook_suggestions'][] = 'page__404';
