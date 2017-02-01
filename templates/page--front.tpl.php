@@ -172,8 +172,12 @@
       <!-- Begin Content Region -->
       <div class="content-container">
 	      <p>TRACE is the University of Tennessee's open repository and gives the world access to UT research and creative works. Trace includes faculty research findings and data – as well as documents from our institutional history.</p>
-        <?php
-          print render($page['content']); ?>
+	      
+
+	      
+ <?php
+	 /* print render($page['content']); */	 
+	 ?> 
       </div>
       <!-- End Content Region -->
       <br class="clear">
@@ -219,7 +223,7 @@
   <div id="footer">
     <div class='footer-row'>
       <div class='footer-block'>
-        <h3><a href="https://www.lib.utk.edu">Test University Libraries</a></h3>
+        <h3><a href="https://www.lib.utk.edu">University Libraries</a></h3>
       </div>
       <div class='footer-block'>
         <p>1015 Volunteer Boulevard<br />
