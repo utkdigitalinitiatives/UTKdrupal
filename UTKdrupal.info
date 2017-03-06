@@ -15,3 +15,6 @@ regions[highlighted] = Highlighted
 regions[help] = Help
 regions[page_top] = Page Top
 regions[page_bottom] = Page Bottom
+
+regions[top_menu] = Top Menu
+regions[search_bar] = Search Bar
