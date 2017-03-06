@@ -89,6 +89,17 @@
            <h2 class="department"><a href="https://trace.utk.edu" title="Tennessee Research and Creative Exchange" rel="home">TRACE: Tennessee Research and Creative Exchange</a>
                  <small><a href="http://www.utk.edu">University Libraries</a></small></h2>
          </div>
+         <div id="top-menu">
+     <!-- Begin Top Menu Region -->
+	 <?php print render($page['top_menu']); ?>
+	 <!-- End Top Menu Region -->
+         </div>
+         
+           <div id="search-bar">
+     <!-- Begin Search Bar Region -->
+	 <?php print render($page['search_bar']); ?>
+	 <!-- End Search Bar Region -->
+         </div>
 
 <!-- 	 Begin Header Region -->
       <?php print render($page['header']); ?>
