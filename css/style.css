@@ -4,3 +4,9 @@
     text-shadow: none !important; 
     background: none !important;
     } 
+    
+ #search bar {
+	 height: 80px;
+	 width: 100%;
+	 background: #58595B;
+ }
