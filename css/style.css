@@ -5,8 +5,64 @@
     background: none !important;
     } 
     
- #search-bar {
-	 height: 125px;
-	 width: 100%;
-	 background: #58595B;
+ 
+#top-menu {
+	height: 40px;
+	width: 100%;
+	background: #ffffff;
+	clear: both;
+	font-size: 18px;
+	padding: 5px 15px 5px 90px;
+ }
+ 
+#top-menu #block-menu-menu-default-login {
+	background: #ffffff;
+	float: right;
+ }
+ 
+ #top-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    }
+
+#top-menu ul li {
+	display: inline;
+}
+
+#search-bar {
+	height: 80px;
+	width: 100%;
+	background: #58595B;
+	clear: both;
+ }
+ 
+#search-bar label {
+	visibility: hidden;
+ }
+ 
+#search-bar input[type=text] {
+ 	margin: 15px 15px 15px 200px;
+ 	height: 50px;
+ 	width: 50%;
+ }
+ 
+#left-menu {
+	width: 25%;
+	float: left;
+}
+
+#page-content {
+	width: 75%; 
+	float: right;
+}
+ 
+@media only screen and (max-width: 900px) {
+	 
+ #search-bar input[type=text] {
+ margin: 15px;
+ height: 50px;
+ width: 50%;
+ }	 
+	 
  }
