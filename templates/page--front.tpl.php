@@ -86,8 +86,8 @@
          <h2 class="sr-only"><a href="https://www.lib.utk.edu" rel="home">University Libraries</a></h2>
         
            <div id="sitetitle-webapp">
-           <h2 class="department"><a href="https://trace.utk.edu" title="Tennessee Research and Creative Exchange" rel="home">TRACE: Tennessee Research and Creative Exchange</a>
-                 <small><a href="http://www.utk.edu">University Libraries</a></small></h2>
+           <h2 class="department"><a href="/" title="Tennessee Research and Creative Exchange" rel="home">TRACE: Tennessee Research and Creative Exchange</a>
+                 <small><a href="https://www.lib.utk.edu">University Libraries</a></small></h2>
          </div>
 
 

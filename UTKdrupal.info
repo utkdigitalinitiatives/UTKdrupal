@@ -18,3 +18,4 @@ regions[page_bottom] = Page Bottom
 
 regions[top_menu] = Top Menu
 regions[search_bar] = Search Bar
+regions[secondary_menu] = Secondary Menu

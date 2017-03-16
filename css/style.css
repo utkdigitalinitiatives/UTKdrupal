@@ -20,6 +20,11 @@
 	float: right;
  }
  
+ #top-menu #block-system-user-menu {
+	background: #ffffff;
+	float: right;	 
+ }
+ 
  #top-menu ul {
     list-style-type: none;
     margin: 0;
@@ -46,6 +51,26 @@
  	height: 50px;
  	width: 50%;
  }
+ 
+ #secondary-menu {
+	height: 25px;
+	width: 100%;
+	background: #ffffff;
+	clear: both;
+	font-size: 14px;
+	padding: 5px 15px 5px 90px;
+ }
+  
+ #secondary-menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    }
+
+#secondary-menu ul li {
+	display: inline;
+}
+ 
  
 #left-menu {
 	width: 25%;

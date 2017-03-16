@@ -86,9 +86,16 @@
          <h2 class="sr-only"><a href="https://www.lib.utk.edu" rel="home">University Libraries</a></h2>
         
            <div id="sitetitle-webapp">
-           <h2 class="department"><a href="https://trace.utk.edu" title="Tennessee Research and Creative Exchange" rel="home">TRACE: Tennessee Research and Creative Exchange</a>
-                 <small><a href="http://www.utk.edu">University Libraries</a></small></h2>
+           <h2 class="department"><a href="/" title="Tennessee Research and Creative Exchange" rel="home">TRACE: Tennessee Research and Creative Exchange</a>
+                 <small><a href="https://www.lib.utk.edu">University Libraries</a></small></h2>
          </div>
+         <!-- 	 Begin Header Region -->
+      <?php print render($page['header']); ?>
+<!-- 	 End Header Region -->
+         
+   		</header><!-- #masthead -->
+<!-- The UT Header ends here. -->
+         
          <div id="top-menu">
      <!-- Begin Top Menu Region -->
 	 <?php print render($page['top_menu']); ?>
@@ -100,13 +107,12 @@
 	 <?php print render($page['search_bar']); ?>
 	 <!-- End Search Bar Region -->
          </div>
-
-<!-- 	 Begin Header Region -->
-      <?php print render($page['header']); ?>
-<!-- 	 End Header Region -->
          
-   		</header><!-- #masthead -->
-<!-- The UT Header ends here. -->
+         <?php if ($page['secondary_menu']): ?>
+        <div id="secondary-menu">
+          <?php print render($page['secondary_menu']); ?>
+        </div>
+      <?php endif; ?>
 		
 <?php if($messages): ?>
   <div id="messages">
