@@ -1,3 +1,17 @@
+/* CSS3 Variables (Custom Properties) for branding colors */ 
+
+:root {
+  --utorange: #FF8200;
+  --leconte: #8D2048;
+  --fountain: #2197A9;
+  --limestone: #F0EDE3;
+  --brandslimestone: #F6F6F6;
+  --smokey: #58595B;
+  --rock: #A7A9AC;
+}
+
+
+
 /* Removes text shawdowing from lists: ex. the Drupal admin toolbar */ 
  
 .site-content li a { 
@@ -38,7 +52,7 @@
 #search-bar {
 	height: 80px;
 	width: 100%;
-	background: #58595B;
+	background: var(--smokey);
 	clear: both;
  }
  
