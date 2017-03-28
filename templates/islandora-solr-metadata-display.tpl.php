@@ -20,8 +20,8 @@
 ?>
 <?php if ($found):
   if (!(empty($solr_fields) && variable_get('islandora_solr_metadata_omit_empty_values', FALSE))):?>
-<fieldset <?php $print ? print('class="islandora islandora-metadata"') : print('class="islandora islandora-metadata collapsible collapsed"');?>>
-  <legend><span class="fieldset-legend"><?php print t('Click for Details'); ?></span></legend>
+<fieldset <?php $print ? print('class="islandora islandora-metadata"') : print('class="islandora islandora-metadata collapsible"');?>>
+  <legend><span class="fieldset-legend"><?php print t('Details'); ?></span></legend>
   <div class="fieldset-wrapper">
     <dl xmlns:dcterms="http://purl.org/dc/terms/" class="islandora-inline-metadata islandora-metadata-fields">
       <?php $row_field = 0; ?>
@@ -37,16 +37,14 @@
     </dl>
   </div>
 </fieldset>
-  <h4>
-    <?php print l(t('View the MODS record'), "islandora/object/{$solr_fields['PID']['value'][0]}/datastream/MODS/view"); ?>
-  </h4>
 <?php endif; ?>
 <?php else: ?>
   <fieldset <?php $print ? print('class="islandora islandora-metadata"') : print('class="islandora islandora-metadata collapsible collapsed"');?>>
     <legend><span class="fieldset-legend"><?php print t('Details'); ?></span></legend>
-    <?php //XXX: Hack in markup for message. ?>
-    <div class="messages--warning messages warning">
-      <?php print $not_found_message; ?>
-    </div>
+    <?php if (in_array('administrator',$GLOBALS['user']->roles)): ?>
+      <div class="messages--warning messages warning">
+        <?php print $not_found_message; ?>
+      </div>
+    <?php endif; ?>
   </fieldset>
 <?php endif; ?>
