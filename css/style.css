@@ -96,6 +96,23 @@
 	width: 75%; 
 	float: right;
 }
+
+
+/* Login Form */
+#auth_box {
+  background-color: var(--limestone);
+  padding: 20px;
+  margin: 20px auto;
+  width:325px;
+}
+#auth_box .form-submit {  
+  background-color: var(--utorange);
+  color: #FFF;
+}
+#auth_box label{
+  color: var(--smokey);
+}
+
  
 @media only screen and (max-width: 900px) {
 	 
