@@ -70,7 +70,7 @@
  }
  
  #secondary-menu {
-	height: 25px;
+	height: 30px;
 	width: 100%;
 	background: #ffffff;
 	clear: both;
@@ -87,6 +87,11 @@
 #secondary-menu ul li {
 	display: inline;
 }
+
+#secondary-menu #block-menu-menu-manager-navigation {
+	background: #ffffff;
+	float: right;
+ }
  
  
 #left-menu {
