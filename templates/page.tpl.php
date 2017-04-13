@@ -129,6 +129,24 @@
 	<!-- 	 Begin Page Top Region -->
 	 <?php print render($page['page_top']); ?>
 	 <!-- 	 End Page Top Region -->
+	 
+	   <!-- Begin Breadcrumb Region -->
+      <?php
+        if ($breadcrumb): ?>
+          <div id="breadcrumb"><?php
+        print $breadcrumb; ?></div>
+      <?php endif; ?>
+      <!-- End Breadcrumb Region -->
+      <!-- Begin Message Region -->
+      <?php
+        if ($messages): ?>
+          <div id="message">
+          <div class="section clearfix">
+          <?php print $messages; ?>
+        </div>
+      </div>
+      <?php endif; ?>
+      <!-- End Message Region -->
 	
 <!-- 	 Begin Help Region -->
 	 <?php print render($page['help']); ?>
