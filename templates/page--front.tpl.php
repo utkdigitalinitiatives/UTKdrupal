@@ -69,10 +69,23 @@
  * @see template_process()
  * @see html.tpl.php
  *
- * @ingroup themeable
- */
+  * @ingroup themeable
+   *       <?php if ($logo): ?>
+   *           <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo">
+   *               <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>"/>
+   *           </a>
+   *       <?php endif; ?>
+   */
 ?>
+<!-- Begin of Access Denied Check and redirrect to login -->
+<?php
+  if ($title == 'Access denied') {
+    header( 'Location: /user?destination=' . substr ($_SERVER['REQUEST_URI'],1 ) );
+  } ?>
+<!-- End of Access Denied Check and redirrect to login -->
+
 <!-- start page.tpl.php template -->
+
   <!-- The UT Header begins here. -->
 
     <div id="orange-bar"></div>
@@ -108,6 +121,7 @@
 	 <?php print render($page['search_bar']); ?>
 	 <!-- End Search Bar Region -->
          </div>		
+         
 <?php if($messages): ?>
   <div id="messages">
     <div class="section clearfix">
@@ -137,7 +151,45 @@
         <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
         <?php print render($page['help']); ?>
         <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
-        <?php print render($page['content']); ?>
+       
+        <p>TRACE is the University of Tennessee's open repository and gives the world access to UT research and creative works. Trace includes faculty research findings and data – as well as documents from our institutional history.</p>
+        
+                <br class="clear">
+                  <div class="half">
+                   
+                     <p> Lorem ipsum dolor sit amet, sed fierent menandri et.</p>
+                     <p> Te rationibus neglegentur per. Tamquam evertitur eam at, iuvaret percipitur no vix. Exerci detraxit te his, ne mentitum postulant vix, latine viderer ad sed.</p> 
+                     <p>Et zril tractatos maluisset sit, tibique atomorum imperdiet vel at, ut harum vocibus perpetua pro. Et reque ullum assentior mea.</p>
+                     
+                     <p> Lorem ipsum dolor sit amet, sed fierent menandri et.</p>
+                     <p> Te rationibus neglegentur per. Tamquam evertitur eam at, iuvaret percipitur no vix. Exerci detraxit te his, ne mentitum postulant vix, latine viderer ad sed.</p> 
+                     <p>Et zril tractatos maluisset sit, tibique atomorum imperdiet vel at, ut harum vocibus perpetua pro. Et reque ullum assentior mea.</p>
+                  </div>
+                  <div class="half">
+                    <div class="box-light orange tx brd-">
+                   
+				  <h4>Most Viewed</h4>
+				  <ul>
+					  <li>Lorem ipsum dolor sit amet</li>
+					  <li>Lorem ipsum dolor sit amet</li>
+					  <li>Lorem ipsum dolor sit amet</li>
+					  </ul>
+				  
+				  <h4>Recent Additions</h4>
+				  
+				   <ul>
+					  <li>Lorem ipsum dolor sit amet</li>
+					  <li>Lorem ipsum dolor sit amet</li>
+					  <li>Lorem ipsum dolor sit amet</li>
+					  </ul>
+				  
+				  
+				  <h4>Featured Paper of the Week</h4>
+				  <p>Lorem ipsum dolor sit amet<br />
+				  L. I. Psum</p>
+                    </div>
+                  </div>
+        <br class="clear">
         <?php print $feed_icons; ?>
         <!--          End Copied from Drupal system page.tpl content area line 126 to 135 -->
         
