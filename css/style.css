@@ -21,6 +21,12 @@
     text-shadow: none !important; 
     background: none !important;
     } 
+
+/* Add a right margin to space out ajoining buttons in forms and on the bottom to space out from page footer */ 
+    #edit-next, #edit-prev {
+     margin-right: 15px;
+     margin-bottom: 15px;
+     }
     
  
 #top-menu {
