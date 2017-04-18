@@ -24,6 +24,7 @@
  * }
  * function UTKdrupal_css_alter(&$css) {
  * }
+
  *
  * Modify any theme hooks variables or add your own variables, using preprocess or process functions.
  * Override any theme function. That is, replace a module's default theme function with one you write.
@@ -32,6 +33,7 @@
  * hook_form_FORM_ID_alter(), and hook_page_alter(). See api.drupal.org for more information about
  * _alter functions. Or link to this file's description https://www.drupal.org/node/1728096
 */
+
 /**
  * Pragma (HTTP/1.0) and cache-control (HTTP/1.1) Prevent the client from caching the response.
  * @method UTKdrupal_page_headers
@@ -40,6 +42,7 @@ function UTKdrupal_page_headers(){
   drupal_set_html_head('<META HTTP-EQUIV="PRAGMA" CONTENT="NO-CACHE">');
   drupal_set_html_head('<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">');
 }
+
 /**
  * Set Logo path and $head variable in page.tpl.php is updated from what it was originally set to in template_preprocess_page().
  * @method UTKdrupal_preprocess_page
@@ -61,6 +64,8 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
     $variables['theme_hook_suggestions'][] = 'page__404';
   }
 }
+
+
 /**
  * Change the text on the label element, Toggle label visibilty, define size of
  * the textfield, Set a default value for the textfield, Add extra attributes to
@@ -84,6 +89,8 @@ function UTKdrupal_form_search_block_form_alter(&$form, &$form_state, $form_id) 
     $form['#attributes']['onsubmit'] = "if(this.search_block_form.value=='Search'){ alert('Please enter a search'); return false; }";
     $form['search_block_form']['#attributes']['placeholder'] = t('Search');
 }
+
+
 /**
  * `Progress Bar on top of the Submission Form`
  * @method UTKdrupal_form_alter
@@ -91,6 +98,7 @@ function UTKdrupal_form_search_block_form_alter(&$form, &$form_state, $form_id) 
  * @param  [type]               $form_state Form State Name
  * @param  [type]               $form_id    Node ID for the form
  */
+
 /*
  * Implementation of hook_form_alter()
  */
@@ -154,6 +162,7 @@ function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
     }
   return $form;
 }
+
 /**
  * This needs to be deleted.
  * @method UTKdrupal_preprocess_islandora_large_image
@@ -165,6 +174,7 @@ function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
 function UTKdrupal_preprocess_islandora_large_image(&$variables) {
   $variables['large_image_preprocess_function_variable'] = "TESTING LARGE IMAGE PREPROCESS FUNCTION IN THEME";
 }
+
 /**
  * Adds a placeholder attribute to the search query
  * @method UTKdrupal_form_islandora_solr_simple_search_form_alter
@@ -178,6 +188,8 @@ function UTKdrupal_preprocess_islandora_large_image(&$variables) {
 function UTKdrupal_form_islandora_solr_simple_search_form_alter(&$form, &$form_state, $form_id) {
   $form['simple']['islandora_simple_search_query']['#attributes']['placeholder'] = t("Search Repository");
 }
+
+
 /**
  * From here, we can do something entirely different for this particular collection, based on PID
  * Editing or adding to the variables array here will make it available in the overridden template,
@@ -191,11 +203,13 @@ function UTKdrupal_form_islandora_solr_simple_search_form_alter(&$form, &$form_s
 function UTKdrupal_preprocess_islandora_basic_collection_wrapper__islandora_sp_basic_image_collection(&$variables) {
   $variables['template_preprocess_function_variable'] = "TESTING THE TEMPLATE PREPROCESS FUNCTION, UNIQUE TO BASIC IMAGE";
 }
+
 /**
  * Preprocess block based on delta.
  * @method UTKdrupal_preprocess_block
  * @param  [type]                     $variables [description]
  */
+
 /**
  * Implements hook_preprocess_block().
  */
@@ -208,6 +222,8 @@ function UTKdrupal_preprocess_block(&$variables) {
     );
   }
 }
+
+
 /**
  * Render a block unique to this themes layouts.
  *
@@ -229,11 +245,14 @@ function UTKdrupal_block_render($module, $delta, $as_renderable = FALSE) {
   $block_rendered = drupal_render($build);
   return $block_rendered;
 }
+
+
 /**
  * Hide fields from the user profile
  * @method UTKdrupal_preprocess_user_profile
  * @param  [type]                            $variables [description]
  */
+
  /**
   * Implements template_preprocess_page().
  */
@@ -244,6 +263,7 @@ function UTKdrupal_preprocess_user_profile(&$variables) {
   unset($variables['user_profile']['summary']['member_for']);
   $variables['user_profile']['summary']['#title']='';
 }
+
 /**
  * Implements hook_menu_local_tasks_alter().
  */
