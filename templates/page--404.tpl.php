@@ -83,34 +83,65 @@
   } ?>
 <!-- End of Access Denied Check and redirrect to login -->
 
-<!-- start page.tpl.php template -->
-<!-- The UT Header begins here. -->
-<!-- Will remove orange bar later for semantic html -->
-<div id="orange-bar"></div>
-<div id="wrapper">
-  <!-- Begin Header Region -->
-  <div id="header" class="<?php print $secondary_menu ? 'with-secondary-menu' : 'without-secondary-menu'; ?>">
-    <div id="university-logo-wrapper">
-      <a href="http://www.utk.edu"><div id="university-logo"></div></a>
+<!-- start page--404.tpl.php template -->
+  <!-- The UT Header begins here. -->
+
+    <div id="orange-bar"></div>
+  
+<div id="page" class="hfeed site row-offcanvas">
+	  <div id="main" class="site-main">
+	  <a class="sr-only sr-only-focusable" href="#content" title="Skip to content">Skip to content</a>	    
+
+ <header id="masthead-webapp" class="webapp-site-header" role="banner">
+         <h3 class="killer-logo"><a href="http://www.utk.edu">The University of Tennessee, Knoxville</a></h3>
+         <h2 class="sr-only"><a href="https://www.lib.utk.edu" rel="home">University Libraries</a></h2>
+        
+           <div id="sitetitle-webapp">
+           <h2 class="department"><a href="/" title="Tennessee Research and Creative Exchange" rel="home">TRACE: Tennessee Research and Creative Exchange</a>
+                 <small><a href="https://www.lib.utk.edu">University Libraries</a></small></h2>
+         </div>
+         <!-- 	 Begin Header Region -->
+      <?php print render($page['header']); ?>
+<!-- 	 End Header Region -->
+         
+   		</header><!-- #masthead -->
+<!-- The UT Header ends here. -->
+         
+         <div id="top-menu">
+     <!-- Begin Top Menu Region -->
+	 <?php print render($page['top_menu']); ?>
+	 <!-- End Top Menu Region -->
+         </div>
+         
+           <div id="search-bar">
+     <!-- Begin Search Bar Region -->
+	 <?php print render($page['search_bar']); ?>
+	 <!-- End Search Bar Region -->
+         </div>
+         
+         <?php if ($page['secondary_menu']): ?>
+        <div id="secondary-menu">
+          <?php print render($page['secondary_menu']); ?>
+        </div>
+      <?php endif; ?>
+		
+<?php if($messages): ?>
+  <div id="messages">
+    <div class="section clearfix">
+      <?php print $messages; ?>
     </div>
-    <a class="sr-only" href="#content" title="Skip to content">Skip to content</a>
-    <?php print render($page['header']); ?>
-    <!-- Begin site_slogan -->
-    <div id="banner-section">
-      <div class="site_slogan">
-        <?php
-          if ($site_slogan): ?>
-            <a href="<?php print $front_page; ?>" title="<?php print t('Home'); ?>" rel="home" id="logo"><h1 id="site_slogan"><?php
-          print $site_slogan; ?></h1></a>
-        <?php endif; ?>
-      </div>
-    </div>
-    <!-- End site_slogan -->
   </div>
-  <!-- End Header Region -->
-  <div id="content-wrapper">
-    <div id="content">
-      <!-- Begin Breadcrumb Region -->
+<?php endif; ?>
+
+<div id="primary" class="web-app-content-area">
+
+<div id="content" class="site-content site-content wide" role="main">
+	
+	<!-- 	 Begin Page Top Region -->
+	 <?php print render($page['page_top']); ?>
+	 <!-- 	 End Page Top Region -->
+	 
+	   <!-- Begin Breadcrumb Region -->
       <?php
         if ($breadcrumb): ?>
           <div id="breadcrumb"><?php
@@ -127,124 +158,112 @@
       </div>
       <?php endif; ?>
       <!-- End Message Region -->
-      <!-- Begin Help Region -->
-      <?php
-        if ($page['help']): ?>
-      <div id="help">
-        <?php print render($page['help']); ?>
-      </div>
-      <?php endif; ?>
-      <!-- End Help Region -->
-      <!-- Begin Highlighted Region -->
-      <?php
-        if ($page['highlighted']): ?>
-      <div id="highlighted">
-        <?php print render($page['highlighted']); ?>
-      </div>
-      <?php endif; ?>
-      <!-- End Highlighted Region -->
-      <!-- Begin Content Title Region -->
-      <?php print render($title_prefix); ?>
-      <?php
-        if ($title): ?>
-      <h1 id="page-title">
-        <?php print $title; ?>
-      </h1>
-      <?php endif; ?>
-      <?php print render($title_suffix); ?>
-      <!-- End Content Title Region -->
-      <!-- Begin Content Tab Region -->
-      <?php
-        if ($tabs): ?>
-      <div class="tabs">
-        <!-- Begin Action Links Region -->
-        <?php
-          if ($action_links): ?>
-        <ul class="tabs primary">
-          <?php print render($action_links); ?>
-        </ul>
-        <?php endif; ?>
-        <!-- Begin Action Links Region -->
-        <?php print render($tabs); ?>
-      </div>
-      <?php endif; ?>
-      <!-- Begin Content Tab Region -->
-      <!-- Begin Content Region -->
-      <div class="content-container">
-        <?php
-          print render($page['content']); ?>
-					<?php $my_static_banner = '/' . path_to_theme() . '/public/404.jpg'; ?>
-				<img style="width: 100%;" src="<?php print $my_static_banner ?>" />
-      </div>
-      <!-- End Content Region -->
-      <br class="clear">
-      <?php
-        print $feed_icons; ?>
-      <br class="clear">
-      <!-- End Content Region -->
-    </div>
-  </div>
-  <div id="leftcolumn">
-    <!-- Begin Second Sidebar Region -->
-    <?php
-      if ($page['sidebar_second']): ?>
-    <div class="left-sidebar">
-      <ul class="action-links">
-      </ul>
-      <?php
-        print render($page['sidebar_second']); ?>
-    </div>
-    <?php endif; ?>
-    <!-- End Second Sidebar Region -->
+	
+<!-- 	 Begin Help Region -->
+	 <?php print render($page['help']); ?>
+	 <!-- 	 End Help Region -->
 
-    <!-- Begin First Sidebar Region -->
-    <?php
-      if ($page['sidebar_first']): ?>
-    <div class="left-sidebar">
-      <?php
-        print render($page['sidebar_first']); ?>
+<!--          Begin Copied from Drupal system page.tpl content area line 126 to 135 -->
+<?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
+        
+        <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
+        <?php print render($page['help']); ?>
+        <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
+        
+       
+	        <a id="main-content"></a>
+	        <?php $my_static_banner = '/' . path_to_theme() . '/smokey-404.jpg'; ?>
+				<img class="alignright" src="<?php print $my_static_banner ?>" />
+        <?php print render($title_prefix); ?>
+        <?php if ($title): ?><h1 class="title" id="page-title"><?php print $title; ?></h1><?php endif; ?>
+        <?php print render($title_suffix); ?>
+         <?php print render($page['content']); ?>
+        
+        <?php print $feed_icons; ?>
+        
+        <!--          Begin Copied from Drupal system page.tpl content area line 138 to 148 -->
+              <?php if ($page['sidebar_first']): ?>
+        <div id="sidebar-first" class="column sidebar"><div class="section">
+          <?php print render($page['sidebar_first']); ?>
+        </div></div> <!-- /.section, /#sidebar-first -->
+      <?php endif; ?>
+
+      <?php if ($page['sidebar_second']): ?>
+        <div id="sidebar-second" class="column sidebar"><div class="section">
+          <?php print render($page['sidebar_second']); ?>
+        </div></div> <!-- /.section, /#sidebar-second -->
+      <?php endif; ?>
+    <!--          End Copied from Drupal system page.tpl content area line 138 to 148 -->
+</div>
+
+
+	<!-- 	 Begin Page Bottom Region -->
+	 <?php print render($page['page_bottom']); ?>
+	 <!-- 	 End Page Bottom Region -->
+	 
+	 <!-- 	 Begin Footer Region -->
+	 <?php print render($page['footer']); ?>
+	 <!-- 	 End Footer Region -->
+
+</div>
+
+      
+<!-- The UT Footer starts here. -->
+
+<!--  begin footer include -->
+<!--  begin #colophon -->
+    <footer id="colophon" class="site-footer" role="contentinfo">
+   
+  <div id="siteinfo">
+		<div id="meta-info">
+      <p>
+        <strong class="sitetile"><a href="https://www.lib.utk.edu">University Libraries</a></strong><br>
+</p>
+		</div>
+    <div id="meta-contact">
+       <p>1015 Volunteer Boulevard <br />
+Knoxville, TN 37996-1000<br /> 
+Phone: (865) 974-4351<br />
+<a href="https://www.lib.utk.edu/contact">Contact Us</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.lib.utk.edu/contact/website-feedback">Website Feedback</a><br />
+<a href="https://www.facebook.com/utklibraries"><img src="https://www.lib.utk.edu/template/2016/images-utlibraries/social-media/facebook-16.png" title="UT Libraries on Facebook" alt="UT Libraries on Facebook" width="16" height="16" /></a>
+          &nbsp;
+          <a href="https://foursquare.com/v/john-c-hodges-library/4b16792cf964a52077b923e3"><img src="https://www.lib.utk.edu/template/2016/images-utlibraries/social-media/foursquare-16.png" title="UT Libraries on Foursquare" alt="UT Libraries on Foursquare" width="16" height="16" /></a>
+                &nbsp;
+                <a href="https://instagram.com/utklibraries/"><img src="https://www.lib.utk.edu/template/2016/images-utlibraries/social-media/instagram-16.png" title="UT Libraries on Instagram" alt="UT Libraries on Instagram" width="16" height="16" /></a>
+                        &nbsp;
+                          <a href="https://pinterest.com/utklibraries"><img src="https://www.lib.utk.edu/template/2016/images-utlibraries/social-media/pinterest-16.png" title="UT Libraries on Pinterest" alt="UT Libraries on Pinterest" width="16" height="16" /></a>
+        &nbsp;
+        <a href="https://twitter.com/utklibraries"><img src="https://www.lib.utk.edu/template/2016/images-utlibraries/social-media/twitter-16.png" title="UT Libraries on Twitter" alt="UT Libraries on Twitter" width="16" height="16" /></a>
+        &nbsp;
+        <a href="https://www.youtube.com/user/utklibraries"><img src="https://www.lib.utk.edu/template/2016/images-utlibraries/social-media/youtube-16.png" title="UT Libraries on YouTube" alt="UT Libraries on YouTube" width="16" height="16" /></a>
+		        &nbsp;
+		        <a href="https://itunes.apple.com/us/app/tennessee/id548076679?mt=8"><img src="https://www.lib.utk.edu/template/2016/images-utlibraries/social-media/ut-16.png" title="University of Tennessee iOS App" alt="University of Tennessee iOS App" width="16" height="16" /></a></p>
     </div>
-    <?php endif; ?>
-    <!-- End First Sidebar Region -->
-    <p style="clear:both;"></p>
-  </div>
-  <!-- Begin Footer Region -->
-  <?php
-    if ($page['footer']): ?>
-  <div id="footer-drupal">
-    <?php
-      print render($page['footer']); ?>
-  </div>
-  <?php endif; ?>
-  <!-- End Footer Region -->
-  <div id="footer">
-    <div class='footer-row'>
-      <div class='footer-block'>
-        <h3><a href="https://www.lib.utk.edu">University Libraries</a></h3>
+
+   </div><!-- #siteinfo -->
+
+
+
+
+        <!-- Here Begins The Campus Footer. Do not touch below this line -->
+
+ <div id="campus-footer">
+   <div id="utk">
+     <div id="bobi">
+        <h2><a href="http://www.utk.edu" class="logo icon-bobi-main">The University of Tennessee</a></h2>
       </div>
-      <div class='footer-block'>
-        <p>1015 Volunteer Boulevard<br />
-          Knoxville, TN 37996-1000<br />
-          Phone: (865) 974-4351
-        </p>
+      <div id="address">
+          <p><strong>The University of Tennessee, Knoxville</strong><br>Knoxville, Tennessee 37996<br> 865-974-1000</p>
       </div>
     </div>
-    <div class='footer-row footer-bottom-row'>
-      <div class='footer-block'>
-        <div id="big-orange-logo-wrapper">
-          <a href="http://www.utk.edu/"><div id="big-orange-logo"></div></a>
-        </div>
-        <p><strong>The University of Tennessee, Knoxville</strong><br />
-          Knoxville, Tennessee 37996<br />
-          865-974-1000
-        </p>
-      </div>
-      <div class='footer-block'>
-        <form method="post" action="http://google.tennessee.edu/search">
-          <div class="campus-search-form">
-            <input type="text" class="campus-search-form-input" name="q"  maxlength="256" onfocus="if(this.value == 'Search utk.edu') { this.value = ''; }" value="Search utk.edu">
+
+    <div id="toolkit">
+      <form method="post" action="http://google.tennessee.edu/search">
+          <div class="form-group">
+             <input type="text" class="form-control" name="q"  maxlength="256" onfocus="if(this.value == 'Search utk.edu') { this.value = ''; }" value="Search utk.edu" title="Search UT Knoxville">
           </div>
-          <input type="submit" name="btnG" id="go_search"  value="Go">
+          <input type="submit" name="btnG" class="btn btn-orange"  value="Go">
+      
           <input type="hidden" name="output" value="xml_no_dtd">
           <input type="hidden" name="oe" value="UTF-8">
           <input type="hidden" name="ie" value="UTF-8">
@@ -252,40 +271,38 @@
           <input type="hidden" name="site" value="Knoxville">
           <input type="hidden" name="client" value="utk_translate_frontend">
           <input type="hidden" name="entqr" value="3">
+          <!--    <input type="hidden" name="sitesearch" value="utk.edu" /> -->
           <input type="hidden" name="qtype" class="searchtext" value="utk" title="search type">
           <input type="hidden" name="proxystylesheet" value="utk_translate_frontend">
-        </form>
-        <ul class="university-links">
-          <li><a href="http://www.utk.edu/events/">Events</a></li>
-          <li><a href="http://www.utk.edu/maps/">Map</a></li>
-        </ul>
-        <ul class="university-links">
-          <li><a href="http://www.utk.edu/alpha/">A-Z </a></li>
-          <li><a href="http://directory.utk.edu">Directory</a></li>
-        </ul>
-        <ul class="university-links">
-          <li><a href="http://www.utk.edu/admissions/">Apply</a></li>
-          <li><a href="http://giveto.utk.edu">Give to UT</a></li>
-        </ul>
-      </div>
+      </form>
+      <br>
+      <nav  role="navigation">
+          <ul>
+            <li><a href="http://www.utk.edu/events/">Events</a></li>
+            <li><a href="http://www.utk.edu/maps/">Map</a></li>
+          </ul>  
+          <ul>
+            <li><a href="http://www.utk.edu/alpha/">A-Z </a></li>
+            <li><a href="http://directory.utk.edu">Directory</a></li>
+          </ul>  
+          <ul>
+            <li><a href="http://www.utk.edu/admissions/">Apply</a></li>
+            
+            <li>
+            <a href="http://giveto.utk.edu">Give to UT</a>
+            </li>
+                      </ul>  
+      </nav>
     </div>
-    <div id="system-indicia">
-      <p class="bottom-footer-text">The flagship campus of <a href="http://tennessee.edu">the University of Tennessee System</a> and partner in <a href="http://www.tntransferpathway.org/">the Tennessee Transfer Pathway</a>.</p>
-    </div>
-    <!-- End Footer Region -->
-    <br class="clear">
-  </div>
-</div>
-<script>
-  UserVoice=window.UserVoice||[];(function(){var uv=document.createElement('script');uv.type='text/javascript';uv.async=true;uv.src='//widget.uservoice.com/FD76oSQaYThdUhkScrcsQ.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(uv,s)})();
-  UserVoice.push(['set', {
-    accent_color: '#e2753a',
-    trigger_color: 'white',
-    trigger_background_color: '#e2753a'
-  }]);
+</div>  
+</footer><!--  end #colophon -->
+<!--  end footer include -->
 
-  UserVoice.push(['identify', {
-  }]);
-  UserVoice.push(['addTrigger', {mode: 'contact', trigger_position: 'bottom-right' }]);
-  UserVoice.push(['autoprompt', {}]);
-</script>
+  <div id="system-indicia">
+    <p>The flagship campus of <a href="http://tennessee.edu">the University of Tennessee System</a> and partner in <a href="http://www.tntransferpathway.org/">the Tennessee Transfer Pathway</a>.</p>
+  </div>
+		
+<!-- The UT Footer ends here. -->
+    
+</div> <!-- /#page>
+ <!-- end page--404.tpl.php template -->     
