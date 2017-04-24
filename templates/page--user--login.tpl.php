@@ -27,7 +27,7 @@
     <?php endif; ?>
 
     <div class="back_link">
-      <a href="<?php print url('<front>'); ?>">&larr; <?php print t('Back'); ?> <?php print $site_name; ?></a>
+      <a href="<?php print url('<front>'); ?>">&larr; <?php print t('Back to'); ?> <?php print $site_name; ?></a>
     </div>
   </div>
 </div>
