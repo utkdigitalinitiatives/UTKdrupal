@@ -114,14 +114,6 @@
         </div>
       <?php endif; ?>
 		
-<?php if($messages): ?>
-  <div id="messages">
-    <div class="section clearfix">
-      <?php print $messages; ?>
-    </div>
-  </div>
-<?php endif; ?>
-
 <div id="primary" class="web-app-content-area">
 
 <div id="content" class="site-content site-content wide" role="main">
