@@ -8,7 +8,6 @@
   --leconte: #8D2048;
   --fountain: #2197A9;
   --limestone: #F0EDE3;
-  --brandslimestone: #F6F6F6;
   --smokey: #58595B;
   --rock: #A7A9AC;
 }
@@ -27,6 +26,29 @@
      margin-right: 15px;
      margin-bottom: 15px;
      }
+     
+/* Adjusts margins, padding, border radius, and colors of Islandora search pagination */
+
+.pager li>a, .pager li>span  {
+	display: inline-block;
+    padding: 5px 14px;
+    margin: 5px 0px;
+    background-color: #fff;
+    border: 1px solid #a7a9ac;
+  	border-radius:8px; 
+	-moz-border-radius:8px; 
+	-webkit-border-radius:8px; 
+}
+
+.pager li.pager-current {
+	display: inline-block;
+    padding: 5px 14px;
+	background-color: var(--limestone);
+	border: 1px solid #a7a9ac;
+	border-radius:8px; 
+	-moz-border-radius:8px; 
+	-webkit-border-radius:8px;
+}
     
  
 #top-menu {
