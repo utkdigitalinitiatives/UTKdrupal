@@ -72,6 +72,13 @@
  * @ingroup themeable
  */
 ?>
+<!-- Begin of Access Denied Check and redirrect to login -->
+<?php
+  if ($title == 'Access denied') {
+    header( 'Location: /user?destination=' . substr ($_SERVER['REQUEST_URI'],1 ) );
+  } ?>
+<!-- End of Access Denied Check and redirrect to login -->
+
 <!-- start page.tpl.php template -->
   <!-- The UT Header begins here. -->
 

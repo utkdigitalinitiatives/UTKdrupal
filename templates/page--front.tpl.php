@@ -84,9 +84,8 @@
   } ?>
 <!-- End of Access Denied Check and redirrect to login -->
 
-<!-- start page.tpl.php template -->
-
-  <!-- The UT Header begins here. -->
+<!-- start page--front.tpl.php template -->
+ <!-- The UT Header begins here. -->
 
     <div id="orange-bar"></div>
   
@@ -102,14 +101,13 @@
            <h2 class="department"><a href="/" title="Tennessee Research and Creative Exchange" rel="home">TRACE: Tennessee Research and Creative Exchange</a>
                  <small><a href="https://www.lib.utk.edu">University Libraries</a></small></h2>
          </div>
-
-
 <!-- 	 Begin Header Region -->
       <?php print render($page['header']); ?>
 <!-- 	 End Header Region -->
          
    		</header><!-- #masthead -->
 <!-- The UT Header ends here. -->
+         
          <div id="top-menu">
      <!-- Begin Top Menu Region -->
 	 <?php print render($page['top_menu']); ?>
@@ -120,16 +118,14 @@
      <!-- Begin Search Bar Region -->
 	 <?php print render($page['search_bar']); ?>
 	 <!-- End Search Bar Region -->
-         </div>		
+         </div>
          
-<?php if($messages): ?>
-  <div id="messages">
-    <div class="section clearfix">
-      <?php print $messages; ?>
-    </div>
-  </div>
-<?php endif; ?>
-
+         <?php if ($page['secondary_menu']): ?>
+        <div id="secondary-menu">
+          <?php print render($page['secondary_menu']); ?>
+        </div>
+      <?php endif; ?>
+		
 <div id="primary" class="web-app-content-area">
 
 <div id="content" class="site-content site-content wide" role="main">
@@ -137,6 +133,24 @@
 	<!-- 	 Begin Page Top Region -->
 	 <?php print render($page['page_top']); ?>
 	 <!-- 	 End Page Top Region -->
+	 
+	   <!-- Begin Breadcrumb Region -->
+      <?php
+        if ($breadcrumb): ?>
+          <div id="breadcrumb"><?php
+        print $breadcrumb; ?></div>
+      <?php endif; ?>
+      <!-- End Breadcrumb Region -->
+      <!-- Begin Message Region -->
+      <?php
+        if ($messages): ?>
+          <div id="message">
+          <div class="section clearfix">
+          <?php print $messages; ?>
+        </div>
+      </div>
+      <?php endif; ?>
+      <!-- End Message Region -->
 	
 <!-- 	 Begin Help Region -->
 	 <?php print render($page['help']); ?>

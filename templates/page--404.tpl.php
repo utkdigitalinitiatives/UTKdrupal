@@ -84,7 +84,7 @@
 <!-- End of Access Denied Check and redirrect to login -->
 
 <!-- start page--404.tpl.php template -->
-  <!-- The UT Header begins here. -->
+ <!-- The UT Header begins here. -->
 
     <div id="orange-bar"></div>
   
@@ -100,7 +100,7 @@
            <h2 class="department"><a href="/" title="Tennessee Research and Creative Exchange" rel="home">TRACE: Tennessee Research and Creative Exchange</a>
                  <small><a href="https://www.lib.utk.edu">University Libraries</a></small></h2>
          </div>
-         <!-- 	 Begin Header Region -->
+<!-- 	 Begin Header Region -->
       <?php print render($page['header']); ?>
 <!-- 	 End Header Region -->
          
@@ -125,14 +125,6 @@
         </div>
       <?php endif; ?>
 		
-<?php if($messages): ?>
-  <div id="messages">
-    <div class="section clearfix">
-      <?php print $messages; ?>
-    </div>
-  </div>
-<?php endif; ?>
-
 <div id="primary" class="web-app-content-area">
 
 <div id="content" class="site-content site-content wide" role="main">
