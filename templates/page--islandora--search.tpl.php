@@ -80,7 +80,7 @@
 <!-- End of Access Denied Check and redirrect to login -->
 
 <!-- start page--islandora--search.tpl.php template -->
-  <!-- The UT Header begins here. -->
+ <!-- The UT Header begins here. -->
 
     <div id="orange-bar"></div>
   
@@ -96,7 +96,7 @@
            <h2 class="department"><a href="/" title="Tennessee Research and Creative Exchange" rel="home">TRACE: Tennessee Research and Creative Exchange</a>
                  <small><a href="https://www.lib.utk.edu">University Libraries</a></small></h2>
          </div>
-         <!-- 	 Begin Header Region -->
+<!-- 	 Begin Header Region -->
       <?php print render($page['header']); ?>
 <!-- 	 End Header Region -->
          
@@ -121,14 +121,6 @@
         </div>
       <?php endif; ?>
 		
-<?php if($messages): ?>
-  <div id="messages">
-    <div class="section clearfix">
-      <?php print $messages; ?>
-    </div>
-  </div>
-<?php endif; ?>
-
 <div id="primary" class="web-app-content-area">
 
 <div id="content" class="site-content site-content wide" role="main">
@@ -136,12 +128,31 @@
 	<!-- 	 Begin Page Top Region -->
 	 <?php print render($page['page_top']); ?>
 	 <!-- 	 End Page Top Region -->
+	 
+	   <!-- Begin Breadcrumb Region -->
+      <?php
+        if ($breadcrumb): ?>
+          <div id="breadcrumb"><?php
+        print $breadcrumb; ?></div>
+      <?php endif; ?>
+      <!-- End Breadcrumb Region -->
+      <!-- Begin Message Region -->
+      <?php
+        if ($messages): ?>
+          <div id="message">
+          <div class="section clearfix">
+          <?php print $messages; ?>
+        </div>
+      </div>
+      <?php endif; ?>
+      <!-- End Message Region -->
 	
 <!-- 	 Begin Help Region -->
 	 <?php print render($page['help']); ?>
 	 <!-- 	 End Help Region -->
 
 <!--          Begin Copied from Drupal system page.tpl content area line 126 to 135 -->
+
 <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
         <a id="main-content"></a>
         <?php print render($title_prefix); ?>
