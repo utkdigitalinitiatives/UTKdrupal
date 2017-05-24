@@ -38,10 +38,10 @@
 ?>
 <hr>
 <div class="profile"<?php print $attributes; ?>>
-	<?php
-		if ($user_profile): ?>
-			<?php print render($user_profile); ?>
-	<?php endif; ?>
+<?php
+  if ($user_profile): ?>
+    <?php print render($user_profile); ?>
+  <?php endif; ?>
 <?php
 $my_login_user_name = $user->name;
 $my_sparql_submissions = <<<SPARQL
@@ -62,7 +62,13 @@ foreach ($ri_search as $resultItem) {
 $islandora_user_submission_list .= "</ul>\n";
 ?>
   <h1>List of my submissions</h1>
-  <div><p>Currently <span style="font-weight:bold;"><?php print $needs_approval ?></span> <?php if ($needs_approval === 1)  { print "is";} else {print "are";} ?> waiting for approval</p>
+  <div>
+    <p>Currently <span style="font-weight:bold;">
+      <?php print $needs_approval ?></span>
+      <?php if ($needs_approval === 1) {
+        print "is";
+      } else {print "are";
+      } ?> waiting for approval</p>
   <?php print $islandora_user_submission_list ?>
   <br/><br/>
   </div>
