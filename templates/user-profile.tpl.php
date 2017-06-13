@@ -61,7 +61,7 @@ foreach ($ri_search as $resultItem) {
 }
 $islandora_user_submission_list .= "</ul>\n";
 ?>
-  <h1>List of my submissions</h1>
+  <h1>List of My Pending Submissions</h1>
   <div>
     <p>Currently <span style="font-weight:bold;">
       <?php print $needs_approval ?></span>
@@ -74,7 +74,7 @@ $islandora_user_submission_list .= "</ul>\n";
   </div>
   <hr>
   <div id="user-profile">
-    <h2>Deposit Your Work</h2>
+    <h2>Submit Your Work</h2>
     <div style="line-height: 2.0; font-size: larger;">
     <ul style="list-style: none;">
         <li style="padding-bottom:10px;"><a href="/islandora/object/utk.ir:td/manage/overview/ingest">Submit Graduate Thesis or Dissertation</a></li>
