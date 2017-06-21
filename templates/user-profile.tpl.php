@@ -45,23 +45,41 @@
 <?php
 $my_login_user_name = $user->name;
 $my_sparql_submissions = <<<SPARQL
-SELECT DISTINCT ?pid  ?label
+SELECT DISTINCT ?pid ?label ?aproval
 WHERE { ?pid <info:fedora/fedora-system:def/model#label> ?label .
         ?pid <info:fedora/fedora-system:def/model#ownerId> '$my_login_user_name' .
-        ?pid <fedora-model:state> <fedora-model:Inactive> .
+        ?pid <fedora-model:state> ?aproval .
   }
 SPARQL;
+
+$query = db_query("SELECT pid, state FROM {trace_workflow_pids}");
+$records = $query->fetchAll();
+$not_aproved_yet = array();
+foreach ($records as $record) {
+  if($record->state == 'a') {
+    array_push($not_aproved_yet, $record->pid);
+  }
+}
+
 $tuque = islandora_get_tuque_connection();
 $ri_search = $tuque->repository->ri->sparqlQuery($my_sparql_submissions);
-$islandora_user_submission_list = "<ul class='islandora_user_submission_list'>\n";
+$islandora_user_submission_list = "<table class='islandora_user_submission_list'><tr><th>Title</th><th>Aproval Status</th><th>Availability Status</th></tr>";
 $needs_approval = 0;
 foreach ($ri_search as $resultItem) {
-  $islandora_user_submission_list .= "<li><a href='/islandora/object/" . $resultItem['pid']['value'] . "'>" . $resultItem['label']['value'] . "</a></li>";
-  ++$needs_approval;
+  $publish_status = "<td>Not yet published</td>";
+  $approval_status = "<td>Not Approved yet</td>";
+  if ($resultItem['aproval']['value'] == 'fedora-system:def/model#Active'){
+    $publish_status = "<td>Published</td>";
+  }
+  if (in_array($resultItem['pid']['value'], $not_aproved_yet)) {
+    $approval_status = "<td>Approved!</td>";
+    ++$needs_approval;
+  }
+  $islandora_user_submission_list .= "<tr><td><a href='/islandora/object/" . $resultItem['pid']['value'] . "'>" . $resultItem['label']['value'] . "</a></td>" . $approval_status . $publish_status . "</tr>";
 }
-$islandora_user_submission_list .= "</ul>\n";
+$islandora_user_submission_list .= "</table>\n";
 ?>
-  <h1>List of My Pending Submissions</h1>
+  <h1>List of My Submissions</h1>
   <div>
     <p>Currently <span style="font-weight:bold;">
       <?php print $needs_approval ?></span>
