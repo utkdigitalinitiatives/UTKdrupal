@@ -294,7 +294,7 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
             $data['tabs'][0]['output'][$key]['#link']['title'] = t('Manage Files');
             $data['tabs'][0]['output'][$key]['#link']['href'] = $router_item['href'] . '/manage/datastreams';
           }
-          if ($data['actions']['output'][0]['#link']['title'] == t('Add a Supplemental File')){
+          if (($root_path == 'islandora/object/%/manage/datastreams') && $data['actions']['output'][0]['#link']['title'] == t('Add a Supplemental File')){
             $data['actions']['output'][0]['#link']['title'] = t('Add Additional files');
           }
         }
