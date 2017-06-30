@@ -17,6 +17,97 @@
  * @see template_preprocess_islandora_solr_metadata_display()
  * @see template_process_islandora_solr_metadata_display()
  */
+// find if user has thesis_manager role
+if (in_array('thesis_manager_role', $user->roles)) {
+  $thesis_manager_role = TRUE;
+  // pull in object info
+  $islandora_object=$variables['islandora_object'];
+  // get pid
+  $pid = $islandora_object->id;
+  // get state
+  $state = $islandora_object->state;
+  if ($state == 'I') {
+    // get owner
+    $ownerid = $islandora_object->owner;
+    // get owner email
+    $ownermail = db_select('users', 'q')
+        ->fields('q', array('mail'))
+        ->condition('name', "$ownerid")
+        ->execute()
+        ->fetchField();
+    // also get thesis_manager email
+    $tm_mail = $user->mail;
+    //
+    $prevmess = FALSE;
+    $messages = '';
+    // detect whether MESSAGES datastream exists
+    if (isset($islandora_object['MESSAGES'])) {
+      $prevmess = TRUE;
+      $messages = $islandora_object->getDatastream('MESSAGES')->content;
+    }
+    $test="this is a test";
+    //$islandora_object['MESSAGES']->setContentFromString("$test");
+    //print t("tm role = $thesis_manager_role <br />");
+    //print t("PID = $pid <br />");
+    //print t("state = $state <br />");
+    //print t("owner = $ownerid <br />");
+    //print t("ownermail = $ownermail <br />");
+    $submit = '';
+    $newmess = '';
+    if (isset($_POST['submit'])) $submit = $_POST['submit'];
+    if (isset($_POST['bodytext'])) $bodytext = $_POST['bodytext'];
+    if ($submit == "Send Message") { // process message and ds
+      if ($prevmess) {
+        $newmess = $messages;
+      } 
+      $newmess.= "-------------------------------------------------";
+      $newmess.= "FROM: Thesis Manager\n";
+      $newmess.= "TO: $ownermail  CC: $tm_mail\n";
+      $newmess.= "SUBJECT: Message from the Thesis Manager\n";
+      $newmess.= "$bodytext \n";
+      // add new MESSAGES ds
+      //$islandora_object['MESSAGES']->setContentFromString("$newmess");
+      //send email
+      $subject = "Message from the Thesis Manager";
+      $header = "From: ".$tm_mail. ">\r\n"; //optional headerfields
+      //$to = $ownermail." ".$tm_mail. ">\r\n";
+      $to = "pc37@utk.edu\r\n";
+
+      if (mail($to, $subject, $bodytext, $header))  {
+        drupal_set_message('The message was sent.');
+      } else {
+        drupal_set_message('There was an error sending the message.');
+      }
+
+      // clear and reload
+      $bodytext=$submit = '';
+      header("Location: /islandora/object/$pid");
+      exit();
+    } else { // create the form
+      // option to use standard text
+      $now = date("Y-m-d H:i:s");
+      $starttext = "$now \n Your message";
+      //$starttext = 
+      $prevmess = FALSE;
+      print t("<div>");
+      if ($prevmess) {
+        print l(t('View the Previous Messages'), "islandora/object/$pid/datastream/MESSAGES/view");
+      }else{
+        print t('No Previous Messages');
+      }
+      print t("</div>");
+      print "<div class=\"tm_mail\">\n";
+      print "<b>Email the owner: $ownermail     CC: $tm_mail </b><br />";
+      print "<b>Subject: Message from the Thesis Manager</b> <br />";
+      print "<form action=\"#\" method=\"post\">\n";
+      print "<textarea name=\"bodytext\" rows=\"6\" cols=\"60\">$starttext</textarea>\n";
+      print "<input type=\"submit\" name=\"submit\" value=\"Send Message\" />\n";
+      print "</form>\n";
+      print "</div>\n";
+    }// end else
+  } //end if state
+} //end if thesis_manager_role
+//var_dump(get_defined_vars());
 ?>
 <?php if ($found):
   if (!(empty($solr_fields) && variable_get('islandora_solr_metadata_omit_empty_values', FALSE))):?>
@@ -48,3 +139,4 @@
     <?php endif; ?>
   </fieldset>
 <?php endif; ?>
+
