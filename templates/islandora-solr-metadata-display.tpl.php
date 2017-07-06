@@ -77,15 +77,13 @@ if (in_array('thesis_manager_role', $user->roles)) {
       //send email
       $subject = "Message from the Thesis Manager";
       $header = "From: ".$tm_mail. ">\r\n"; //optional headerfields
-      //$to = $ownermail." ".$tm_mail. ">\r\n";
-      $to = " \r\n";
-
+      $to = $ownermail." ".$tm_mail. ">\r\n";
+      //$to = " \r\n";
       if (mail($to, $subject, $bodytext, $header))  {
         drupal_set_message('The message was sent.');
       } else {
         drupal_set_message('There was an error sending the message.');
       }
-
       // clear and reload
       $bodytext=$submit = '';
       header("Location: /islandora/object/$pid");
@@ -102,7 +100,7 @@ if (in_array('thesis_manager_role', $user->roles)) {
         print t('No Previous Messages');
       }
       print t("</div>");
-      print "<div class=\"tm_mail\">\n";
+      print "<div id=\"tm_mail\">\n";
       print "<b>Email the owner: $ownermail     CC: $tm_mail </b><br />";
       print "<b>Subject: Message from the Thesis Manager</b> <br />";
       print "<form action=\"#\" method=\"post\">\n";
