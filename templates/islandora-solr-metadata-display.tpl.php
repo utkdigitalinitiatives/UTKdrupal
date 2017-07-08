@@ -45,8 +45,6 @@ if (in_array('thesis_manager_role', $user->roles)) {
       $prevmess = TRUE;
       $messages = $islandora_object->getDatastream('MESSAGES')->content;
     }
-    $test="this is a test";
-    //$islandora_object['MESSAGES']->setContentFromString("$test");
     //print t("tm role = $thesis_manager_role <br />");
     //print t("PID = $pid <br />");
     //print t("state = $state <br />");
@@ -66,29 +64,35 @@ if (in_array('thesis_manager_role', $user->roles)) {
       $newmess.= "SUBJECT: Message from the Thesis Manager\n";
       $newmess.= "$bodytext \n";
       // add new MESSAGES ds
-      //$islandora_object['MESSAGES']->setContentFromString("$newmess");
+      if (!$prevmess) {
+        $ds = $islandora_object->constructDatastream('MESSAGES', 'M');
+        $ds->label = "messages.txt";
+        $ds->mimetype = "text/plain";
+        $ds->setContentFromString($newmess);
+        $islandora_object->ingestDatastream($ds);
+      } else {
+        $islandora_object['MESSAGES']->setContentFromString("$newmess");
+      }
       //send email
       $subject = "Message from the Thesis Manager";
       $header = "From: ".$tm_mail. ">\r\n"; //optional headerfields
-      //$to = $ownermail." ".$tm_mail. ">\r\n";
-      $to = "pc37@utk.edu\r\n";
-
+      $to = $ownermail." ".$tm_mail. ">\r\n";
+      //$to = "\r\n";
       if (mail($to, $subject, $bodytext, $header))  {
         drupal_set_message('The message was sent.');
       } else {
         drupal_set_message('There was an error sending the message.');
       }
-
       // clear and reload
       $bodytext=$submit = '';
       header("Location: /islandora/object/$pid");
       exit();
     } else { // create the form
-      // option to use standard text
       $now = date("Y-m-d H:i:s");
-      $starttext = "$now \n Your message";
+      $starttext = "$now \n ";
+      // option to use standard text
+      $bodytext.= "This is the standard text.\n";
       //$starttext = 
-      $prevmess = FALSE;
       print t("<div>");
       if ($prevmess) {
         print l(t('View the Previous Messages'), "islandora/object/$pid/datastream/MESSAGES/view");
@@ -96,7 +100,7 @@ if (in_array('thesis_manager_role', $user->roles)) {
         print t('No Previous Messages');
       }
       print t("</div>");
-      print "<div class=\"tm_mail\">\n";
+      print "<div id=\"tm_mail\">\n";
       print "<b>Email the owner: $ownermail     CC: $tm_mail </b><br />";
       print "<b>Subject: Message from the Thesis Manager</b> <br />";
       print "<form action=\"#\" method=\"post\">\n";
@@ -107,7 +111,6 @@ if (in_array('thesis_manager_role', $user->roles)) {
     }// end else
   } //end if state
 } //end if thesis_manager_role
-//var_dump(get_defined_vars());
 ?>
 <?php if ($found):
   if (!(empty($solr_fields) && variable_get('islandora_solr_metadata_omit_empty_values', FALSE))):?>
