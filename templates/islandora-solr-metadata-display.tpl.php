@@ -91,7 +91,7 @@ if (in_array('thesis_manager_role', $user->roles)) {
       $now = date("Y-m-d H:i:s");
       $starttext = "$now \n ";
       // option to use standard text
-      $bodytext.= "This is the standard text.\n";
+      $starttext.= "This is the standard text.\n";
       //$starttext = 
       print t("<div>");
       if ($prevmess) {
