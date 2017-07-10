@@ -81,8 +81,8 @@ if (in_array('thesis_manager_role', $user->roles)) {
       }
       //send email
       $subject = "Message from the Thesis Manager";
-      $header = "From: ".$tm_mail. ">\r\n"; //optional headerfields
-      $to = $ownermail." ".$tm_mail. ">\r\n";
+      $header = "From: ".$tm_mail. "\r\n"; //optional headerfields
+      $to = $ownermail." ".$tm_mail. "\r\n";
       //$to = "\r\n";
       if (mail($to, $subject, $bodytext, $header))  {
         drupal_set_message('The message was sent.');
