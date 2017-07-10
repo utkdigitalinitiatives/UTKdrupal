@@ -26,7 +26,13 @@ if (in_array('thesis_manager_role', $user->roles)) {
   $pid = $islandora_object->id;
   // get state
   $state = $islandora_object->state;
-  if ($state == 'I') {
+  // get workflow state
+  $wfstate = db_select('trace_workflow_pids', 'q')
+     ->fields('q', array('state'))
+     ->condition('pid', "$pid")
+     ->execute()
+     ->fetchField();
+  if (($state == 'I')&&($wfstate == 's')) {
     // get owner
     $ownerid = $islandora_object->owner;
     // get owner email
