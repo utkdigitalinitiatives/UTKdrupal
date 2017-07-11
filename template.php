@@ -319,6 +319,7 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
       }
     }
   }
+
   // Check if the user has the 'admin' role.
   global $user;
   if (in_array('administrator', $user->roles)) {
