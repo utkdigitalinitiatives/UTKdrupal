@@ -63,7 +63,7 @@ if (in_array('thesis_manager_role', $user->roles)) {
     if ($submit == "Send Message") { // process message and ds
       if ($prevmess) {
         $newmess = $messages;
-      } 
+      }
       $newmess.= "-------------------------------------------------";
       $newmess.= "FROM: Thesis Manager\n";
       $newmess.= "TO: $ownermail  CC: $tm_mail\n";
@@ -98,7 +98,7 @@ if (in_array('thesis_manager_role', $user->roles)) {
       $starttext = "$now \n ";
       // option to use standard text
       $starttext.= "This is the standard text.\n";
-      //$starttext = 
+      //$starttext =
       print t("<div>");
       if ($prevmess) {
         print l(t('View the Previous Messages'), "islandora/object/$pid/datastream/MESSAGES/view");
@@ -107,16 +107,26 @@ if (in_array('thesis_manager_role', $user->roles)) {
       }
       print t("</div>");
       print "<div id=\"tm_mail\">\n";
-      print "<b>Email the owner: $ownermail     CC: $tm_mail </b><br />";
+      print "<b>Email the owner: $ownermail CC: $tm_mail </b><br/>";
       print "<b>Subject: Message from the Thesis Manager</b> <br />";
       print "<form action=\"#\" method=\"post\">\n";
-      print "<textarea name=\"bodytext\" rows=\"6\" cols=\"60\">$starttext</textarea>\n";
-      print "<input type=\"submit\" name=\"submit\" value=\"Send Message\" />\n";
+      print '<label for="template_email">Templates for email</label>';
+      print '<select id="template_email" onchange="myFunction(this.value,\''.$ownerid.'\',\''.$tm_mail.'\')">';
+			print '  <option value="nothing">Select Email Template</option>';
+      print '  <option value="more_edits_required">Additional Edits Needed</option>';
+      print '  <option value="accepted_student_submission">Notify it has been Accepted</option>';
+      print '</select>';
+      print '<br/>';
+      print "<textarea id=\"email_textarea\"name=\"bodytext\" rows=\"10\" cols=\"100\">$starttext</textarea>\n";
+      print "<br/><input type=\"submit\" name=\"submit\" value=\"Send Message\" />\n";
       print "</form>\n";
       print "</div>\n";
     }// end else
   } //end if state
 } //end if thesis_manager_role
+// drupal_add_js(array('UTKdrupal' => array('testvar' => $testVariable)), array('type' => 'setting'));
+
+drupal_add_js(drupal_get_path('theme', 'UTKdrupal') .'/js/email_etd_feedback.js','file');
 ?>
 <?php if ($found):
   if (!(empty($solr_fields) && variable_get('islandora_solr_metadata_omit_empty_values', FALSE))):?>
@@ -148,4 +158,3 @@ if (in_array('thesis_manager_role', $user->roles)) {
     <?php endif; ?>
   </fieldset>
 <?php endif; ?>
-
