@@ -56,12 +56,17 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
     drupal_set_html_head('');
     $variables['head'] = drupal_get_html_head();
   } */
-	$header = drupal_get_http_header("status");
+  $header = drupal_get_http_header("status");
   if($header == "404 Not Found") {
     $variables['theme_hook_suggestions'][] = 'page__404';
   }
   if($header == "403 Forbidden") {
     $variables['theme_hook_suggestions'][] = 'page__404';
+  }
+  if (strpos(current_path(), 'utk.ir.td:') !== false) {
+    if ( isset($variables['page']['content']['system_main']['citation.tab']['preview']['#markup'])) {
+      unset($variables['page']['content']['system_main']['citation.tab']['preview']['#markup']);
+    }
   }
 }
 
@@ -306,6 +311,7 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
         drupal_goto('/');
       }
     }
+
     /**
      * $query looks for the state of the current submission
      * @var object
