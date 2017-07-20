@@ -84,13 +84,15 @@ if (in_array('thesis_manager_role', $user->roles)) {
       $header = "From: ".$tm_mail. "\r\n"; //optional headerfields
       $to = $ownermail." ".$tm_mail. "\r\n";
       //$to = "\r\n";
-      if (mail($to, $subject, $bodytext, $header))  {
+      $now = "Date: ".date("Y-m-d H:i:s");
+      $messtext = "$now \n".$bodytext;
+      if (mail($to, $subject, $messtext, $header))  {
         drupal_set_message('The message was sent.');
       } else {
         drupal_set_message('There was an error sending the message.');
       }
       // clear and reload
-      $bodytext=$submit = '';
+      $bodytext=$messtext=$submit = '';
       header("Location: /islandora/object/$pid");
       exit();
     } else { // create the form
