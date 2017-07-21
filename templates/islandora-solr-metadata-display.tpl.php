@@ -68,6 +68,8 @@ if (in_array('thesis_manager_role', $user->roles)) {
       $newmess.= "FROM: Thesis Manager\n";
       $newmess.= "TO: $ownermail  CC: $tm_mail\n";
       $newmess.= "SUBJECT: Message from the Thesis Manager\n";
+      $now = "Date: ".date("Y-m-d H:i:s");
+      $newmess.= "$now \n";
       $newmess.= "$bodytext \n";
       // add new MESSAGES ds
       if (!$prevmess) {
@@ -84,15 +86,13 @@ if (in_array('thesis_manager_role', $user->roles)) {
       $header = "From: ".$tm_mail. "\r\n"; //optional headerfields
       $to = $ownermail." ".$tm_mail. "\r\n";
       //$to = "\r\n";
-      $now = "Date: ".date("Y-m-d H:i:s");
-      $messtext = "$now \n".$bodytext;
-      if (mail($to, $subject, $messtext, $header))  {
+      if (mail($to, $subject, $bodytext, $header))  {
         drupal_set_message('The message was sent.');
       } else {
         drupal_set_message('There was an error sending the message.');
       }
       // clear and reload
-      $bodytext=$messtext=$submit = '';
+      $bodytext=$submit = '';
       header("Location: /islandora/object/$pid");
       exit();
     } else { // create the form
