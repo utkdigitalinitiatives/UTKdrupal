@@ -64,7 +64,7 @@ foreach ($records as $record) {
 $tuque = islandora_get_tuque_connection();
 $ri_search = $tuque->repository->ri->sparqlQuery($my_sparql_submissions);
 $islandora_user_submission_list = "<table class='islandora_user_submission_list'><tr><th>Title</th><th>Aproval Status</th><th>Availability Status</th></tr>";
-$needs_approval = 0;
+$needs_approval = count($ri_search);
 foreach ($ri_search as $resultItem) {
   $publish_status = "<td>Not yet published</td>";
   $approval_status = "<td>Not Approved yet</td>";
@@ -73,7 +73,7 @@ foreach ($ri_search as $resultItem) {
   }
   if (in_array($resultItem['pid']['value'], $not_aproved_yet)) {
     $approval_status = "<td>Approved!</td>";
-    ++$needs_approval;
+    --$needs_approval;
   }
   $islandora_user_submission_list .= "<tr><td><a href='/islandora/object/" . $resultItem['pid']['value'] . "'>" . $resultItem['label']['value'] . "</a></td>" . $approval_status . $publish_status . "</tr>";
 }
