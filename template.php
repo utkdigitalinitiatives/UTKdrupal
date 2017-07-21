@@ -288,6 +288,7 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
         }
       }
     }
+    // Modify Manage Files Tab and child tabs
     $possibleUrls = array('islandora/object/%/manage/datastreams', 'islandora/object/%', 'islandora/object/%/manage');
     if (in_array($root_path, $possibleUrls, true)) {
       if(isset($data['tabs'][0]) && is_array($data['tabs'][0])){
@@ -299,8 +300,17 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
             $data['tabs'][0]['output'][$key]['#link']['title'] = t('Manage Files');
             $data['tabs'][0]['output'][$key]['#link']['href'] = $router_item['href'] . '/manage/datastreams';
           }
+          // Renames Add additional files tab
           if (($root_path == 'islandora/object/%/manage/datastreams') && $data['actions']['output'][0]['#link']['title'] == t('Add a Supplemental File')){
             $data['actions']['output'][0]['#link']['title'] = t('Add Additional files');
+          }
+        }
+      }
+      // Removes the Overview Tab
+      if(isset($data['tabs'][1]) && is_array($data['tabs'][1])){
+        foreach ($data['tabs'][1]['output'] as $key => $value) {
+          if ($value['#link']['title'] == t('Overview')){
+            unset($data['tabs'][1]['output'][$key]);
           }
         }
       }
