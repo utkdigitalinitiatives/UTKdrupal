@@ -68,6 +68,8 @@ if (in_array('thesis_manager_role', $user->roles)) {
       $newmess.= "FROM: Thesis Manager\n";
       $newmess.= "TO: $ownermail  CC: $tm_mail\n";
       $newmess.= "SUBJECT: Message from the Thesis Manager\n";
+      $now = "Date: ".date("Y-m-d H:i:s");
+      $newmess.= "$now \n";
       $newmess.= "$bodytext \n";
       // add new MESSAGES ds
       if (!$prevmess) {
@@ -94,10 +96,7 @@ if (in_array('thesis_manager_role', $user->roles)) {
       header("Location: /islandora/object/$pid");
       exit();
     } else { // create the form
-      $now = date("Y-m-d H:i:s");
-      $starttext = "$now \n ";
-      // option to use standard text
-      $starttext.= "This is the standard text.\n";
+      $starttext = "This is the standard text.\n";
       //$starttext =
       print t("<div>");
       if ($prevmess) {
