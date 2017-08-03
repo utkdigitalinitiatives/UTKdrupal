@@ -156,7 +156,7 @@
 	 <?php print render($page['help']); ?>
 	 <!-- 	 End Help Region -->
 
-<!--          Begin Copied from Drupal system page.tpl content area line 126 to 135 -->
+<!-- Begin Copied from Drupal system page.tpl content area line 126 to 135 -->
 <?php if ($page['highlighted']): ?><div id="highlighted"><?php print render($page['highlighted']); ?></div><?php endif; ?>
         <a id="main-content"></a>
         <?php print render($title_prefix); ?>
@@ -167,45 +167,56 @@
         <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
         <p>Tennessee Research and Creative Exchange (TRACE) is the University of Tennessee’s open repository.</p>
-
-                <br class="clear">
-                  <div class="half">
-
-                     <p> TRACE shines a light on UT scholarship, giving the public access to Volunteers’ research and creative work.</p>
-                     <p>The UT Libraries encourage Volunteer faculty and graduate students to submit work to TRACE in order to:
-<br/>&#9;•&#9;Make your work visible in Google Scholar.
-<br/>&#9;•&#9;Give the public access to your work.
-<br/>&#9;•&#9;Increase citation counts through greater visibility and availability.
-<br/>&#9;•&#9;Share not only articles but also presentations, data sets, white papers, and other files, with a permanent URL for every item.
-<br/>&#9;•&#9;Follow the number of downloads of your work worldwide.
-<br/>&#9;•&#9;Preserve your work long-term.
-</p>
-                  </div>
-                  <div class="half">
-                    <div class="box-light orange tx brd-">
-
-				  <h4>Most Viewed</h4>
-				  <ul>
-					  <li>Lorem ipsum dolor sit amet</li>
-					  <li>Lorem ipsum dolor sit amet</li>
-					  <li>Lorem ipsum dolor sit amet</li>
-					  </ul>
-
-				  <h4>Recent Additions</h4>
-
-				   <ul>
-					  <li>Lorem ipsum dolor sit amet</li>
-					  <li>Lorem ipsum dolor sit amet</li>
-					  <li>Lorem ipsum dolor sit amet</li>
-					  </ul>
-
-
-				  <h4>Featured Paper of the Week</h4>
-				  <p>Lorem ipsum dolor sit amet<br />
-				  L. I. Psum</p>
-                    </div>
-                  </div>
         <br class="clear">
+          <div class="half">
+            <p>
+                TRACE shines a light on UT scholarship, giving the public access to Volunteers’ research and creative work.
+            </p>
+            <p>
+                The UT Libraries encourage Volunteer faculty and graduate students to submit work to TRACE in order to:
+            </p>
+            <ul type="disc">
+                <li>
+                    Make your work visible in Google Scholar.
+                </li>
+                <li>
+                    Give the public access to your work.
+                </li>
+                <li>
+                    Increase citation counts through greater visibility and availability.
+                </li>
+                <li>
+                  Share not only articles but also presentations, data sets, white papers, and other files, with a permanent URL for every item.
+                </li>
+                <li>
+                    Follow the number of downloads of your work worldwide.
+                </li>
+                <li>
+                    Preserve your work long-term.
+                </li>
+            </ul>
+        </div>
+          <div class="half">
+            <div class="box-light orange tx brd-">
+							<h1>
+							    REASONS to ARCHIVE
+							</h1>
+							<h1>
+							    YOUR WORK in TRACE
+							</h1>
+							<h2>
+							    #1: Public Access
+							</h2>
+							<h>
+							    Tennesseans* can’t read your research unless you publish or archive openly.
+							</h2>
+							<p>
+							    *This includes nonprofit organizations, businesses, teachers, city council
+							    members…
+							</p>
+            </div>
+          </div>
+      <br class="clear">
         <?php print $feed_icons; ?>
         <!--          End Copied from Drupal system page.tpl content area line 126 to 135 -->
 
