@@ -93,20 +93,20 @@ $islandora_user_submission_list .= "</table>\n";
   <hr>
   <div id="user-profile">
     <h2>Submit Your Work</h2>
-    <div style="line-height: 2.0; font-size: larger;">
-    <ul style="list-style: none;">
-        <li style="padding-bottom:10px;"><a href="/islandora/object/utk.ir:td/manage/overview/ingest">Submit Graduate Thesis or Dissertation</a></li>
-        <li style="padding-bottom:10px;"><a href="/islandora/object/utk.ir:fg/manage/overview/ingest">Submit Faculty and Graduate Student Research and Creative Work</a></li>
-        <li style="color: #A7A9AC;">Submit Undergraduate Research Projects</li>
-        <ul style="list-style: none;">
-          <li><a href="/islandora/object/utk.ir:bsp/manage/overview/ingest">Baker Scholars Program</a></li>
-          <li><a href="/islandora/object/utk.ir:chp/manage/overview/ingest">Chancellor’s Honors Program</a></li>
-          <li><a href="/islandora/object/utk.ir:csp/manage/overview/ingest">College Scholars Program</a></li>
-          <li><a href="/islandora/object/utk.ir:eureca/manage/overview/ingest">EUReCA: Exhibition of Undergraduate Research and Creative Achievement</a></li>
-          <li style="padding-bottom:10px;"><a href="/islandora/object/utk.ir:hsp/manage/overview/ingest">Haslam Scholars Program</a></li>
-        </ul>
-        <li style="padding-bottom:10px;"><a href="/help">Help, I’m not sure.</a></li>
-    </ul>
-    </div>
+      <div style="line-height: 2.0; font-size: larger;">
+          <ul style="list-style: none;">
+              <li style="padding-bottom:10px;"><a href='http://trace.tennessee.edu/submit_research.html'>Submit Faculty and Graduate Student Research and Creative Work</a></li>
+              <li style="padding-bottom:10px;"><a href='/islandora/object/utk.ir%3Atd/manage/overview/ingest'>Submit Graduate Theses and Dissertations</a></li>
+              <li style="padding-bottom:10px;">Submit Supervised Undergraduate Student Research and Creative Work</li>
+              <ul class='islandora_nested_collection_1'>
+                  <li><a href='http://trace.tennessee.edu/cgi/ir_submit.cgi?context=utk_bakerschol'>Submit Baker Scholars Program</a></li>
+                  <li><a href='http://trace.tennessee.edu/submit_research.html'>Chancellor’s Honors Program</a></li>
+                  <li><a href='http://trace.tennessee.edu/cgi/ir_submit.cgi?context=utk_haslamschol'>College Scholars Program</a></li>
+                  <li><a href='http://trace.tennessee.edu/cgi/ir_submit.cgi?context=utk_eureca'>EUReCA: Exhibition of Undergraduate Research and Creative Achievement</a></li>
+                  <li><a href='http://trace.tennessee.edu/cgi/ir_submit.cgi?context=utk_haslamschol'>Haslam Scholars Program</a></li>
+              </ul>
+              <li style="padding-top:10px; padding-bottom:40px;"><a href="/help">Help, I’m not sure.</a></li>
+          </ul>
+      </div>
   </div>
 </div>
