@@ -190,14 +190,14 @@ h2.subtitle {
 }
 
 .notification.is-danger {
-    background-color: #ff3860;
+    background-color: #ff1900;
     color: #fff;
 }
 
 .notification {
     background-color: whitesmoke;
     border-radius: 3px;
-    padding: 1.25rem 2.5rem 1.25rem 1.5rem;
+    padding: 0.25rem 2.5rem 0.25rem 1.5rem;
     position: relative;
 }
 
