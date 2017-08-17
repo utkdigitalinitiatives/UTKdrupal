@@ -96,8 +96,9 @@ if (in_array('thesis_manager_role', $user->roles)) {
       header("Location: /islandora/object/$pid");
       exit();
     } else { // create the form
-      $starttext = "This is the standard text.\n";
-      //$starttext =
+      //$starttext = "This is the WRONG standard text.\n";
+      //Replace per TRAC-815
+      $starttext = date("Y-m-d H:i:s");
       print t("<div>");
       if ($prevmess) {
         print l(t('View the Previous Messages'), "islandora/object/$pid/datastream/MESSAGES/view");
@@ -109,11 +110,11 @@ if (in_array('thesis_manager_role', $user->roles)) {
       print "<b>Email the owner: $ownermail CC: $tm_mail </b><br/>";
       print "<b>Subject: Message from the Thesis Manager</b> <br />";
       print "<form action=\"#\" method=\"post\">\n";
-      print '<label for="template_email">Templates for email</label>';
+      print '<label for="template_email">Select a template for email</label>';
       print '<select id="template_email" onchange="myFunction(this.value,\''.$ownerid.'\',\''.$tm_mail.'\')">';
-			print '  <option value="nothing">Select Email Template</option>';
+			print '  <option value="nothing">Simple Date-only Email Template</option>';
       print '  <option value="more_edits_required">Additional Edits Needed</option>';
-      print '  <option value="accepted_student_submission">Notify it has been Accepted</option>';
+      print '  <option value="accepted_student_submission">Notification of Acceptance</option>';
       print '</select>';
       print '<br/>';
       print "<textarea id=\"email_textarea\"name=\"bodytext\" rows=\"10\" cols=\"100\">$starttext</textarea>\n";
