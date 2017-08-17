@@ -1,6 +1,6 @@
 @import url('progress.css');
 
-/* CSS3 Variables (Custom Properties) for branding colors */ 
+/* CSS3 Variables (Custom Properties) for branding colors */
 :root {
   --utorange: #FF8200;
   --leconte: #8D2048;
@@ -10,18 +10,18 @@
   --rock: #A7A9AC;
 }
 
-/* Removes text shawdowing from lists: ex. the Drupal admin toolbar */ 
- .site-content li a { 
-    text-shadow: none !important; 
+/* Removes text shawdowing from lists: ex. the Drupal admin toolbar */
+ .site-content li a {
+    text-shadow: none !important;
     background: none !important;
-    } 
+    }
 
-/* Add a right margin to space out ajoining buttons in forms and on the bottom to space out from page footer */ 
+/* Add a right margin to space out ajoining buttons in forms and on the bottom to space out from page footer */
     #edit-next, #edit-prev {
      margin-right: 15px;
      margin-bottom: 15px;
      }
-     
+
 /* Adjusts margins, padding, border radius, and colors of Islandora search pagination */
 .pager li>a, .pager li>span  {
 	display: inline-block;
@@ -29,9 +29,9 @@
     margin: 5px 0px;
     background-color: #fff;
     border: 1px solid #a7a9ac;
-  	border-radius:8px; 
-	-moz-border-radius:8px; 
-	-webkit-border-radius:8px; 
+  	border-radius:8px;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
 }
 
 .pager li.pager-current {
@@ -39,11 +39,11 @@
     padding: 5px 14px;
 	background-color: var(--limestone);
 	border: 1px solid #a7a9ac;
-	border-radius:8px; 
-	-moz-border-radius:8px; 
+	border-radius:8px;
+	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
 }
-    
+
 /*  Menu Area Above Search Bar */
  #top-menu {
 	height: 40px;
@@ -53,7 +53,7 @@
 	font-size: 18px;
 	padding: 5px 15px 5px 90px;
  }
-   
+
  #top-menu ul {
     list-style-type: none;
     margin: 0;
@@ -71,30 +71,30 @@
 	background: var(--smokey);
 	clear: both;
  }
- 
+
 #search-bar label {
 	visibility: hidden;
  }
- 
+
 #search-bar input[type=text] {
  	margin: 15px 15px 15px 200px;
  	height: 50px;
  	width: 50%;
  	border: 1px solid #ccc;
- 	border-radius:6px; 
-	-moz-border-radius:6px; 
-	-webkit-border-radius:6px; 
+ 	border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
  }
- 
+
  #search-bar input[type=submit] {
  	background-color: #f8f8f8;
  	height: 50px;
  	border: 1px solid #ccc;
- 	border-radius:6px; 
-	-moz-border-radius:6px; 
-	-webkit-border-radius:6px; 
+ 	border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
  }
- 
+
  /*  Menu Area Under Search Bar */
  #secondary-menu {
 	height: 30px;
@@ -104,7 +104,7 @@
 	font-size: 14px;
 	padding: 5px 15px 5px 90px;
  }
-  
+
  #secondary-menu ul {
     list-style-type: none;
     margin: 0;
@@ -119,7 +119,7 @@
 	background: #ffffff;
 	float: left;
  }
- 
+
 #secondary-menu #block-menu-menu-default-login {
 	background: #ffffff;
 	float: right;
@@ -131,7 +131,7 @@
 	float: right;
 	padding-right: 25px;
  }
- 
+
 /*  Two Column Search  pages*/
  #left-menu {
 	width: 25%;
@@ -140,7 +140,7 @@
 }
 
 #page-content {
-	width: 75%; 
+	width: 75%;
 	float: right;
 }
 
@@ -151,20 +151,120 @@
   margin: 20px auto;
   width:325px;
 }
-#auth_box .form-submit {  
+#auth_box .form-submit {
   background-color: var(--utorange);
   color: #FFF;
 }
 #auth_box label{
   color: var(--smokey);
 }
- 
+
 @media only screen and (max-width: 900px) {
-	 
+
  #search-bar input[type=text] {
  margin: 15px;
  height: 50px;
  width: 50%;
- }	 
-	 
  }
+
+ }
+
+.half {
+    height: 310px;
+}
+
+.box-light.orange.tx.brd- {
+    min-height: 300px;
+    background: url("http://honors.utk.edu/wp-content/uploads/sites/35/2016/06/Rock_6921.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+h2.subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: var(--fountain);
+    margin-top: 0px;
+}
+
+.notification.is-danger {
+    background-color: #ff3860;
+    color: #fff;
+}
+
+.notification {
+    background-color: whitesmoke;
+    border-radius: 3px;
+    padding: 1.25rem 2.5rem 1.25rem 1.5rem;
+    position: relative;
+}
+
+.notification > .delete {
+    position: absolute;
+    right: 0.5em;
+    top: 0.5em;
+}
+
+.delete {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: rgba(10, 10, 10, 0.2);
+    border: none;
+    border-radius: 290486px;
+    cursor: pointer;
+    display: inline-block;
+    -webkit-box-flex: 0;
+    -ms-flex-positive: 0;
+    flex-grow: 0;
+    -ms-flex-negative: 0;
+    flex-shrink: 0;
+    font-size: 1rem;
+    height: 20px;
+    max-height: 20px;
+    max-width: 20px;
+    min-height: 20px;
+    min-width: 20px;
+    outline: none;
+    position: relative;
+    vertical-align: top;
+    width: 20px;
+}
+
+.delete:before {
+    height: 2px;
+    width: 50%;
+}
+
+.delete:before, .delete:after {
+    background-color: white;
+    content: "";
+    display: block;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    transform: translateX(-50%) translateY(-50%) rotate(45deg);
+    -webkit-transform-origin: center center;
+    transform-origin: center center;
+}
+
+*:before, *:after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
+}
+
+.delete:after {
+    height: 50%;
+    width: 2px;
+}
+
+.white_link {
+    color: #fff;
+}

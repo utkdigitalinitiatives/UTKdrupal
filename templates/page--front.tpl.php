@@ -166,7 +166,11 @@
         <?php print render($page['help']); ?>
         <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
-        <p>Tennessee Research and Creative Exchange (TRACE) is the University of Tennessee’s open repository.</p>
+    <h2 class="subtitle">Tennessee Research and Creative Exchange (TRACE) is the University of Tennessee’s open repository.</h2>
+    <div class="notification is-danger">
+        <button class="delete"></button>
+        Only for graduate student submissions. For non graduate student submissions go to <a class="white_link" href="http://trace.tennessee.edu">trace.tennessee.edu</a>
+    </div>
         <br class="clear">
           <div class="half">
             <p>
@@ -198,22 +202,7 @@
         </div>
           <div class="half">
             <div class="box-light orange tx brd-">
-							<h1>
-							    REASONS to ARCHIVE
-							</h1>
-							<h1>
-							    YOUR WORK in TRACE
-							</h1>
-							<h2>
-							    #1: Public Access
-							</h2>
-							<h>
-							    Tennesseans* can’t read your research unless you publish or archive openly.
-							</h2>
-							<p>
-							    *This includes nonprofit organizations, businesses, teachers, city council
-							    members…
-							</p>
+
             </div>
           </div>
       <br class="clear">
