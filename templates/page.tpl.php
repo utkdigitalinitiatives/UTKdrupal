@@ -130,11 +130,11 @@
 	 <!-- 	 End Page Top Region -->
 	 
 	   <!-- Begin Breadcrumb Region -->
-      <?php
-        if ($breadcrumb): ?>
-          <div id="breadcrumb"><?php
-        print $breadcrumb; ?></div>
-      <?php endif; ?>
+      <?php if (!drupal_is_front_page()): ?>
+<div class="breadcrumb">
+<?php print strip_tags($breadcrumb, '<a><h2>') . ' » ' . $title;?>
+</div>
+<?php endif; ?>
       <!-- End Breadcrumb Region -->
       <!-- Begin Message Region -->
       <?php
