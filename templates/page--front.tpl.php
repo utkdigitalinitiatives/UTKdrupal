@@ -169,7 +169,7 @@
     <h2 class="subtitle">Tennessee Research and Creative Exchange (TRACE) is the University of Tennessee’s open repository.</h2>
     <div class="notification is-danger">
         <button class="delete"></button>
-        Only for graduate student submissions. For non graduate student submissions go to <a class="white_link" href="http://trace.tennessee.edu">trace.tennessee.edu</a>
+        Fall 2017: TRACE.UTK.EDU is only functioning as a submission system for graduate students to upload theses and dissertations. To view TRACE collections, or upload anything other than a graduate thesis or dissertation, go to <a class="white_link" href="http://trace.tennessee.edu">trace.tennessee.edu</a>.
     </div>
         <br class="clear">
           <div class="half">
