@@ -124,10 +124,6 @@
 <div id="primary" class="web-app-content-area">
 
 <div id="content" class="site-content site-content wide" role="main">
-	
-	<!-- 	 Begin Page Top Region -->
-	 <?php print render($page['page_top']); ?>
-	 <!-- 	 End Page Top Region -->
 	 
 	   <!-- Begin Breadcrumb Region -->
       <?php if (!drupal_is_front_page()): ?>
@@ -178,11 +174,6 @@
       <?php endif; ?>
     <!--          End Copied from Drupal system page.tpl content area line 138 to 148 -->
 </div>
-
-
-	<!-- 	 Begin Page Bottom Region -->
-	 <?php print render($page['page_bottom']); ?>
-	 <!-- 	 End Page Bottom Region -->
 	 
 	 <!-- 	 Begin Footer Region -->
 	 <?php print render($page['footer']); ?>
