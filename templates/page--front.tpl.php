@@ -84,10 +84,15 @@
   } ?>
 <!-- End of Access Denied Check and redirrect to login -->
 
+    <div class="notification is-danger">
+        <button class="delete"></button>
+        Fall 2017: TRACE.UTK.EDU is only functioning as a submission system for graduate students to upload theses and dissertations. To view TRACE collections, or upload anything other than a graduate thesis or dissertation, go to <a class="white_link" href="http://trace.tennessee.edu">trace.tennessee.edu</a>.
+    </div>
+
 <!-- start page--front.tpl.php template -->
  <!-- The UT Header begins here. -->
 
-    <div id="orange-bar"></div>
+    <div id='front_page_orange-bar'></div>
 
 <div id="page" class="hfeed site row-offcanvas">
 	  <div id="main" class="site-main">
@@ -167,10 +172,7 @@
         <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
 
     <h2 class="subtitle">Tennessee Research and Creative Exchange (TRACE) is the University of Tennessee’s open repository.</h2>
-    <div class="notification is-danger">
-        <button class="delete"></button>
-        Fall 2017: TRACE.UTK.EDU is only functioning as a submission system for graduate students to upload theses and dissertations. To view TRACE collections, or upload anything other than a graduate thesis or dissertation, go to <a class="white_link" href="http://trace.tennessee.edu">trace.tennessee.edu</a>.
-    </div>
+
         <br class="clear">
           <div class="half">
             <p>

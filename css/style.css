@@ -24,34 +24,34 @@
 
 /* Adjusts margins, padding, border radius, and colors of Islandora search pagination */
 .pager li>a, .pager li>span  {
-	display: inline-block;
+  display: inline-block;
     padding: 5px 14px;
     margin: 5px 0px;
     background-color: #fff;
     border: 1px solid #a7a9ac;
-  	border-radius:8px;
-	-moz-border-radius:8px;
-	-webkit-border-radius:8px;
+    border-radius:8px;
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
 }
 
 .pager li.pager-current {
-	display: inline-block;
+  display: inline-block;
     padding: 5px 14px;
-	background-color: var(--limestone);
-	border: 1px solid #a7a9ac;
-	border-radius:8px;
-	-moz-border-radius:8px;
-	-webkit-border-radius:8px;
+  background-color: var(--limestone);
+  border: 1px solid #a7a9ac;
+  border-radius:8px;
+  -moz-border-radius:8px;
+  -webkit-border-radius:8px;
 }
 
 /*  Menu Area Above Search Bar */
  #top-menu {
-	height: 40px;
-	width: 100%;
-	background: #ffffff;
-	clear: both;
-	font-size: 18px;
-	padding: 5px 15px 5px 90px;
+  height: 40px;
+  width: 100%;
+  background: #ffffff;
+  clear: both;
+  font-size: 18px;
+  padding: 5px 15px 5px 90px;
  }
 
  #top-menu ul {
@@ -61,48 +61,48 @@
     }
 
 #top-menu ul li {
-	display: inline;
+  display: inline;
 }
 
 /* Search Bar */
 #search-bar {
-	height: 80px;
-	width: 100%;
-	background: var(--smokey);
-	clear: both;
+  height: 80px;
+  width: 100%;
+  background: var(--smokey);
+  clear: both;
  }
 
 #search-bar label {
-	visibility: hidden;
+  visibility: hidden;
  }
 
 #search-bar input[type=text] {
- 	margin: 15px 15px 15px 200px;
- 	height: 50px;
- 	width: 50%;
- 	border: 1px solid #ccc;
- 	border-radius:6px;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
+   margin: 15px 15px 15px 200px;
+   height: 50px;
+   width: 50%;
+   border: 1px solid #ccc;
+   border-radius:6px;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
  }
 
  #search-bar input[type=submit] {
- 	background-color: #f8f8f8;
- 	height: 50px;
- 	border: 1px solid #ccc;
- 	border-radius:6px;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
+   background-color: #f8f8f8;
+   height: 50px;
+   border: 1px solid #ccc;
+   border-radius:6px;
+  -moz-border-radius:6px;
+  -webkit-border-radius:6px;
  }
 
  /*  Menu Area Under Search Bar */
  #secondary-menu {
-	height: 30px;
-	width: 100%;
-	background: #ffffff;
-	clear: both;
-	font-size: 14px;
-	padding: 5px 15px 5px 90px;
+  height: 30px;
+  width: 100%;
+  background: #ffffff;
+  clear: both;
+  font-size: 14px;
+  padding: 5px 15px 5px 90px;
  }
 
  #secondary-menu ul {
@@ -112,36 +112,36 @@
     }
 
 #secondary-menu ul li {
-	display: inline;
+  display: inline;
 }
 
 #secondary-menu #block-menu-menu-manager-navigation {
-	background: #ffffff;
-	float: left;
+  background: #ffffff;
+  float: left;
  }
 
 #secondary-menu #block-menu-menu-default-login {
-	background: #ffffff;
-	float: right;
-	padding-right: 25px;
+  background: #ffffff;
+  float: right;
+  padding-right: 25px;
  }
 
 #secondary-menu #block-system-user-menu {
-	background: #ffffff;
-	float: right;
-	padding-right: 25px;
+  background: #ffffff;
+  float: right;
+  padding-right: 25px;
  }
 
 /*  Two Column Search  pages*/
  #left-menu {
-	width: 25%;
-	padding-right: 15px;
-	float: left;
+  width: 25%;
+  padding-right: 15px;
+  float: left;
 }
 
 #page-content {
-	width: 75%;
-	float: right;
+  width: 75%;
+  float: right;
 }
 
 /* Login Form */
@@ -191,15 +191,22 @@ h2.subtitle {
 }
 
 .notification.is-danger {
-    background-color: #ff1900;
+    background-color: #c7254e;
     color: #fff;
 }
 
 .notification {
-    background-color: whitesmoke;
-    border-radius: 3px;
-    padding: 0.25rem 2.5rem 0.25rem 1.5rem;
     position: relative;
+    top: 0;
+    padding: 0.9em 0.9em 0.9em 2.4em;
+    border-radius: 0;
+    height: auto;
+    -moz-transition: transform .2s;
+    -ms-transition: transform .2s;
+    -o-transition: transform .2s;
+    -webkit-transition: transform .2s;
+    transition: transform .2s;
+    width: 100%;
 }
 
 .notification > .delete {
@@ -267,5 +274,16 @@ h2.subtitle {
 }
 
 .white_link {
+    color: #fff;
+}
+
+#front_page_orange-bar {
+    display: block;
+    float: left;
+    min-height: 6px;
+    background: #FF8200;
+    width: 100%;
+    z-index: 2050;
+    clear: both;
     color: #fff;
 }
