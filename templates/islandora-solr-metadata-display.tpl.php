@@ -108,7 +108,7 @@ if (in_array('thesis_manager_role', $user->roles)) {
       print t("</div>");
       print "<div id=\"tm_mail\">\n";
       print "<b>Email the owner: $ownermail CC: $tm_mail </b><br/>";
-      print "<b>Subject: Message from the Thesis Manager</b> <br />";
+      print "<b id='email_subject'>Subject: Message from the Thesis Manager  "+$pid+"</b> <br />";
       print "<form action=\"#\" method=\"post\">\n";
       print '<label for="template_email">Select a template for email</label>';
       print '<select id="template_email" onchange="myFunction(this.value,\''.$ownerid.'\',\''.$tm_mail.'\')">';
