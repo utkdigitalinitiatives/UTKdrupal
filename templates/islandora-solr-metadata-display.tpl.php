@@ -82,7 +82,7 @@ if (in_array('thesis_manager_role', $user->roles)) {
         $islandora_object['MESSAGES']->setContentFromString("$newmess");
       }
       //send email
-      $subject = "Message from the Thesis Manager";
+      $subject = "Message from the Thesis Manager ".$pid;
       $header = "From: ".$tm_mail. "\r\n"; //optional headerfields
       $to = $ownermail." ".$tm_mail. "\r\n";
       //$to = "\r\n";
