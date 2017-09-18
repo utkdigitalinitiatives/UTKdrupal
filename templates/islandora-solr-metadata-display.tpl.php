@@ -46,6 +46,7 @@ if (in_array('thesis_manager_role', $user->roles)) {
     //
     $prevmess = FALSE;
     $messages = '';
+    $starter_subject = 'Message from the Thesis Manager '. $pid;
     // detect whether MESSAGES datastream exists
     if (isset($islandora_object['MESSAGES'])) {
       $prevmess = TRUE;
@@ -59,6 +60,7 @@ if (in_array('thesis_manager_role', $user->roles)) {
     $submit = '';
     $newmess = '';
     if (isset($_POST['submit'])) $submit = $_POST['submit'];
+    if (isset($_POST['subject'])) $subject = $_POST['subject'];
     if (isset($_POST['bodytext'])) $bodytext = $_POST['bodytext'];
     if ($submit == "Send Message") { // process message and ds
       if ($prevmess) {
@@ -67,7 +69,7 @@ if (in_array('thesis_manager_role', $user->roles)) {
       $newmess.= "-------------------------------------------------";
       $newmess.= "FROM: Thesis Manager\n";
       $newmess.= "TO: $ownermail  CC: $tm_mail\n";
-      $newmess.= "SUBJECT: Message from the Thesis Manager ".$pid."\n";
+      $newmess.= "$subject \n";
       $now = "Date: ".date("Y-m-d H:i:s");
       $newmess.= "$now \n";
       $newmess.= "$bodytext \n";
@@ -82,7 +84,6 @@ if (in_array('thesis_manager_role', $user->roles)) {
         $islandora_object['MESSAGES']->setContentFromString("$newmess");
       }
       //send email
-      $subject = "Message from the Thesis Manager ".$pid;
       $header = "From: ".$tm_mail. "\r\n"; //optional headerfields
       $to = $ownermail." ".$tm_mail. "\r\n";
       //$to = "\r\n";
@@ -93,6 +94,7 @@ if (in_array('thesis_manager_role', $user->roles)) {
       }
       // clear and reload
       $bodytext=$submit = '';
+      $subject=$submit = '';
       header("Location: /islandora/object/$pid");
       exit();
     } else { // create the form
@@ -108,11 +110,11 @@ if (in_array('thesis_manager_role', $user->roles)) {
       print t("</div>");
       print "<div id=\"tm_mail\">\n";
       print "<b>Email the owner: $ownermail CC: $tm_mail </b><br/>";
-      print "<b id='email_subject'>Subject: Message from the Thesis Manager  $pid</b> <br />";
       print "<form action=\"#\" method=\"post\">\n";
+      print "<b>Subject: </b><br/><textarea id=\"email_subject\" name=\"subject\" rows=\"1\" cols=\"100\">$starter_subject</textarea><br />";
       print '<label for="template_email">Select a template for email</label>';
-      print '<select id="template_email" onchange="myFunction(this.value,\''.$ownerid.'\',\''.$tm_mail.'\')">';
-			print '  <option value="nothing">Simple Date-only Email Template</option>';
+      print '<select id="template_email" onchange="myFunction(this.value,\''.$ownerid.'\',\''.$tm_mail.'\',\''.$pid.'\')">';
+      print '  <option value="nothing">Simple Date-only Email Template</option>';
       print '  <option value="more_edits_required">Additional Edits Needed</option>';
       print '  <option value="accepted_student_submission">Notification of Acceptance</option>';
       print '</select>';

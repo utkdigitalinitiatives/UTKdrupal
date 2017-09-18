@@ -2,7 +2,7 @@
  * Email form updater for ETDs
  */
 
- function myFunction(value,ownerid,community_manager) {
+ function myFunction(value,ownerid,community_manager, pid) {
    // Create a readable text string of the curent date and time for logging
    var today = new Date();
    var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
@@ -38,19 +38,32 @@
     "Thanks,\n";
 
     /**
+     * [more_edits_required_subject is the automated email string for feedback]
+     * @type {[string]}
+     */
+    var more_edits_required_subject = "Revise and Resubmit ";
+    var simple_required_subject = "Message from the Thesis Manager ";
+    var congrats = " has been accepted!";
+
+
+    /**
      * [switch incoming state of select is compared with strings]
      * @method switch
      * @param  {[type]} value [Strings]
      * @return {[type]}       [Adds text to textarea id=email_textarea]
+     * @return {[type]}       [Adds text to textarea id=email_subject]
      */
     switch(value) {
      case 'more_edits_required':
          document.getElementById("email_textarea").value = more_edits_required_text
+         document.getElementById("email_subject").value = more_edits_required_subject + pid
          break;
      case 'accepted_student_submission':
          document.getElementById("email_textarea").value = email_ACCEPT
+         document.getElementById("email_subject").value = "Congratulations " + pid + congrats
          break;
      default:
          document.getElementById("email_textarea").value = dateTime;
+         document.getElementById("email_subject").value = simple_required_subject + pid
      }
  }
