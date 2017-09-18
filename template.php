@@ -186,6 +186,12 @@ function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
         </li>
       </ol>';
     }
+    global $user;
+      foreach($user->roles as $user_role):
+        if (($user_role == 'authUser-role') && (count($user->roles)==2)) {
+          drupal_get_messages('warning');
+        }
+      endforeach;
   return $form;
 }
 
