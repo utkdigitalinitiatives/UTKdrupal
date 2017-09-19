@@ -3,8 +3,10 @@
 /* CSS3 Variables (Custom Properties) for branding colors */
 :root {
   --utorange: #FF8200;
+   --torch: #E65933;
   --leconte: #8D2048;
   --fountain: #2197A9;
+  --globe: #006C93;
   --limestone: #F0EDE3;
   --smokey: #58595B;
   --rock: #A7A9AC;
@@ -169,24 +171,11 @@
 
  }
 
-/* These are temporary and will be removed when the site is fully migrated */
-.half {
-    height: 310px;
-}
-
-.box-light.orange.tx.brd- {
-    min-height: 300px;
-    background: url("../images/48104_JHA7252_EDITED.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    height: 100%;
-}
-
 h2.subtitle {
     font-size: 1.5rem;
     font-weight: 400;
     line-height: 1.25;
-    color: var(--fountain);
+    color: var(--torch);
     margin-top: 0px;
 }
 
