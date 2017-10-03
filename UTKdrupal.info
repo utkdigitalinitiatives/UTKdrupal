@@ -8,8 +8,8 @@ stylesheets[all][] = css/style.css
 
 ;Drupal 7 default regions:
 ;Reference - http://themery.com/dgd7/theming/info-files
-regions[sidebar_first]  = Left sidebar
-regions[sidebar_second] = Right sidebar
+regions[sidebar_first]  = Primary sidebar
+regions[sidebar_second] = Secondary sidebar
 regions[content] = Content
 regions[header] = Header
 regions[footer] = Footer
