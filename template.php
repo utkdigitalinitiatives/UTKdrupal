@@ -192,6 +192,12 @@ function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
           drupal_get_messages('warning');
         }
       endforeach;
+      // TRAC-901 /manage/overview/ingest for Add Supplemental Files (Optional)
+      if (isset($form['optional_supplemental'])) {
+        if ($form['optional_supplemental']['#markup']=='<h1>Add Supplemental Files (Optional)</h1>'){
+          $form['optional_supplemental']['#markup']='<legend><span class="fieldset-legend">Add Supplemental Files (Optional)</span></legend><span class="help-block">If you have very large files (such as maps, spreadsheets, or architectural drawings) or multimedia objects (such as digital video, audio, or datasets) that need to be published alongside your thesis/dissertation but cannot be included in the document itself, you should upload them here.<br/><br/>Supplemental files, also known as attachments, will be made public with your final thesis/dissertation. Therefore you should not upload your actual thesis/dissertation as a Word document or any other file format here. If you are unsure about whether or not what you are uploading constitutes a supplemental file, please contact thesis@utk.edu before submitting it.</span>';
+        }
+    }
   return $form;
 }
 
