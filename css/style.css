@@ -146,6 +146,14 @@
   float: right;
 }
 
+/* Solr search results */
+
+dl.solr-thumb {
+    float: left;
+    width: 15%;
+    visibility: hidden;
+}
+
 /* Login Form */
 #auth_box {
   background-color: var(--limestone);
