@@ -354,19 +354,6 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
         drupal_goto('/');
       }
     }
-
-    /**
-     * $query looks for the state of the current submission
-     * @var object
-     */
-    $query = db_query("SELECT pid, state FROM {trace_workflow_pids}");
-    $records = $query->fetchAll();
-    foreach ($records as $record) {
-      if(($record->state == 'a')&&(trim($_GET['q'], "islandora/object/.../manage/datastreams") == $record->pid)) {
-        unset($data['actions']['output'][0]['#link']['href']);
-        $data['actions']['output'][0]['#link']['title']=t('All changes are blocked after submission has been accepted.');
-      }
-    }
   }
 
   // Check if the user has the 'admin' role.
