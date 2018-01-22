@@ -276,3 +276,16 @@ h2.subtitle {
     clear: both;
     color: #fff;
 }
+
+
+.embargoed_link {
+  color: currentColor;
+  cursor: not-allowed;
+  opacity: 0.5;
+  text-decoration: none;
+  pointer-events: none;
+}
+
+html.js fieldset.collapsed {
+  padding-bottom: 100px;
+}
