@@ -72,7 +72,7 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
     // This is a temporary template correction to redirect non-migrated collections to their current locations.
     if (drupal_get_path_alias() == 'browse') {
         $new_markup="<ul class='islandora_nested_collection_0'>
-        <li><a href='http://trace.tennessee.edu/submit_research.html'>Datasets</a></li>
+        <li><a href='/islandora/object/utk.ir%3Afg'>Datasets</a></li>
         <li><a href='http://trace.tennessee.edu/submit_research.html'>Faculty and Graduate Student Research and Creative Work</a></li>
         <li><a href='/islandora/object/utk.ir%3Atd'>Graduate Theses and Dissertations</a></li>
         <li><a href='http://trace.tennessee.edu/submit_research.html'>Supervised Undergraduate Student Research and Creative Work</a></li>
