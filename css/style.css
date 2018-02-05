@@ -298,3 +298,8 @@ h2.subtitle {
 html.js fieldset.collapsed {
   padding-bottom: 100px;
 }
+
+
+dl.solr-fields {
+    width: 100%;
+}
