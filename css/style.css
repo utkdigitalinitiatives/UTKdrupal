@@ -284,3 +284,8 @@ h2.subtitle {
     clear: both;
     color: #fff;
 }
+
+
+dl.solr-fields {
+    width: 100%;
+}
