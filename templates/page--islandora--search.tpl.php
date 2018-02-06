@@ -83,15 +83,15 @@
  <!-- The UT Header begins here. -->
 
     <div id="orange-bar"></div>
-  
+
 <div id="page" class="hfeed site row-offcanvas">
 	  <div id="main" class="site-main">
-	  <a class="sr-only sr-only-focusable" href="#content" title="Skip to content">Skip to content</a>	    
+	  <a class="sr-only sr-only-focusable" href="#content" title="Skip to content">Skip to content</a>
 
  <header id="masthead-webapp" class="webapp-site-header" role="banner">
          <h3 class="killer-logo"><a href="http://www.utk.edu">The University of Tennessee, Knoxville</a></h3>
          <h2 class="sr-only"><a href="https://www.lib.utk.edu" rel="home">University Libraries</a></h2>
-        
+
            <div id="sitetitle-webapp">
            <h2 class="department"><a href="/" title="Tennessee Research and Creative Exchange" rel="home">TRACE: Tennessee Research and Creative Exchange</a>
                  <small><a href="https://www.lib.utk.edu">University Libraries</a></small></h2>
@@ -99,36 +99,36 @@
 <!-- 	 Begin Header Region -->
       <?php print render($page['header']); ?>
 <!-- 	 End Header Region -->
-         
+
    		</header><!-- #masthead -->
 <!-- The UT Header ends here. -->
-         
+
          <div id="top-menu">
      <!-- Begin Top Menu Region -->
 	 <?php print render($page['top_menu']); ?>
 	 <!-- End Top Menu Region -->
          </div>
-         
+
            <div id="search-bar">
      <!-- Begin Search Bar Region -->
 	 <?php print render($page['search_bar']); ?>
 	 <!-- End Search Bar Region -->
          </div>
-         
+
          <?php if ($page['secondary_menu']): ?>
         <div id="secondary-menu">
           <?php print render($page['secondary_menu']); ?>
         </div>
       <?php endif; ?>
-		
+
 <div id="primary" class="web-app-content-area">
 
 <div id="content" class="site-content site-content wide" role="main">
-	
+
 	<!-- 	 Begin Page Top Region -->
 	 <?php print render($page['page_top']); ?>
 	 <!-- 	 End Page Top Region -->
-	 
+
 	   <!-- Begin Breadcrumb Region -->
       <?php
         if ($breadcrumb): ?>
@@ -146,7 +146,7 @@
       </div>
       <?php endif; ?>
       <!-- End Message Region -->
-	
+
 <!-- 	 Begin Help Region -->
 	 <?php print render($page['help']); ?>
 	 <!-- 	 End Help Region -->
@@ -161,7 +161,7 @@
         <?php if ($tabs): ?><div class="tabs"><?php print render($tabs); ?></div><?php endif; ?>
         <?php print render($page['help']); ?>
         <?php if ($action_links): ?><ul class="action-links"><?php print render($action_links); ?></ul><?php endif; ?>
-        
+
         <div id="left-menu">
  <!--          Begin Copied from Drupal system page.tpl content area line 138 to 148 -->
               <?php if ($page['sidebar_first']): ?>
@@ -181,30 +181,30 @@
   <div id="page-content">
 <?php print render($page['content']); ?>
         <?php print $feed_icons; ?>
-   
-  </div>	
-        
-       
+
+  </div>
+
+
 </div>
 
 
 	<!-- 	 Begin Page Bottom Region -->
 	 <?php print render($page['page_bottom']); ?>
 	 <!-- 	 End Page Bottom Region -->
-	 
+
 	 <!-- 	 Begin Footer Region -->
 	 <?php print render($page['footer']); ?>
 	 <!-- 	 End Footer Region -->
 
 </div>
 
-      
+
 <!-- The UT Footer starts here. -->
 
 <!--  begin footer include -->
 <!--  begin #colophon -->
     <footer id="colophon" class="site-footer" role="contentinfo">
-   
+
   <div id="siteinfo">
 		<div id="meta-info">
       <p>
@@ -213,7 +213,7 @@
 		</div>
     <div id="meta-contact">
        <p>1015 Volunteer Boulevard <br />
-Knoxville, TN 37996-1000<br /> 
+Knoxville, TN 37996-1000<br />
 Phone: (865) 974-4351<br />
 <a href="https://www.lib.utk.edu/contact">Contact Us</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.lib.utk.edu/contact/website-feedback">Website Feedback</a><br />
 <a href="https://www.facebook.com/utklibraries"><img src="https://www.lib.utk.edu/template/2016/images-utlibraries/social-media/facebook-16.png" title="UT Libraries on Facebook" alt="UT Libraries on Facebook" width="16" height="16" /></a>
@@ -254,7 +254,7 @@ Phone: (865) 974-4351<br />
              <input type="text" class="form-control" name="q"  maxlength="256" onfocus="if(this.value == 'Search utk.edu') { this.value = ''; }" value="Search utk.edu" title="Search UT Knoxville">
           </div>
           <input type="submit" name="btnG" class="btn btn-orange"  value="Go">
-      
+
           <input type="hidden" name="output" value="xml_no_dtd">
           <input type="hidden" name="oe" value="UTF-8">
           <input type="hidden" name="ie" value="UTF-8">
@@ -271,29 +271,43 @@ Phone: (865) 974-4351<br />
           <ul>
             <li><a href="http://www.utk.edu/events/">Events</a></li>
             <li><a href="http://www.utk.edu/maps/">Map</a></li>
-          </ul>  
+          </ul>
           <ul>
             <li><a href="http://www.utk.edu/alpha/">A-Z </a></li>
             <li><a href="http://directory.utk.edu">Directory</a></li>
-          </ul>  
+          </ul>
           <ul>
             <li><a href="http://www.utk.edu/admissions/">Apply</a></li>
-            
+
             <li>
             <a href="http://giveto.utk.edu">Give to UT</a>
             </li>
-                      </ul>  
+                      </ul>
       </nav>
     </div>
-</div>  
+</div>
 </footer><!--  end #colophon -->
 <!--  end footer include -->
 
   <div id="system-indicia">
     <p>The flagship campus of <a href="http://tennessee.edu">the University of Tennessee System</a> and partner in <a href="http://www.tntransferpathway.org/">the Tennessee Transfer Pathway</a>.</p>
   </div>
-		
+
 <!-- The UT Footer ends here. -->
-    
+
 </div> <!-- /#page>
 <!-- end page--islandora--search.tpl.php template -->
+
+<script>
+
+// #block-system-main
+//
+// document.getElementById('main').getElementsByClassName('test');
+
+var list = document.getElementsByClassName("solr-thumb");
+ for(var i = list.length - 1; 0 <= i; i--)
+ if(list[i] && list[i].parentElement)
+ list[i].parentElement.removeChild(list[i]);
+
+
+</script>
