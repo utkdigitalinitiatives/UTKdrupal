@@ -295,11 +295,23 @@ h2.subtitle {
 }
 
 /*  Fixes the Details spacing on the object page */
-html.js fieldset.collapsed {
+#block-islandora-nested-collections-nested-collections-list,html.js fieldset.collapsed {
   padding-bottom: 100px;
 }
 
 
 dl.solr-fields {
     width: 100%;
+}
+
+
+dd.collection-value.dc-title {
+    margin: 0 0 0 0;
+}
+
+dd.collection-value.dc-description{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }

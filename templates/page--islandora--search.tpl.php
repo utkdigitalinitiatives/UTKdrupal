@@ -216,19 +216,19 @@
 Knoxville, TN 37996-1000<br />
 Phone: (865) 974-4351<br />
 <a href="https://www.lib.utk.edu/contact">Contact Us</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://www.lib.utk.edu/contact/website-feedback">Website Feedback</a><br />
-<a href="https://www.facebook.com/utklibraries"><img src="https://www.lib.utk.edu/template/2016/images-utlibraries/social-media/facebook-16.png" title="UT Libraries on Facebook" alt="UT Libraries on Facebook" width="16" height="16" /></a>
+<a href="https://www.facebook.com/utklibraries"><img src="sites/all/themes/UTKdrupal/images/facebook-16.png" title="UT Libraries on Facebook" alt="UT Libraries on Facebook" width="16" height="16" /></a>
           &nbsp;
-          <a href="https://foursquare.com/v/john-c-hodges-library/4b16792cf964a52077b923e3"><img src="https://www.lib.utk.edu/template/2016/images-utlibraries/social-media/foursquare-16.png" title="UT Libraries on Foursquare" alt="UT Libraries on Foursquare" width="16" height="16" /></a>
+          <a href="https://foursquare.com/v/john-c-hodges-library/4b16792cf964a52077b923e3"><img src="sites/all/themes/UTKdrupal/images/foursquare-16.png" title="UT Libraries on Foursquare" alt="UT Libraries on Foursquare" width="16" height="16" /></a>
                 &nbsp;
-                <a href="https://instagram.com/utklibraries/"><img src="https://www.lib.utk.edu/template/2016/images-utlibraries/social-media/instagram-16.png" title="UT Libraries on Instagram" alt="UT Libraries on Instagram" width="16" height="16" /></a>
+                <a href="https://instagram.com/utklibraries/"><img src="sites/all/themes/UTKdrupal/images/instagram-16.png" title="UT Libraries on Instagram" alt="UT Libraries on Instagram" width="16" height="16" /></a>
                         &nbsp;
-                          <a href="https://pinterest.com/utklibraries"><img src="https://www.lib.utk.edu/template/2016/images-utlibraries/social-media/pinterest-16.png" title="UT Libraries on Pinterest" alt="UT Libraries on Pinterest" width="16" height="16" /></a>
+                          <a href="https://pinterest.com/utklibraries"><img src="sites/all/themes/UTKdrupal/images/pinterest-16.png" title="UT Libraries on Pinterest" alt="UT Libraries on Pinterest" width="16" height="16" /></a>
         &nbsp;
-        <a href="https://twitter.com/utklibraries"><img src="https://www.lib.utk.edu/template/2016/images-utlibraries/social-media/twitter-16.png" title="UT Libraries on Twitter" alt="UT Libraries on Twitter" width="16" height="16" /></a>
+        <a href="https://twitter.com/utklibraries"><img src="sites/all/themes/UTKdrupal/images/twitter-16.png" title="UT Libraries on Twitter" alt="UT Libraries on Twitter" width="16" height="16" /></a>
         &nbsp;
-        <a href="https://www.youtube.com/user/utklibraries"><img src="https://www.lib.utk.edu/template/2016/images-utlibraries/social-media/youtube-16.png" title="UT Libraries on YouTube" alt="UT Libraries on YouTube" width="16" height="16" /></a>
+        <a href="https://www.youtube.com/user/utklibraries"><img src="sites/all/themes/UTKdrupal/images/youtube-16.png" title="UT Libraries on YouTube" alt="UT Libraries on YouTube" width="16" height="16" /></a>
 		        &nbsp;
-		        <a href="https://itunes.apple.com/us/app/tennessee/id548076679?mt=8"><img src="https://www.lib.utk.edu/template/2016/images-utlibraries/social-media/ut-16.png" title="University of Tennessee iOS App" alt="University of Tennessee iOS App" width="16" height="16" /></a></p>
+		        <a href="https://itunes.apple.com/us/app/tennessee/id548076679?mt=8"><img src="sites/all/themes/UTKdrupal/images/ut-16.png" title="University of Tennessee iOS App" alt="University of Tennessee iOS App" width="16" height="16" /></a></p>
     </div>
 
    </div><!-- #siteinfo -->

@@ -4,7 +4,16 @@ version = Horiziontal
 package = Core
 core = 7.x
 
+stylesheets[all][] = css/2015-05-20-style.css
+stylesheets[all][] = css/icons.data.png.css
+stylesheets[all][] = css/icons.data.svg.css
+; stylesheets[all][] = css/icons.fallback.css
+stylesheets[all][] = css/ie.css
+stylesheets[all][] = css/progress.css
 stylesheets[all][] = css/style.css
+
+scripts[] = js/2015-05-20-utk-min.js
+scripts[] = js/jquery-1.11.2.min.js
 
 ;Drupal 7 default regions:
 ;Reference - http://themery.com/dgd7/theming/info-files
@@ -17,7 +26,6 @@ regions[highlighted] = Highlighted
 regions[help] = Help
 regions[page_top] = Page Top
 regions[page_bottom] = Page Bottom
-
 regions[top_menu] = Top Menu
 regions[search_bar] = Search Bar
 regions[secondary_menu] = Secondary Menu
