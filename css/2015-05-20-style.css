@@ -1293,7 +1293,7 @@ body.archive .entry-header h1 a,body.search .entry-header h1 a{
 @media (min-width:992px){
     #page{
         /* width:90%; */
-        margin:6px auto 0;
+        margin:0 auto 0;
         float:none;
         background:#f6f6f6;
         max-width:1400px
@@ -1304,6 +1304,11 @@ body.archive .entry-header h1 a,body.search .entry-header h1 a{
         width:30%;
         position:absolute;
         height:100%
+    }
+    .site-footer{
+      margin:0 auto 0;
+      float:none;
+      max-width:1400px;
     }
 }
 .site-main{
@@ -1427,6 +1432,7 @@ body.archive .entry-header h1 a,body.search .entry-header h1 a{
         max-width:1400px
     }
 }
+
 #masthead h3.killer-logo{
     float:left;
     margin-top:12.5px;
@@ -1689,9 +1695,7 @@ body,html{
     background:0 0;
     box-shadow:none
 }
-#page{
-    position:relative
-}
+
 .site{
     right:0
 }
@@ -2777,7 +2781,8 @@ body.page-template-template-nosidebar .entry-content,body.page-template-template
 #page .gform_wrapper .btn-group-vertical>input.active[type=button],#page .gform_wrapper .btn-group-vertical>input.active[type=file],#page .gform_wrapper .btn-group-vertical>input.active[type=reset],#page .gform_wrapper .btn-group-vertical>input.active[type=submit],#page .gform_wrapper .btn-group-vertical>input[type=button]:active,#page .gform_wrapper .btn-group-vertical>input[type=button]:focus,#page .gform_wrapper .btn-group-vertical>input[type=button]:hover,#page .gform_wrapper .btn-group-vertical>input[type=file]:active,#page .gform_wrapper .btn-group-vertical>input[type=file]:focus,#page .gform_wrapper .btn-group-vertical>input[type=file]:hover,#page .gform_wrapper .btn-group-vertical>input[type=reset]:active,#page .gform_wrapper .btn-group-vertical>input[type=reset]:focus,#page .gform_wrapper .btn-group-vertical>input[type=reset]:hover,#page .gform_wrapper .btn-group-vertical>input[type=submit]:active,#page .gform_wrapper .btn-group-vertical>input[type=submit]:focus,#page .gform_wrapper .btn-group-vertical>input[type=submit]:hover,#page .gform_wrapper .btn-group>input.active[type=button],#page .gform_wrapper .btn-group>input.active[type=file],#page .gform_wrapper .btn-group>input.active[type=reset],#page .gform_wrapper .btn-group>input.active[type=submit],#page .gform_wrapper .btn-group>input[type=button]:active,#page .gform_wrapper .btn-group>input[type=button]:focus,#page .gform_wrapper .btn-group>input[type=button]:hover,#page .gform_wrapper .btn-group>input[type=file]:active,#page .gform_wrapper .btn-group>input[type=file]:focus,#page .gform_wrapper .btn-group>input[type=file]:hover,#page .gform_wrapper .btn-group>input[type=reset]:active,#page .gform_wrapper .btn-group>input[type=reset]:focus,#page .gform_wrapper .btn-group>input[type=reset]:hover,#page .gform_wrapper .btn-group>input[type=submit]:active,#page .gform_wrapper .btn-group>input[type=submit]:focus,#page .gform_wrapper .btn-group>input[type=submit]:hover,#page .gform_wrapper .input-group-btn>input[type=button]:active,#page .gform_wrapper .input-group-btn>input[type=button]:focus,#page .gform_wrapper .input-group-btn>input[type=button]:hover,#page .gform_wrapper .input-group-btn>input[type=file]:active,#page .gform_wrapper .input-group-btn>input[type=file]:focus,#page .gform_wrapper .input-group-btn>input[type=file]:hover,#page .gform_wrapper .input-group-btn>input[type=reset]:active,#page .gform_wrapper .input-group-btn>input[type=reset]:focus,#page .gform_wrapper .input-group-btn>input[type=reset]:hover,#page .gform_wrapper .input-group-btn>input[type=submit]:active,#page .gform_wrapper .input-group-btn>input[type=submit]:focus,#page .gform_wrapper .input-group-btn>input[type=submit]:hover,.btn-group-vertical>.btn.active,.btn-group-vertical>.btn:active,.btn-group-vertical>.btn:focus,.btn-group-vertical>.btn:hover,.btn-group>.btn.active,.btn-group>.btn:active,.btn-group>.btn:focus,.btn-group>.btn:hover,.input-group-btn>.btn:active,.input-group-btn>.btn:focus,.input-group-btn>.btn:hover{
     z-index:2
 }
-#colophon,#colophon nav ul{
+
+#colophon nav ul{
     padding:0;
     float:left;
     margin-right:1.5873%;
@@ -2813,14 +2818,6 @@ body.page-template-template-nosidebar .entry-content,body.page-template-template
         display:inline
     }
 }
-#system-indicia{
-    float:left;
-    width:100%;
-    background:#58595b;
-    color:#fff;
-    padding:12.5px;
-    font-size:12px
-}
 #system-indicia p{
     padding-left:30px;
     margin-bottom:0;
@@ -2847,13 +2844,23 @@ body.page-template-template-nosidebar .entry-content,body.page-template-template
 @media (min-width:768px){
     #colophon{
         width:100%;
-        margin:0
+        /* margin:0 */
     }
     #colophon nav ul{
         margin-right:3.1746%;
         margin-left:0;
         width:30.15873%
     }
+		#system-indicia{
+		    width:100%;
+		    background:#58595b;
+		    color:#fff;
+		    padding:12.5px;
+		    font-size:12px;
+				max-width: 1400px;
+				margin: 0 auto 0;
+		}
+
 }
 #colophon a.logo{
     display:inline-block;
