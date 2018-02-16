@@ -43,6 +43,10 @@ function UTKdrupal_page_headers(){
   drupal_set_html_head('<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">');
 }
 
+function UTKdrupal_preprocess_html(&$vars) {
+  drupal_add_css(path_to_theme() . '/ie.css', array('weight' => CSS_THEME, 'browsers' => array('IE' => 'lt IE 7', '!IE' => FALSE), 'preprocess' => FALSE));
+}
+
 /**
  * Set Logo path and $head variable in page.tpl.php is updated from what it was originally set to in template_preprocess_page().
  * @method UTKdrupal_preprocess_page
