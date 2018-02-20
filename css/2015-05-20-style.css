@@ -2831,6 +2831,7 @@ body.page-template-template-nosidebar .entry-content,body.page-template-template
     background-color:#fff;
     border-top:6px solid #FF8200
 }
+
 #colophon:after,#colophon:before{
     content:" ";
     display:table
@@ -2851,15 +2852,15 @@ body.page-template-template-nosidebar .entry-content,body.page-template-template
         margin-left:0;
         width:30.15873%
     }
-		#system-indicia{
-		    width:100%;
-		    background:#58595b;
-		    color:#fff;
-		    padding:12.5px;
-		    font-size:12px;
-				max-width: 1400px;
-				margin: 0 auto 0;
-		}
+    #system-indicia{
+        width:100%;
+        background:#58595b;
+        color:#fff;
+        padding:12.5px;
+        font-size:12px;
+        max-width: 1400px;
+        margin: 0 auto 0;
+    }
 
 }
 #colophon a.logo{
