@@ -3,7 +3,7 @@
 /* CSS3 Variables (Custom Properties) for branding colors */
 :root {
   --utorange: #FF8200;
-   --torch: #E65933;
+  --torch: #E65933;
   --leconte: #8D2048;
   --fountain: #2197A9;
   --globe: #006C93;
@@ -125,11 +125,81 @@
   padding: 5px 15px 5px 90px;
 }
 
- #secondary-menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    }
+dd.solr-value.mods-titleinfo-title-ms a {
+  color: var(----globe);
+  text-shadow: none;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+  background: none;
+  text-decoration: none;
+}
+
+.tooltiptext_plus {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 4px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 1s;
+    top: -5px;
+   left: 110%;
+ }
+
+.tooltiptext_minus {
+   visibility: hidden;
+   width: 120px;
+   background-color: black;
+   color: #fff;
+   text-align: center;
+   border-radius: 4px;
+   padding: 5px 0;
+   /* Position the tooltip */
+   position: absolute;
+   z-index: 1;
+   opacity: 0;
+   transition: opacity 1s;
+   top: -5px;
+   left: 110%;
+}
+
+.tooltiptext_plus::after, .tooltiptext_minus::after  {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent black transparent transparent;
+}
+li:nth-child(n) span.plusminus {
+  position: relative;
+  display: inline-block;
+}
+li:nth-child(n) span.plusminus span.plus_facet:hover span.tooltiptext_plus {
+    visibility: visible;
+    opacity: .9;
+}
+
+li:nth-child(n) span.plusminus span.minus_facet:hover span.tooltiptext_minus {
+    visibility: visible;
+    opacity: .9;
+}
+
+
+#secondary-menu ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
 #secondary-menu ul li {
   display: inline;
