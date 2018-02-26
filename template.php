@@ -71,7 +71,7 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
   // ETD overrides
   if (strpos(current_path(), 'utk.ir.td') !== false) {
     if ( isset($variables['page']['content']['system_main']['citation.tab']['preview']['#markup'])) {
-      // unset($variables['page']['content']['system_main']['citation.tab']['preview']['#markup']);
+      unset($variables['page']['content']['system_main']['citation.tab']['preview']['#markup']);
     }
   }
 
