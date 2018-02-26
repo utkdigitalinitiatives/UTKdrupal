@@ -83,32 +83,25 @@
 <!-- End of Access Denied Check and redirrect to login -->
 <div id="main" class="site-main">
 <!-- Begin Header Region -->
-<?php
-   print render($page['header']); ?>
-<?php
-   include $directory . '/templates/includes/header.tpl.inc';
-    ?>
+<?php print render($page['header']); ?>
+<?php include $directory . '/templates/includes/header.tpl.inc'; ?>
 <!-- End Header Region -->
 <div id="top-menu">
    <!-- Begin Top Menu Region -->
-   <?php
-      print render($page['top_menu']); ?>
+   <?php print render($page['top_menu']); ?>
    <!-- End Top Menu Region -->
 </div>
 <div id="search-bar">
    <!-- Begin Search Bar Region -->
-   <?php
-      print render($page['search_bar']); ?>
+   <?php print render($page['search_bar']); ?>
    <!-- End Search Bar Region -->
 </div>
-<?php
-   if ($page['secondary_menu']): ?>
+<?php if ($page['secondary_menu']): ?>
 <div id="secondary-menu">
    <?php
       print render($page['secondary_menu']); ?>
 </div>
-<?php
-   endif; ?>
+<?php endif; ?>
 <!--  Begin of primary -->
 <div id="primary" class="web-app-content-area">
    <div id="content" class="site-content site-content wide" role="main">
@@ -256,3 +249,4 @@
    </div>
 </div>
 <!-- end page--islandora--search.tpl.php template -->
+</div>
