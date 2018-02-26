@@ -1401,7 +1401,7 @@ body.archive .entry-header h1 a,body.search .entry-header h1 a{
         margin-top:3.1746%
     }
 }
-#orange-bar{
+.orange-bar{
     display:none
 }
 @media (min-width:992px){
@@ -1413,7 +1413,7 @@ body.archive .entry-header h1 a,body.search .entry-header h1 a{
     body{
         background:#a7a9ac
     }
-    #orange-bar{
+    .orange-bar{
         display:block;
         float:left;
         min-height:6px;
@@ -1421,12 +1421,12 @@ body.archive .entry-header h1 a,body.search .entry-header h1 a{
         width:100%;
         z-index:2050;
         clear:both;
-        color:#fff
+        color:#fff;
     }
-    #orange-bar a{
-        color:#fff
+    .orange-bar a{
+        color:#fff;
     }
-    #orange-bar .container{
+    .orange-bar .container{
         width:90%;
         margin:0 auto;
         max-width:1400px
@@ -1440,7 +1440,7 @@ body.archive .entry-header h1 a,body.search .entry-header h1 a{
     width:60px;
     -webkit-transition:all .25s ease-in-out;
     -o-transition:all .25s ease-in-out;
-    transition:all .25s ease-in-out
+    transition:all .25s ease-in-out;
 }
 #masthead h3.killer-logo a{
     height:0!important;

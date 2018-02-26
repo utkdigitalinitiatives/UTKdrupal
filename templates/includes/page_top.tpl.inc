@@ -73,6 +73,6 @@
 ?>
 
 <!-- start page-top.tpl.php template -->
-<div id="orange-bar"> </div>
+<div class="orange-bar" name="orange-bar"> </div>
 <div id="page" class="hfeed site row-offcanvas">
 <!-- End page-top.tpl.php template -->
