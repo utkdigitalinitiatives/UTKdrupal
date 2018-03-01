@@ -70,16 +70,17 @@
     *
     * @ingroup themeable
     */
-   ?>
+    ?>
+
 <!-- start page--islandora--search.tpl.php template -->
+
 <!-- Begin of Access Denied Check and redirrect to login -->
 <?php
-   if ($title == 'Access denied')
-     {
-     header('Location: /user?destination=' . substr($_SERVER['REQUEST_URI'], 1));
-     }
+if ($title == 'Access denied') {
+    header('Location: /user?destination=' . substr($_SERVER['REQUEST_URI'], 1));
+}
+?>
 
-   ?>
 <!-- End of Access Denied Check and redirrect to login -->
 <div id="main" class="site-main">
 <!-- Begin Header Region -->
@@ -87,164 +88,137 @@
 <?php include $directory . '/templates/includes/header.tpl.inc'; ?>
 <!-- End Header Region -->
 <div id="top-menu">
-   <!-- Begin Top Menu Region -->
-   <?php print render($page['top_menu']); ?>
-   <!-- End Top Menu Region -->
+    <!-- Begin Top Menu Region -->
+    <?php print render($page['top_menu']); ?>
+    <!-- End Top Menu Region -->
 </div>
 <div id="search-bar">
-   <!-- Begin Search Bar Region -->
-   <?php print render($page['search_bar']); ?>
-   <!-- End Search Bar Region -->
+    <!-- Begin Search Bar Region -->
+    <?php print render($page['search_bar']); ?>
+    <!-- End Search Bar Region -->
 </div>
-<?php if ($page['secondary_menu']): ?>
-<div id="secondary-menu">
-   <?php
-      print render($page['secondary_menu']); ?>
-</div>
+<?php if ($page['secondary_menu']) : ?>
+  <div id="secondary-menu">
+    <?php print render($page['secondary_menu']); ?>
+  </div>
 <?php endif; ?>
-<!--  Begin of primary -->
+<!-- Begin of primary -->
 <div id="primary" class="web-app-content-area">
    <div id="content" class="site-content site-content wide" role="main">
       <!-- Begin Message Region -->
-      <?php
-         if ($messages): ?>
-      <div id="message">
-         <div class="section clearfix">
-            <?php
-               print $messages; ?>
-         </div>
-      </div>
-      <?php
-         endif; ?>
-      <!-- End Message Region -->
-      <!-- Begin Help Region -->
-      <?php
-         if ($page['help']): ?>
-      <div id="help">
-         <?php
-            print render($page['help']); ?>
-      </div>
-      <?php
-         endif; ?>
+        <?php if ($messages) : ?>
+          <div id="message">
+             <div class="section clearfix">
+                <?php
+                   print $messages; ?>
+             </div>
+          </div>
+        <?php endif; ?>
+        <!-- End Message Region -->
+        <!-- Begin Help Region -->
+        <?php if ($page['help']) : ?>
+        <div id="help">
+            <?php print render($page['help']); ?>
+        </div>
+        <?php endif; ?>
       <!-- End Help Region -->
       <!-- Begin highlighted Region -->
-      <?php
-         if ($page['highlighted']): ?>
-      <div id="highlighted">
-         <?php
-            print render($page['highlighted']); ?>
-      </div>
-      <?php
-         endif; ?>
+        <?php if ($page['highlighted']) : ?>
+        <div id="highlighted">
+            <?php print render($page['highlighted']); ?>
+        </div>
+        <?php endif; ?>
       <!-- End highlighted -->
       <!-- Begin help -->
-      <?php
-         if ($page['help']): ?>
-      <?php
-         print render($page['help']); ?>
-      <?php
-         endif; ?>
+        <?php if ($page['help']) : ?>
+        <?php print render($page['help']); ?>
+        <?php endif; ?>
       <!-- End help -->
       <div id="primary" class="web-app-content-area">
-         <div id="content" class="site-content site-content wide" role="main">
+         <div id="content" class="content site-content site-content wide" role="main">
             <!--    Begin Page Top Region -->
             <?php
                print render($page['page_top']); ?>
             <!--    End Page Top Region -->
             <!-- Begin Breadcrumb Region -->
-            <?php
-               if ($breadcrumb): ?>
-            <div id="breadcrumb"><?php
-               print $breadcrumb; ?></div>
-            <?php
-               endif; ?>
+            <?php if ($breadcrumb) : ?>
+              <div id="breadcrumb">
+                <?php print $breadcrumb; ?>
+              </div>
+            <?php endif; ?>
             <!-- End Breadcrumb Region -->
             <!-- Begin Message Region -->
-            <?php
-               if ($messages): ?>
-            <div id="message">
-               <div class="section clearfix">
-                  <?php
-                     print $messages; ?>
-               </div>
-            </div>
-            <?php
-               endif; ?>
+            <?php if ($messages) : ?>
+              <div id="message">
+                 <div class="section clearfix">
+                    <?php print $messages; ?>
+                 </div>
+              </div>
+            <?php endif; ?>
             <!-- End Message Region -->
             <!-- Begin Help Region -->
             <?php
                print render($page['help']); ?>
             <!-- End Help Region -->
             <!-- Begin Copied from Drupal system page.tpl content area line 126 to 135 -->
-            <?php
-               if ($page['highlighted']): ?>
-            <div id="highlighted"><?php
-               print render($page['highlighted']); ?></div>
-            <?php
-               endif; ?>
+            <?php if ($page['highlighted']) : ?>
+              <div id="highlighted">
+                <?php print render($page['highlighted']); ?>
+               </div>
+            <?php endif; ?>
             <a id="main-content"></a>
-            <?php
-               print render($title_prefix); ?>
-            <?php
-               if ($title): ?>
-            <h1 class="title" id="page-title"><?php
-               print $title; ?></h1>
-            <?php
-               endif; ?>
-            <?php
-               print render($title_suffix); ?>
-            <?php
-               if ($tabs): ?>
-            <div class="tabs"><?php
-               print render($tabs); ?></div>
-            <?php
-               endif; ?>
-            <?php
-               print render($page['help']); ?>
-            <?php
-               if ($action_links): ?>
-            <ul class="action-links"><?php
-               print render($action_links); ?></ul>
-            <?php
-               endif; ?>
+            <?php print render($title_prefix); ?>
+            <?php if ($title) : ?>
+              <h1 class="title" id="page-title">
+                <?php print $title; ?>
+              </h1>
+            <?php endif; ?>
+            <?php print render($title_suffix); ?>
+            <?php if ($tabs) : ?>
+              <div class="tabs"><?php
+                 print render($tabs); ?>
+              </div>
+            <?php endif; ?>
+            <?php print render($page['help']); ?>
+            <?php if ($action_links) : ?>
+              <ul class="action-links">
+                <?php print render($action_links); ?>
+               </ul>
+            <?php endif; ?>
             <div id="left-menu">
-               <?php
-                  if ($page['sidebar_first']): ?>
-               <div id="sidebar-first" class="column sidebar">
+                <?php if ($page['sidebar_first']) : ?>
+                <div id="sidebar-first" class="column sidebar">
                   <div class="section">
-                     <?php
-                        print render($page['sidebar_first']); ?>
+                        <?php print render($page['sidebar_first']); ?>
                   </div>
-               </div>
-               <!-- /.section, /#sidebar-first -->
-               <?php
-                  endif; ?>
-               <?php
-                  if ($page['sidebar_second']): ?>
-               <div id="sidebar-second" class="column sidebar">
-                  <div class="section">
-                     <?php
-                        print render($page['sidebar_second']); ?>
+                </div>
+                <!-- /.section, /#sidebar-first -->
+                <?php endif; ?>
+                <?php if ($page['sidebar_second']) : ?>
+                  <div id="sidebar-second" class="column sidebar">
+                    <div class="section">
+                    <?php print render($page['sidebar_second']); ?>
+                    </div>
                   </div>
-               </div>
-               <!-- /.section, /#sidebar-second -->
-               <?php
-                  endif; ?>
-               <!-- End Copied from Drupal system page.tpl content area line 138 to 148 -->
+                <?php endif; ?>
             </div>
+
+            <!-- Begin Content -->
             <div id="page-content">
-               <?php
-                  print render($page['content']); ?>
-               <?php
-                  print $feed_icons; ?>
+                <?php print render($page['content']); ?>
+                <?php print $feed_icons; ?>
             </div>
+            <!-- End Content -->
+
          </div>
          <!-- Begin Page Bottom Region -->
-         <?php print render($page['page_bottom']); ?>
+            <?php print render($page['page_bottom']); ?>
          <!-- End Page Bottom Region -->
-         <!--    Begin Footer Region -->
-         <?php print render($page['footer']); ?>
+
+         <!-- Begin Footer Region -->
+            <?php print render($page['footer']); ?>
          <!-- End Footer Region -->
+
       </div>
    </div>
 </div>

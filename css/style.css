@@ -194,8 +194,22 @@ dd.solr-value.mods-titleinfo-title-ms a {
     border-color: transparent var(--smokey) transparent transparent;
 }
 
-#block-islandora-solr-basic-facets li:nth-child(odd){
-  background-color: var(--limestone);
+#block-islandora-solr-basic-facets li{
+  /* background-color: var(--limestone); */
+	max-width: 100%;
+    line-height: 1.75em;
+    cursor: pointer;
+    padding: 0 .25em;
+    border-radius: 3px;
+    color: #3a3a3a;
+    margin-right: .2em;
+}
+#block-islandora-solr-basic-facets ul{
+	list-style: none;
+}
+#block-islandora-solr-basic-facets li:hover:not([disabled]) {
+    color: #080606;
+    background-color: rgba(58,58,58,.1);
 }
 
 #block-islandora-solr-basic-facets li:nth-child(n) span.plusminus {
@@ -282,11 +296,11 @@ dl.solr-thumb {
 
 @media only screen and (max-width: 900px) {
 
- #search-bar input[type=text] {
- margin: 15px;
- height: 50px;
- width: 50%;
- }
+#search-bar input[type=text] {
+    margin: 15px;
+    height: 50px;
+    width: 50%;
+}
 
 }
 
@@ -419,8 +433,60 @@ dd.collection-value.dc-title {
 }
 
 dd.collection-value.dc-description{
+  float: left;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+
+/* Collection Specific Adjustments */
+/* Datasets */
+
+.sidebar #block-islandora-compound-object-compound-jail-display .content img {
+    width: 0px;
+    max-width: 0%;
+    visibility: hidden;
+    height: 0px;
+    padding: 0px;
+		margin: 0px;
+    clear: both;
+}
+
+.islandora-binary-object-metadata fieldset dl dt{
+    background-color: #dedede;
+    padding-left: 10px;
+}
+.islandora-binary-object-metadata fieldset dl dd, .islandora-binary-object-metadata fieldset p{
+  padding-top: 4px;
+  padding-bottom: 0px;
+  padding-left: 10px;
+  margin: 0px;
+}
+.islandora-basic-collection-object.islandora-basic-collection-list-item.clearfix dd.collection-value.dc-date{
+
+}
+.islandora-basic-collection-list-item dl dd {
+    margin: 0 0 0 0px;
+}
+
+#block-system-main .islandora-binary-object-metadata fieldset{
+  margin-bottom: 100px;
+  margin-right: 10px;
+}
+
+#islandora-compound-next-link, #islandora-compound-previous-link, #islandora-compound-sequence-position{
+  padding-top: 10px;
+}
+
+/* utk.ir.fg level changes */
+.islandora-binary-object-object.islandora{
+	float: left;
+}
+
+#block-islandora-compound-object-compound-jail-display > div {
+    border-bottom: 0px dotted #ccc;
+    padding-bottom: 1em;
+    padding-right: 10px;
+		padding-left: 1em;
 }

@@ -9,6 +9,8 @@
  * @see template_preprocess_islandora_solr()
  */
 ?>
+
+<!-- BEGIN islandora-solr.tpl.php -->
 <?php if (empty($results)): ?>
     <p class="no-results"><?php print t('Sorry, but your search returned no results.'); ?></p>
   <?php else: ?>
@@ -37,3 +39,4 @@
       <?php endforeach; ?>
     </div>
 <?php endif; ?>
+<!-- END islandora-solr.tpl.php -->
