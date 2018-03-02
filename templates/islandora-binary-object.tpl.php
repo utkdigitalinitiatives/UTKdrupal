@@ -18,9 +18,6 @@
  */
 ?>
   <div class="islandora-binary-object-metadata">
-    <?php
-      print strlen($description);
-    ?>
     <?php if ($parent_collections) : ?>
       <div>
         <h2><?php print t('In collections'); ?></h2>
@@ -41,11 +38,6 @@
 
     <?php if (isset($islandora_binary_object_download)) : ?>
         <?php
-          // Shorten the file name to fit into the sidebar.
-          // $resultingfile = preg_match_all('/\">(.*?)<\/a>/', $islandora_binary_object_download, $results);
-          // $resultingfileString = substr($results[0][0], 2, 3) . '...' . substr($results[0][0], strlen($results[0][0]) - 11, -4);
-          // $resulting = preg_replace('/<a href=\"(.*?)\">(.*?)<\/a>/', '<a href="\\1">' . $resultingfileString . '</a>', $islandora_binary_object_download);
-          // print $resulting;
           print $islandora_binary_object_download;
         ?>
     <?php endif; ?>
