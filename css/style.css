@@ -1,241 +1,178 @@
+@import url('2015-05-20-style.css');
 @import url('progress.css');
-
+@import url('max-width-767.css');
+@import url('max-width-900.css');
+@import url('min-width-1200.css');
+@import url('min-width-1400.css');
+@import url('min-width-480.css');
+@import url('min-width-768.css');
+@import url('min-width-992.css');
+@import url('print.css');
 /* CSS3 Variables (Custom Properties) for branding colors */
 :root {
-  --utorange: #FF8200;
-  --torch: #E65933;
-  --leconte: #8D2048;
-  --fountain: #2197A9;
-  --globe: #006C93;
+  --utorange : #FF8200;
+  --torch    : #E65933;
+  --leconte  : #8D2048;
+  --fountain : #2197A9;
+  --globe    : #006C93;
   --limestone: #F0EDE3;
-  --smokey: #58595B;
-  --rock: #A7A9AC;
+  --smokey   : #58595B;
+  --rock     : #A7A9AC;
 }
 
 #content div.region.region-content {
   padding-bottom: 50px;
 }
-
 /* Removes text shawdowing from lists: ex. the Drupal admin toolbar */
- .site-content li a {
-    text-shadow: none !important;
-    background: none !important;
-    }
-
+.site-content li a {
+  text-shadow: none !important;
+  background : none !important;
+}
 /* Add a right margin to space out ajoining buttons in forms and on the bottom to space out from page footer */
-    #edit-next, #edit-prev {
-     margin-right: 15px;
-     margin-bottom: 15px;
-     }
-
+#edit-next,
+#edit-prev {
+  margin-right : 15px;
+  margin-bottom: 15px;
+}
 /* Adjusts margins, padding, border radius, and colors of Islandora search pagination */
-.pager li>a, .pager li>span  {
-  display: inline-block;
-    padding: 5px 14px;
-    margin: 5px 0px;
-    background-color: #fff;
-    border: 1px solid #a7a9ac;
-    border-radius:8px;
-  -moz-border-radius:8px;
-  -webkit-border-radius:8px;
+.pager li > a,
+.pager li > span {
+  display              : inline-block;
+  padding              : 5px 14px;
+  margin               : 5px 0;
+  background-color     : #fff;
+  border               : 1px solid #a7a9ac;
+  border-radius        : 8px;
+  -moz-border-radius   : 8px;
+  -webkit-border-radius: 8px;
 }
 
 .pager li.pager-current {
-  display: inline-block;
-    padding: 5px 14px;
-  background-color: var(--limestone);
-  border: 1px solid #a7a9ac;
-  border-radius:8px;
-  -moz-border-radius:8px;
-  -webkit-border-radius:8px;
-}
-
-/*  Menu Area Above Search Bar */
- #top-menu {
-  height: 40px;
-  width: 100%;
-  background: #ffffff;
-  clear: both;
-  font-size: 18px;
-  padding: 5px 15px 5px 90px;
- }
-
- #top-menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    }
-
-#top-menu ul li {
-  display: inline;
-}
-/*  //////////// BEGIN SEARCH PAGE ////////////  */
-/* Search Bar */
-#search-bar {
-  height: 80px;
-  width: 100%;
-  background: var(--smokey);
-  clear: both;
- }
-
-#search-bar label {
-  position:absolute;
-  left:-10000px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
- }
-
-#search-bar input[type=text] {
-  margin: 0 auto 15px auto;
-  height: 50px;
-  width: 50%;
-  border: 1px solid #ccc;
-  border-radius:6px;
-  -moz-border-radius:6px;
-  -webkit-border-radius:6px;
-  position: relative;
-  vertical-align: top;
-  top: 15px;
-  display: block;
-  padding: 6px 12px;
-  line-height: 1.8;
-  color: #58595b;
-  background-color: #fff;
-  background-image: none;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
- }
-
-#search-bar input[type=submit] {
-  position:absolute;
-  left:-10000px;
-  top:auto;
-  width:1px;
-  height:1px;
-  overflow:hidden;
- }
-
- /*  Menu Area Under Search Bar */
-#secondary-menu {
-  height: 30px;
-  width: 100%;
-  background: #ffffff;
-  clear: both;
-  font-size: 14px;
-  padding: 5px 15px 5px 90px;
-}
-/*  xxx */
-#block-system-main div.islandora-solr-content div:nth-child(odd) dl {
-  /* background-color: var(--rock); */
+  display              : inline-block;
+  padding              : 5px 14px;
+  background-color     : var(--limestone);
+  border               : 1px solid #a7a9ac;
+  border-radius        : 8px;
+  -moz-border-radius   : 8px;
+  -webkit-border-radius: 8px;
 }
 
 dd.solr-value.mods-titleinfo-title-ms a {
-  color: var(--globe);
-  text-shadow: none;
+  color             : var(--globe);
+  text-shadow       : none;
   -webkit-transition: none;
-  -moz-transition: none;
-  -o-transition: none;
-  transition: none;
-  background: none;
-  text-decoration: none;
-  font-size: 18px;
+  -moz-transition   : none;
+  -o-transition     : none;
+  transition        : none;
+  background        : none;
+  text-decoration   : none;
+  font-size         : 18px;
 }
 
 .islandora-inline-metadata dd {
-  width: 79.375%;
-  padding-left: 0px;
+  width       : 79.375%;
+  padding-left: 0;
 }
 
 .tooltiptext_plus {
-    visibility: hidden;
-    width: 120px;
-    background-color: var(--smokey);
-    color: #fff;
-    text-align: center;
-    border-radius: 4px;
-    padding: 5px 0;
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 1s;
-    top: -5px;
-   left: 110%;
- }
+  visibility      : hidden;
+  width           : 120px;
+  background-color: var(--smokey);
+  color           : #fff;
+  text-align      : center;
+  border-radius   : 4px;
+  padding         : 5px 0;
+  /* Position the tooltip */
+  position        : absolute;
+  z-index         : 1;
+  opacity         : 0;
+  transition      : opacity 1s;
+  top             : -5px;
+  left            : 110%;
+}
 
 .tooltiptext_minus {
-   visibility: hidden;
-   width: 120px;
-   background-color: var(--smokey);
-   color: #fff;
-   text-align: center;
-   border-radius: 4px;
-   padding: 5px 0;
-   position: absolute;
-   z-index: 1;
-   opacity: 0;
-   transition: opacity 1s;
-   top: -5px;
-   left: 110%;
+  visibility      : hidden;
+  width           : 120px;
+  background-color: var(--smokey);
+  color           : #fff;
+  text-align      : center;
+  border-radius   : 4px;
+  padding         : 5px 0;
+  position        : absolute;
+  z-index         : 1;
+  opacity         : 0;
+  transition      : opacity 1s;
+  top             : -5px;
+  left            : 110%;
 }
 
-.tooltiptext_plus::after, .tooltiptext_minus::after  {
-    content: "";
-    position: absolute;
-    top: 50%;
-    right: 100%;
-    margin-top: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent var(--smokey) transparent transparent;
+.tooltiptext_minus::after,
+.tooltiptext_plus::after {
+  content     : '';
+  position    : absolute;
+  top         : 50%;
+  right       : 100%;
+  margin-top  : -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent var(--smokey) transparent transparent;
 }
 
-#block-islandora-solr-basic-facets li{
-  /* background-color: var(--limestone); */
-	max-width: 100%;
-    line-height: 1.75em;
-    cursor: pointer;
-    padding: 0 .25em;
-    border-radius: 3px;
-    color: #3a3a3a;
-    margin-right: .2em;
+#block-islandora-solr-basic-facets li {
+  max-width    : 100%;
+  line-height  : 1.75em;
+  cursor       : pointer;
+  padding      : 0 0.25em;
+  border-radius: 3px;
+  color        : #3a3a3a;
+  margin-right : 0.2em;
 }
-#block-islandora-solr-basic-facets ul{
-	list-style: none;
+
+#block-islandora-nested-collections-nested-collections-list .content li a {
+  padding-left: 10px;
 }
+
+#block-islandora-nested-collections-nested-collections-list div.content ul,
+#block-islandora-solr-basic-facets ul {
+  list-style: none;
+  max-width : 575px;
+}
+
+#block-islandora-nested-collections-nested-collections-list .content li:hover:not([disabled]) {
+  color           : #080606;
+  background-color: rgba(58,58,58,.1);
+}
+
 #block-islandora-solr-basic-facets li:hover:not([disabled]) {
-    color: #080606;
-    background-color: rgba(58,58,58,.1);
+  color           : #080606;
+  background-color: rgba(58,58,58,.1);
 }
 
 #block-islandora-solr-basic-facets li:nth-child(n) span.plusminus {
   position: relative;
-  display: inline-block;
-  padding: 0 10px 0 20px;
+  display : inline-block;
+  padding : 0 10px 0 20px;
 }
 
 #block-islandora-solr-basic-facets li:nth-child(n) span.plusminus span.plus_facet:hover span.tooltiptext_plus {
-    visibility: visible;
-    opacity: .9;
+  visibility: visible;
+  opacity   : 0.9;
 }
 
 #block-islandora-solr-basic-facets li:nth-child(n) span.plusminus span.minus_facet:hover span.tooltiptext_minus {
-    visibility: visible;
-    opacity: .9;
+  visibility: visible;
+  opacity   : 0.9;
 }
+
 #block-islandora-solr-basic-facets li {
   padding-left: 10px;
 }
-/*  //////////// END SEARCH PAGE ////////////  */
-
+/* //////////// END SEARCH PAGE //////////// */
 #secondary-menu ul {
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin         : 0;
+  padding        : 0;
 }
 
 #secondary-menu ul li {
@@ -244,249 +181,238 @@ dd.solr-value.mods-titleinfo-title-ms a {
 
 #secondary-menu #block-menu-menu-manager-navigation {
   background: #ffffff;
-  float: left;
- }
+  float     : left;
+}
 
 #secondary-menu #block-menu-menu-default-login {
-  background: #ffffff;
-  float: right;
+  background   : #ffffff;
+  float        : right;
   padding-right: 25px;
- }
+}
 
 #secondary-menu #block-system-user-menu {
-  background: #ffffff;
-  float: right;
+  background   : #ffffff;
+  float        : right;
   padding-right: 25px;
- }
-
-/*  Two Column Search  pages*/
- #left-menu {
-  width: 25%;
-  padding-right: 15px;
-  float: left;
 }
-
-#page-content {
-  width: 75%;
-  float: right;
-}
-
 /* Solr search results */
-
 dl.solr-thumb {
-    float: left;
-    width: 15%;
-    visibility: hidden;
+  float     : left;
+  width     : 15%;
+  visibility: hidden;
 }
-
 /* Login Form */
 #auth_box {
   background-color: var(--limestone);
-  padding: 20px;
-  margin: 20px auto;
-  width:325px;
+  padding         : 20px;
+  margin          : 20px auto;
+  width           : 325px;
 }
+
 #auth_box .form-submit {
   background-color: var(--utorange);
-  color: #FFF;
+  color           : #FFF;
 }
-#auth_box label{
+
+#auth_box label {
   color: var(--smokey);
 }
 
-@media only screen and (max-width: 900px) {
-
-#search-bar input[type=text] {
-    margin: 15px;
-    height: 50px;
-    width: 50%;
-}
-
-}
-
 h2.subtitle {
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: 1.25;
-    color: var(--torch);
-    margin-top: 0px;
+  font-size  : 1.5rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color      : var(--torch);
+  margin-top : 0;
 }
 
 .notification.is-danger {
-    background-color: #c7254e;
-    color: #fff;
+  background-color: #c7254e;
+  color           : #fff;
 }
 
 .notification {
-    position: relative;
-    top: 0;
-    padding: 0.9em 0.9em 0.9em 2.4em;
-    border-radius: 0;
-    height: auto;
-    -moz-transition: transform .2s;
-    -ms-transition: transform .2s;
-    -o-transition: transform .2s;
-    -webkit-transition: transform .2s;
-    transition: transform .2s;
-    width: 100%;
+  position          : relative;
+  top               : 0;
+  padding           : 0.9em 0.9em 0.9em 2.4em;
+  border-radius     : 0;
+  height            : auto;
+  -moz-transition   : transform 0.2s;
+  -ms-transition    : transform 0.2s;
+  -o-transition     : transform 0.2s;
+  -webkit-transition: transform 0.2s;
+  transition        : transform 0.2s;
+  width             : 100%;
 }
 
 .notification > .delete {
-    position: absolute;
-    right: 0.5em;
-    top: 0.5em;
+  position: absolute;
+  right   : 0.5em;
+  top     : 0.5em;
 }
 
 .delete {
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    background-color: rgba(10, 10, 10, 0.2);
-    border: none;
-    border-radius: 290486px;
-    cursor: pointer;
-    display: inline-block;
-    -webkit-box-flex: 0;
-    -ms-flex-positive: 0;
-    flex-grow: 0;
-    -ms-flex-negative: 0;
-    flex-shrink: 0;
-    font-size: 1rem;
-    height: 20px;
-    max-height: 20px;
-    max-width: 20px;
-    min-height: 20px;
-    min-width: 20px;
-    outline: none;
-    position: relative;
-    vertical-align: top;
-    width: 20px;
+  -webkit-touch-callout: none;
+  -webkit-user-select  : none;
+  -moz-user-select     : none;
+  -ms-user-select      : none;
+  user-select          : none;
+  -moz-appearance      : none;
+  -webkit-appearance   : none;
+  background-color     : rgba(10, 10, 10, 0.2);
+  border               : none;
+  border-radius        : 290486px;
+  cursor               : pointer;
+  display              : inline-block;
+  -webkit-box-flex     : 0;
+  -ms-flex-positive    : 0;
+  flex-grow            : 0;
+  -ms-flex-negative    : 0;
+  flex-shrink          : 0;
+  font-size            : 1rem;
+  height               : 20px;
+  max-height           : 20px;
+  max-width            : 20px;
+  min-height           : 20px;
+  min-width            : 20px;
+  outline              : none;
+  position             : relative;
+  vertical-align       : top;
+  width                : 20px;
 }
 
 .delete:before {
-    height: 2px;
-    width: 50%;
+  height: 2px;
+  width : 50%;
 }
 
-.delete:before, .delete:after {
-    background-color: white;
-    content: "";
-    display: block;
-    left: 50%;
-    position: absolute;
-    top: 50%;
-    -webkit-transform: translateX(-50%) translateY(-50%) rotate(45deg);
-    transform: translateX(-50%) translateY(-50%) rotate(45deg);
-    -webkit-transform-origin: center center;
-    transform-origin: center center;
+.delete:after,
+.delete:before {
+  background-color        : white;
+  content                 : '';
+  display                 : block;
+  left                    : 50%;
+  position                : absolute;
+  top                     : 50%;
+  -webkit-transform       : translateX(-50%) translateY(-50%) rotate(45deg);
+  transform               : translateX(-50%) translateY(-50%) rotate(45deg);
+  -webkit-transform-origin: center center;
+  transform-origin        : center center;
 }
 
-*:before, *:after {
-    -webkit-box-sizing: inherit;
-    box-sizing: inherit;
+*:after,
+*:before {
+  -webkit-box-sizing: inherit;
+  box-sizing        : inherit;
 }
 
 .delete:after {
-    height: 50%;
-    width: 2px;
+  height: 50%;
+  width : 2px;
 }
 
 .white_link {
-    color: #fff;
+  color: #fff;
 }
 
 #front_page_orange-bar {
-    display: block;
-    float: left;
-    min-height: 6px;
-    background: #FF8200;
-    width: 100%;
-    z-index: 2050;
-    clear: both;
-    color: #fff;
+  display   : block;
+  float     : left;
+  min-height: 6px;
+  background: #FF8200;
+  width     : 100%;
+  z-index   : 2050;
+  clear     : both;
+  color     : #fff;
 }
-
-/*  Modified links to look like they exist but are unavailable */
+/* Modified links to look like they exist but are unavailable */
 .embargoed_link {
-  color: currentColor;
-  cursor: not-allowed;
-  opacity: 0.5;
+  color          : currentColor;
+  cursor         : not-allowed;
+  opacity        : 0.5;
   text-decoration: none;
-  pointer-events: none;
+  pointer-events : none;
 }
-
-/*  Fixes the Details spacing on the object page */
-#block-islandora-nested-collections-nested-collections-list,html.js fieldset.collapsed {
+/* Fixes the Details spacing on the object page */
+#block-islandora-nested-collections-nested-collections-list,
+html.js fieldset.collapsed {
   padding-bottom: 100px;
 }
 
 dl.solr-fields {
-    width: 100%;
+  width: 100%;
 }
 
 dd.collection-value.dc-title {
-    margin: 0 0 0 0;
+  margin: 0;
 }
 
-dd.collection-value.dc-description{
-  float: left;
-  overflow: hidden;
-  display: -webkit-box;
+dd.collection-value.dc-description {
+  float             : left;
+  overflow          : hidden;
+  display           : -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
-
 /* Collection Specific Adjustments */
 /* Datasets */
-
 .sidebar #block-islandora-compound-object-compound-jail-display .content img {
-    width: 0px;
-    max-width: 0%;
-    visibility: hidden;
-    height: 0px;
-    padding: 0px;
-		margin: 0px;
-    clear: both;
+  width     : 0;
+  max-width : 0;
+  visibility: hidden;
+  height    : 0;
+  padding   : 0;
+  margin    : 0;
+  clear     : both;
 }
 
-.islandora-binary-object-metadata fieldset dl dt{
-    background-color: #dedede;
-    padding-left: 10px;
-}
-.islandora-binary-object-metadata fieldset dl dd, .islandora-binary-object-metadata fieldset p{
-  padding-top: 4px;
-  padding-bottom: 0px;
+.islandora-binary-object-metadata fieldset dl dt {
+  /* background-color: #dedede; */
   padding-left: 10px;
-  margin: 0px;
 }
-.islandora-basic-collection-object.islandora-basic-collection-list-item.clearfix dd.collection-value.dc-date{
 
+.islandora-binary-object-metadata fieldset dl dd,
+.islandora-binary-object-metadata fieldset p {
+  padding-top   : 4px;
+  padding-bottom: 0;
+  padding-left  : 10px;
+  margin        : 0;
 }
+
+.islandora-basic-collection-object.islandora-basic-collection-list-item.clearfix dd.collection-value.dc-date {}
+
 .islandora-basic-collection-list-item dl dd {
-    margin: 0 0 0 0px;
+  margin: 0;
 }
 
-#block-system-main .islandora-binary-object-metadata fieldset{
-  margin-bottom: 100px;
-  margin-right: 10px;
+#block-system-main .islandora-binary-object-metadata fieldset {
+  margin-bottom: 30px;
+  margin-right : 10px;
 }
 
-#islandora-compound-next-link, #islandora-compound-previous-link, #islandora-compound-sequence-position{
-  padding-top: 10px;
+#islandora-compound-next-link,
+#islandora-compound-previous-link,
+#islandora-compound-sequence-position {
+  padding-top : 20px;
+  padding-left: 4px;
+  float       : right;
 }
-
 /* utk.ir.fg level changes */
-.islandora-binary-object-object.islandora{
-	float: left;
+.islandora-binary-object-object.islandora {
+  float: left;
 }
 
 #block-islandora-compound-object-compound-jail-display > div {
-    border-bottom: 0px dotted #ccc;
-    padding-bottom: 1em;
-    padding-right: 10px;
-		padding-left: 1em;
+  border-bottom : 0 dotted #ccc;
+  padding-bottom: 1em;
+  padding-right : 10px;
+  padding-left  : 1em;
+}
+
+#breadcrumb a.strikethrough {
+  color: var(--rock);
+}
+
+.islandora-solr-breadcrumb-super a {
+  color: red;
 }

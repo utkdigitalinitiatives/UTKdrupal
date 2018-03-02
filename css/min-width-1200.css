@@ -1,0 +1,40 @@
+@media (min-width:1200px) {
+  #colophon #toolkit {
+    margin-right: 1.5873%;
+    margin-left : 0;
+    width       : 46.8254%;
+  }
+
+  .visible-lg {
+    display: block!important;
+  }
+
+  table.visible-lg {
+    display: table;
+  }
+
+  tr.visible-lg {
+    display: table-row!important;
+  }
+
+  td.visible-lg,
+  th.visible-lg {
+    display: table-cell!important;
+  }
+
+  .visible-lg-block {
+    display: block!important;
+  }
+
+  .visible-lg-inline {
+    display: inline!important;
+  }
+
+  .visible-lg-inline-block {
+    display: inline-block!important;
+  }
+
+  .hidden-lg {
+    display: none!important;
+  }
+}
