@@ -76,9 +76,9 @@
 
 <!-- Begin of Access Denied Check and redirrect to login -->
 <?php
-  if ($title == 'Access denied') {
+if ($title == 'Access denied') {
     header('Location: /user?destination=' . substr($_SERVER['REQUEST_URI'], 1));
-  }
+}
 ?>
 <!-- End of Access Denied Check and redirrect to login -->
 
@@ -100,123 +100,123 @@
     <!-- End Search Bar Region -->
   </div>
 
-  <?php if ($page['secondary_menu']): ?>
+    <?php if ($page['secondary_menu']) : ?>
     <div id="secondary-menu">
-      <?php print render($page['secondary_menu']); ?>
+        <?php print render($page['secondary_menu']); ?>
     </div>
-  <?php endif; ?>
+    <?php endif; ?>
 
   <!--  Begin of primary -->
   <div id="primary" class="web-app-content-area">
     <div id="content" class="site-content site-content wide" role="main">
 
       <!-- Begin Breadcrumb Region -->
-      <?php if (!drupal_is_front_page()): ?>
+        <?php if (!drupal_is_front_page()) : ?>
         <div class="breadcrumb">
-          <?php print strip_tags($breadcrumb, '<a><h2>') . ' » ' . $title;?>
+            <?php print strip_tags($breadcrumb, '<a><h2>') . ' » ' . $title;?>
         </div>
-      <?php endif; ?>
+        <?php endif; ?>
       <!-- End Breadcrumb Region -->
 
       <!-- Begin Message Region -->
-      <?php
-        if ($messages): ?>
+        <?php
+        if ($messages) : ?>
           <div id="message">
             <div class="section clearfix">
-              <?php print $messages; ?>
+                <?php print $messages; ?>
             </div>
           </div>
-      <?php endif; ?>
+        <?php endif; ?>
       <!-- End Message Region -->
 
       <!-- Begin Help Region -->
-      <?php if ($page['help']): ?>
+        <?php if ($page['help']) : ?>
         <div id="help">
-          <?php print render($page['help']); ?>
+            <?php print render($page['help']); ?>
         </div>
-      <?php endif; ?>
+        <?php endif; ?>
       <!-- End Help Region -->
 
       <!-- Begin highlighted Region -->
-      <?php if ($page['highlighted']): ?>
+        <?php if ($page['highlighted']) : ?>
         <div id="highlighted">
-          <?php print render($page['highlighted']); ?>
+            <?php print render($page['highlighted']); ?>
         </div>
-      <?php endif; ?>
+        <?php endif; ?>
       <!-- End highlighted -->
 
       <!-- Anchor for accessibility -->
       <a id="main-content"></a>
 
       <!-- Begin title Region -->
-      <?php if ($title): ?>
+        <?php if ($title) : ?>
         <?php print render($title_prefix); ?>
         <h1 class="title" id="page-title">
-          <?php print $title; ?>
+            <?php print $title; ?>
         </h1>
         <?php print render($title_suffix); ?>
-      <?php endif; ?>
+        <?php endif; ?>
       <!-- End tite -->
 
       <!-- Begin tabs -->
-      <?php if ($tabs): ?>
+        <?php if ($tabs) : ?>
         <div class="tabs">
-          <?php print render($tabs); ?>
+            <?php print render($tabs); ?>
         </div>
-      <?php endif; ?>
+        <?php endif; ?>
       <!-- End tabs -->
 
       <!-- Begin help -->
-      <?php if ($page['help']): ?>
+        <?php if ($page['help']) : ?>
         <?php print render($page['help']); ?>
-      <?php endif; ?>
+        <?php endif; ?>
       <!-- End help -->
 
       <!-- Begin action_links -->
-      <?php if ($action_links): ?>
+        <?php if ($action_links) : ?>
         <ul class="action-links">
-          <?php print render($action_links); ?>
+            <?php print render($action_links); ?>
         </ul>
-      <?php endif; ?>
+        <?php endif; ?>
       <!-- End action_links -->
 
       <!-- Begin content -->
-      <?php if ($page['content']): ?>
-          <?php print render($page['content']); ?>
-      <?php endif; ?>
+        <?php if ($page['content']) : ?>
+            <?php print render($page['content']); ?>
+        <?php endif; ?>
       <!-- End content -->
 
       <!-- Begin feed_icons -->
-      <?php if ($feed_icons): ?>
+        <?php if ($feed_icons) : ?>
         <?php print $feed_icons; ?>
-      <?php endif; ?>
+        <?php endif; ?>
       <!-- Begin feed_icons -->
 
       <!-- Begin sidebar_first -->
-      <?php if ($page['sidebar_first']): ?>
+        <?php if ($page['sidebar_first']) : ?>
         <div id="sidebar-first" class="column sidebar">
           <div class="section">
             <?php print render($page['sidebar_first']); ?>
           </div>
         </div>
-      <?php endif; ?>
+        <?php endif; ?>
       <!-- End sidebar_first -->
 
       <!-- Begin sidebar_second -->
-      <?php if ($page['sidebar_second']): ?>
+        <?php if ($page['sidebar_second']) : ?>
         <div id="sidebar-second" class="column sidebar">
           <div class="section">
             <?php print render($page['sidebar_second']); ?>
           </div>
         </div>
-      <?php endif; ?>
+        <?php endif; ?>
       <!-- End sidebar_second -->
     </div>
     <!-- End contain main -->
 
     <!-- Begin Footer Region -->
-    <?php if ($page['footer']): ?>
-      <?php print render($page['footer']); ?>
+    <?php if ($page['footer']) : ?>
+        <?php print render($page['footer']); ?>
     <?php endif; ?>
     <!-- End Footer Region -->
   </div>

@@ -11,17 +11,17 @@
     <h2 class="title"><?php print $title; ?></h2>
 
     <?php print $messages; ?>
-    
+
     <?php print render($page['content']); ?>
   </div>
 
   <div id="bottom_part">
     <div class="login_link">
-      <?php print l(t('Login'), 'user/login'); ?>
+        <?php print l(t('Login'), 'user/login'); ?>
     </div>
 
     <div class="password_link">
-      <?php print l(t('Forgot your password?'), 'user/password'); ?>
+        <?php print l(t('Forgot your password?'), 'user/password'); ?>
     </div>
 
     <div class="back_link">

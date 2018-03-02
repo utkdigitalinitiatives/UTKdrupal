@@ -11,18 +11,18 @@
     <h2 class="title"><?php print $title; ?></h2>
 
     <?php print $messages; ?>
-    
+
     <?php print render($page['content']); ?>
   </div>
 
   <div id="bottom_part">
     <div class="login_link">
-      <?php print l(t('Login'), 'user/login'); ?>
+        <?php print l(t('Login'), 'user/login'); ?>
     </div>
 
-    <?php if (variable_get('user_register')): ?>
+    <?php if (variable_get('user_register')) : ?>
     <div class="register_link">
-      <?php print l(t('Register a new account'), 'user/register'); ?>
+        <?php print l(t('Register a new account'), 'user/register'); ?>
     </div>
     <?php endif; ?>
 
