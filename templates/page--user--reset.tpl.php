@@ -1,3 +1,13 @@
+<?php
+
+/**
+ * @file
+ * User reset.
+ *
+ * Variables available:
+ */
+?>
+
 <div id="auth_box" class="reset">
   <div id="top_part">
     <h1 id="the_logo">
@@ -17,10 +27,10 @@
 
   <div id="bottom_part">
     <div class="login_link">
-      <?php print l(t('Login'), 'user/login'); ?>
+        <?php print l(t('Login'), 'user/login'); ?>
     </div>
 
-    <?php if (variable_get('user_register')): ?>
+    <?php if (variable_get('user_register')) : ?>
       <div class="register_link">
         <?php print l(t('Register a new account'), 'user/register'); ?>
       </div>

@@ -39,9 +39,9 @@
 <hr>
 <div class="profile"<?php print $attributes; ?>>
 <?php
-  if ($user_profile): ?>
+if ($user_profile) : ?>
     <?php print render($user_profile); ?>
-  <?php endif; ?>
+<?php endif; ?>
 <?php
 $my_login_user_name = $user->name;
 $my_sparql_submissions = <<<SPARQL
@@ -56,9 +56,9 @@ $query = db_query("SELECT pid, state FROM {trace_workflow_pids}");
 $records = $query->fetchAll();
 $not_aproved_yet = array();
 foreach ($records as $record) {
-  if($record->state == 'a') {
-    array_push($not_aproved_yet, $record->pid);
-  }
+    if ($record->state == 'a') {
+        array_push($not_aproved_yet, $record->pid);
+    }
 }
 
 $tuque = islandora_get_tuque_connection();
@@ -66,28 +66,31 @@ $ri_search = $tuque->repository->ri->sparqlQuery($my_sparql_submissions);
 $islandora_user_submission_list = "<table class='islandora_user_submission_list'><tr><th>Title</th><th>Aproval Status</th><th>Availability Status</th></tr>";
 $needs_approval = count($ri_search);
 foreach ($ri_search as $resultItem) {
-  $publish_status = "<td>Not yet published</td>";
-  $approval_status = "<td>Not Approved yet</td>";
-  if ($resultItem['aproval']['value'] == 'fedora-system:def/model#Active'){
-    $publish_status = "<td>Published</td>";
-  }
-  if (in_array($resultItem['pid']['value'], $not_aproved_yet)) {
-    $approval_status = "<td>Approved!</td>";
-    --$needs_approval;
-  }
-  $islandora_user_submission_list .= "<tr><td><a href='/islandora/object/" . $resultItem['pid']['value'] . "'>" . $resultItem['label']['value'] . "</a></td>" . $approval_status . $publish_status . "</tr>";
+    $publish_status = "<td>Not yet published</td>";
+    $approval_status = "<td>Not Approved yet</td>";
+    if ($resultItem['aproval']['value'] == 'fedora-system:def/model#Active') {
+        $publish_status = "<td>Published</td>";
+    }
+    if (in_array($resultItem['pid']['value'], $not_aproved_yet)) {
+        $approval_status = "<td>Approved!</td>";
+        --$needs_approval;
+    }
+    $islandora_user_submission_list .= "<tr><td><a href='/islandora/object/" . $resultItem['pid']['value'] . "'>" . $resultItem['label']['value'] . "</a></td>" . $approval_status . $publish_status . "</tr>";
 }
 $islandora_user_submission_list .= "</table>\n";
 ?>
   <h1>List of My Submissions</h1>
   <div>
     <p>Currently <span style="font-weight:bold;">
-      <?php print $needs_approval ?></span>
-      <?php if ($needs_approval === 1) {
-        print "is";
-      } else {print "are";
-      } ?> waiting for approval</p>
-  <?php print $islandora_user_submission_list ?>
+        <?php print $needs_approval ?></span>
+        <?php if ($needs_approval === 1) {
+            print "is";
+            } else {
+              print "are";
+            }
+            ?>
+            waiting for approval</p>
+    <?php print $islandora_user_submission_list ?>
   <br/><br/>
   </div>
   <hr>

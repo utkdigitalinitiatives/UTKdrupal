@@ -1,0 +1,55 @@
+@media (min-width:1440px) {
+  .sidebar-offcanvas {
+    max-width: 420px;
+  }
+
+  body #content {
+    margin-right: 1.5873%;
+    margin-left : 1.5873%;
+    width       : 46.8254%;
+  }
+
+  body .site-content .wp-caption.alignleft,
+  body .site-content blockquote.alignleft,
+  body .site-content img.size-full.alignleft,
+  body .site-content img.size-large.alignleft {
+    margin-left: -6%;
+  }
+
+  body .site-content .wp-caption.alignright,
+  body .site-content blockquote.alignright,
+  body .site-content img.size-full.alignright,
+  body .site-content img.size-large.alignright {
+    margin-right: -6%;
+  }
+
+  body .site-content.wide .wp-caption.alignright,
+  body .site-content.wide blockquote.alignright,
+  body .site-content.wide img.size-full.alignright,
+  body .site-content.wide img.size-large.alignright {
+    margin-right: 0;
+  }
+
+  body .site-content.wide .wp-caption.alignleft,
+  body .site-content.wide blockquote.alignleft,
+  body .site-content.wide img.size-full.alignleft,
+  body .site-content.wide img.size-large.alignleft {
+    margin-left: 0;
+  }
+
+  .post-thumbnail img,
+  .wp-post-image,
+  img.size-large {
+    max-width   : 112%;
+    margin-left : -6%;
+    margin-right: -6%;
+  }
+
+  .callout {
+    margin-left: -6%;
+  }
+
+  .callout.right {
+    margin-right: -6%;
+  }
+}

@@ -4,10 +4,11 @@ version = Horiziontal
 package = Core
 core = 7.x
 
+stylesheets[all][] = css/icons.data.png.css
+stylesheets[all][] = css/icons.data.svg.css
 stylesheets[all][] = css/style.css
 
 ;Drupal 7 default regions:
-;Reference - http://themery.com/dgd7/theming/info-files
 regions[sidebar_first]  = Primary sidebar
 regions[sidebar_second] = Secondary sidebar
 regions[content] = Content
@@ -17,7 +18,6 @@ regions[highlighted] = Highlighted
 regions[help] = Help
 regions[page_top] = Page Top
 regions[page_bottom] = Page Bottom
-
 regions[top_menu] = Top Menu
 regions[search_bar] = Search Bar
 regions[secondary_menu] = Secondary Menu

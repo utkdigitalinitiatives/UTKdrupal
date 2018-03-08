@@ -43,6 +43,10 @@ function UTKdrupal_page_headers(){
   drupal_set_html_head('<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">');
 }
 
+function UTKdrupal_preprocess_html(&$vars) {
+  drupal_add_css(path_to_theme() . '/ie.css', array('weight' => CSS_THEME, 'browsers' => array('IE' => 'lt IE 7', '!IE' => FALSE), 'preprocess' => FALSE));
+}
+
 /**
  * Set Logo path and $head variable in page.tpl.php is updated from what it was originally set to in template_preprocess_page().
  * @method UTKdrupal_preprocess_page
@@ -63,7 +67,9 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
   if($header == "403 Forbidden") {
     $variables['theme_hook_suggestions'][] = 'page__404';
   }
-  if (strpos(current_path(), 'utk.ir.td:') !== false) {
+  // Possible to improve code size by using arg(2) vs strpos(current_path(), 'utk.ir.td:')
+  // ETD overrides
+  if (strpos(current_path(), 'utk.ir.td') !== false) {
     if ( isset($variables['page']['content']['system_main']['citation.tab']['preview']['#markup'])) {
       unset($variables['page']['content']['system_main']['citation.tab']['preview']['#markup']);
     }
@@ -89,6 +95,8 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
             $variables['page']['content']['islandora_nested_collections_nested_collections_list']['#markup'] = $new_markup;
         }
     }
+
+
 }
 
 
