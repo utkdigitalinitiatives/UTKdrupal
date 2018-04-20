@@ -45,33 +45,33 @@ if ($user_profile) : ?>
 <?php
 $my_login_user_name = $user->name;
 $my_sparql_submissions = <<<SPARQL
-SELECT DISTINCT ?pid ?label ?aproval
+SELECT DISTINCT ?pid ?label ?approval
 WHERE { ?pid <info:fedora/fedora-system:def/model#label> ?label .
         ?pid <info:fedora/fedora-system:def/model#ownerId> '$my_login_user_name' .
-        ?pid <fedora-model:state> ?aproval .
+        ?pid <fedora-model:state> ?approval .
   }
 SPARQL;
 
 $query = db_query("SELECT pid, state FROM {trace_workflow_pids}");
 $records = $query->fetchAll();
-$not_aproved_yet = array();
+$not_approved_yet = array();
 foreach ($records as $record) {
     if ($record->state == 'a') {
-        array_push($not_aproved_yet, $record->pid);
+        array_push($not_approved_yet, $record->pid);
     }
 }
 
 $tuque = islandora_get_tuque_connection();
 $ri_search = $tuque->repository->ri->sparqlQuery($my_sparql_submissions);
-$islandora_user_submission_list = "<table class='islandora_user_submission_list'><tr><th>Title</th><th>Aproval Status</th><th>Availability Status</th></tr>";
+$islandora_user_submission_list = "<table class='islandora_user_submission_list'><tr><th>Title</th><th>Approval Status</th><th>Availability Status</th></tr>";
 $needs_approval = count($ri_search);
 foreach ($ri_search as $resultItem) {
     $publish_status = "<td>Not yet published</td>";
     $approval_status = "<td>Not Approved yet</td>";
-    if ($resultItem['aproval']['value'] == 'fedora-system:def/model#Active') {
+    if ($resultItem['approval']['value'] == 'fedora-system:def/model#Active') {
         $publish_status = "<td>Published</td>";
     }
-    if (in_array($resultItem['pid']['value'], $not_aproved_yet)) {
+    if (in_array($resultItem['pid']['value'], $not_approved_yet)) {
         $approval_status = "<td>Approved!</td>";
         --$needs_approval;
     }
