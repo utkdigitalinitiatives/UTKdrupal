@@ -49,6 +49,39 @@ function UTKdrupal_page_headers(){
  * @param  [type]                    $variables Page variables
  * @param  [type]                    $hook      URL Hooks
  */
+
+
+
+/**
+ * function extractStringValue($thisDetails,$tag)
+ * Small utility to parse out a field value from the Details section of an Object Level Page.
+ * $thisDetails is defined as the value from:
+ * $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup']
+ *
+ * The $htmltag is any unique string occuring on the same line before the target value.
+ *
+ * Very simple php parsing is used.
+ * The assumption is that the target value is displayed in standard html as below.
+ * <html blah blah blah unique_string blah>target_value</more html>
+ */
+
+function extractStringValue($thisDetails,$htmltag){
+      //chd 180501
+      //START WITH $thisDetails = $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup'];
+      //function call example:
+      //$AUTHOR = extractStringValue($thisDetails,'utk_mods_etd_name_author_ms');
+      $posit01   = strpos($thisDetails,$htmltag);
+      $parse3b   = substr($thisDetails,$posit01,400);
+      $posit02   = strpos($parse3b,'>');
+      $parse3c   = substr($parse3b,$posit02,200);
+      $posit03   = strpos($parse3c,'<');
+      $mySTRLEN  = $posit03-1;
+      $parse3d   = substr($parse3c,1,$mySTRLEN);
+      $target_value  = $parse3d;
+      return $target_value;
+}//end function extractStringValue()
+
+
 function UTKdrupal_preprocess_page(&$variables, $hook) {
   global $base_path;
   $variables['logopath'] = $base_path.'/' . drupal_get_path('theme','UTKdrupal') . '/logo.png';
@@ -56,14 +89,62 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
     drupal_set_html_head('');
     $variables['head'] = drupal_get_html_head();
   } */
-	$header = drupal_get_http_header("status");
+  $header = drupal_get_http_header("status");
   if($header == "404 Not Found") {
     $variables['theme_hook_suggestions'][] = 'page__404';
   }
   if($header == "403 Forbidden") {
     $variables['theme_hook_suggestions'][] = 'page__404';
   }
+  // Possible to improve code size by using arg(2) vs strpos(current_path(), 'utk.ir.td:')
+  // ETD overrides
+  if (strpos(current_path(), 'utk.ir.td') !== false) {
+    if ( isset($variables['page']['content']['system_main']['citation.tab']['preview']['#markup'])) {
+      unset($variables['page']['content']['system_main']['citation.tab']['preview']['#markup']);
+    }
+  }
+
+    // This is a temporary template correction to redirect non-migrated collections to their current locations.
+    if (drupal_get_path_alias() == 'browse') {
+        $new_markup="<ul class='islandora_nested_collection_0'>
+        <li><a href='/islandora/object/utk.ir%3Afg'>Datasets</a></li>
+        <li><a href='http://trace.tennessee.edu/submit_research.html'>Faculty and Graduate Student Research and Creative Work</a></li>
+        <li><a href='/islandora/object/utk.ir%3Atd'>Graduate Theses and Dissertations</a></li>
+        <li><a href='http://trace.tennessee.edu/submit_research.html'>Supervised Undergraduate Student Research and Creative Work</a></li>
+        <ul class='islandora_nested_collection_1'>
+        <li><a href='http://trace.tennessee.edu/cgi/ir_submit.cgi?context=utk_bakerschol'>Baker Scholars Program</a></li>
+        <li><a href='http://trace.tennessee.edu/submit_research.html'>Chancellor’s Honors Program</a></li>
+        <li><a href='http://trace.tennessee.edu/cgi/ir_submit.cgi?context=utk_haslamschol'>College Scholars Program</a></li>
+        <li><a href='http://trace.tennessee.edu/cgi/ir_submit.cgi?context=utk_eureca'>EUReCA: Exhibition of Undergraduate Research and Creative Achievement</a></li>
+        <li><a href='http://trace.tennessee.edu/cgi/ir_submit.cgi?context=utk_haslamschol'>Haslam Scholars Program</a></li>
+        </ul>
+        </ul>";
+        if ( isset($variables['page']['content']['islandora_nested_collections_nested_collections_list']['#markup'])) {
+            unset($variables['page']['content']['islandora_nested_collections_nested_collections_list']['#markup']);
+            $variables['page']['content']['islandora_nested_collections_nested_collections_list']['#markup'] = $new_markup;
+        }
+    }
+
+
+   //OBJECT PAGE OVERRIDES (JIRA TRAC-1059)
+  if (strpos(current_path(), 'utk.ir.td') !== false) {
+    if ( isset($variables['page']['content']['system_main']['citation.tab']['citation']['#markup'])) {
+      //unset($variables['page']['content']['system_main']['citation.tab']['citation']['#markup']);
+      }
+      $thisDetails = $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup'];
+      $Author = extractStringValue($thisDetails,'utk_mods_etd_name_author_ms');
+      $prefix  = '<div class="csl-bib-body"><div style=" text-indent: -25px; padding-left: 25px;"><div class="csl-entry">';
+      $content  = $Author;
+      $suffix  = '</div></div></div>';
+      $new_string = $prefix.$content.$suffix;
+      $variables['page']['content']['system_main']['citation.tab']['citation']['#markup']= $new_string;
+
+     //dsm('place0021 set new value for $variables[page][content][system_main][citation.tab][citation][#markup]');
+     dsm($variables);
 }
+//END OBJECT PAGE OVERRIDES
+
+}//END function UTKdrupal_preprocess_page(&$variables, $hook)
 
 
 /**
