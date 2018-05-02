@@ -53,25 +53,35 @@ function UTKdrupal_page_headers(){
 
 
 /**
- * function extractStringValue($thisDetails,$tag)
+ * function extractStringValue($large_string,$unique_tag)
  * Small utility to parse out a field value from the Details section of an Object Level Page.
- * $thisDetails is defined as the value from:
+ * $large_string is any string you want to search.
+ *
+ * For the citation_author search, $large_value is defined as the value from:
  * $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup']
  *
- * The $htmltag is any unique string occuring on the same line before the target value.
- *
  * Very simple php parsing is used.
- * The assumption is that the target value is displayed in standard html as below.
- * <html blah blah blah unique_string blah>target_value</more html>
+ *
+ * Assumptions:
+ *  large_string contains the unique_tag and the target_value
+ *  unique_tag occurs only once in large_string
+ *  target_value occurs only once in large_string
+ *  unique_tag occurs before target_value
+ *  unique_tag occurs before '>' character
+ *  target_value occurs between '>' and '<' characters.
+ *
+ * Example: target value is displayed in standard html as below.
+ * blah blah<html blah blah unique_tag blah blah>target_value</more html>
  */
 
-function extractStringValue($thisDetails,$htmltag){
+function extractStringValue($large_string,$unique_tag){
       //chd 180501
       //START WITH $thisDetails = $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup'];
       //function call example:
       //$AUTHOR = extractStringValue($thisDetails,'utk_mods_etd_name_author_ms');
-      $posit01   = strpos($thisDetails,$htmltag);
-      $parse3b   = substr($thisDetails,$posit01,400);
+
+      $posit01   = strpos($large_string,$unique_tag);
+      $parse3b   = substr($large_string,$posit01,400);
       $posit02   = strpos($parse3b,'>');
       $parse3c   = substr($parse3b,$posit02,200);
       $posit03   = strpos($parse3c,'<');
@@ -133,9 +143,9 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
       }
       $thisDetails = $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup'];
       $Author = extractStringValue($thisDetails,'utk_mods_etd_name_author_ms');
-      $prefix  = '<div class="csl-bib-body"><div style=" text-indent: -25px; padding-left: 25px;"><div class="csl-entry">';
+      $prefix  = '<div class="csl-bib-body"><div style=" text-indent: -25px; padding-left: 25px;"><div class="citation_author"><h4>';
       $content  = $Author;
-      $suffix  = '</div></div></div>';
+      $suffix  = '</h4></div></div></div>';
       $new_string = $prefix.$content.$suffix;
       $variables['page']['content']['system_main']['citation.tab']['citation']['#markup']= $new_string;
 
