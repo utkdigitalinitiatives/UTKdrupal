@@ -46,6 +46,44 @@ function UTKdrupal_page_headers(){
 function UTKdrupal_preprocess_html(&$vars) {
   drupal_add_css(path_to_theme() . '/ie.css', array('weight' => CSS_THEME, 'browsers' => array('IE' => 'lt IE 7', '!IE' => FALSE), 'preprocess' => FALSE));
 }
+/**
+ * function extractStringValue($large_string,$unique_tag)
+ * Small utility to parse out a field value from the Details section of an Object Level Page.
+ * $large_string is any string you want to search.
+ *
+ * For the citation_author search, $large_value is defined as the value from:
+ * $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup']
+ *
+ * Very simple php parsing is used.
+ *
+ * Assumptions:
+ *  large_string contains the unique_tag and the target_value
+ *  unique_tag occurs only once in large_string
+ *  target_value occurs only once in large_string
+ *  unique_tag occurs before target_value
+ *  unique_tag occurs before '>' character
+ *  target_value occurs between '>' and '<' characters.
+ *
+ * Example: target value is displayed in standard html as below.
+ * blah blah<html blah blah unique_tag blah blah>target_value</more html>
+ *
+ * function call example:
+ * $AUTHOR = extractStringValue($thisDetails,'utk_mods_etd_name_author_ms');
+ *
+ */
+
+function extractStringValue($large_string,$unique_tag){
+
+      $posit01   = strpos($large_string,$unique_tag);
+      $parse3b   = substr($large_string,$posit01,400);
+      $posit02   = strpos($parse3b,'>');
+      $parse3c   = substr($parse3b,$posit02,200);
+      $posit03   = strpos($parse3c,'<');
+      $mySTRLEN  = $posit03-1;
+      $parse3d   = substr($parse3c,1,$mySTRLEN);
+      $target_value  = $parse3d;
+      return $target_value;
+}
 
 /**
  * Set Logo path and $head variable in page.tpl.php is updated from what it was originally set to in template_preprocess_page().
@@ -96,6 +134,19 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
         }
     }
 
+
+  if (strpos(current_path(), 'utk.ir.td') !== false) {
+    if ( isset($variables['page']['content']['system_main']['citation.tab']['citation']['#markup'])) {
+      unset($variables['page']['content']['system_main']['citation.tab']['citation']['#markup']);
+      }
+      $thisDetails = $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup'];
+      $Author = extractStringValue($thisDetails,'utk_mods_etd_name_author_ms');
+      $prefix  = '<div class="csl-bib-body"><div class="citation_author_container"><div class="citation_author"><h4>';
+      $content  = $Author;
+      $suffix  = '</h4></div></div></div>';
+      $new_string = $prefix.$content.$suffix;
+      $variables['page']['content']['system_main']['citation.tab']['citation']['#markup']= $new_string;
+}
 
 }
 
