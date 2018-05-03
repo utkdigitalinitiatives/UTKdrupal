@@ -416,3 +416,8 @@ dd.collection-value.dc-description {
 .islandora-solr-breadcrumb-super a {
   color: red;
 }
+.citation_author_container {
+  text-indent: -25px; 
+  padding-left: 25px;
+}
+
