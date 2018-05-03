@@ -146,6 +146,9 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
       $suffix  = '</h4></div></div></div>';
       $new_string = $prefix.$content.$suffix;
       $variables['page']['content']['system_main']['citation.tab']['citation']['#markup']= $new_string;
+      $count = 2;
+      $new_thisDetails = str_replace("h2>","h5>",$thisDetails,$count);
+      $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup']=$new_thisDetails;
 }
 
 }
