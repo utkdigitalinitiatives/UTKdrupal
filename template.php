@@ -140,15 +140,18 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
       unset($variables['page']['content']['system_main']['citation.tab']['citation']['#markup']);
       }
       $thisDetails = $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup'];
+      //Revise for Author display
       $Author = extractStringValue($thisDetails,'utk_mods_etd_name_author_ms');
-      $prefix  = '<div class="csl-bib-body"><div class="citation_author_container"><div class="citation_author"><h4>';
+      $prefix  = '<div class="csl-bib-body"><div class="citation_author_container"><h>4 class="citation_author">';
       $content  = $Author;
-      $suffix  = '</h4></div></div></div>';
+      $suffix  = '</h4></div></div>';
       $new_string = $prefix.$content.$suffix;
       $variables['page']['content']['system_main']['citation.tab']['citation']['#markup']= $new_string;
-      $count = 2;
-      $new_thisDetails = str_replace("h2>","h5>",$thisDetails,$count);
-      $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup']=$new_thisDetails;
+      //$Revise for Abstract label display
+      $thisDetails2 = str_replace('<h2>','<div class="citation_abstract_container"><h5>',$thisDetails);
+      $thisDetails3 = str_replace('<p property="description">','<p property="description" class="citation_abstract">',$thisDetails2);
+      $thisDetails4 = str_replace('</h2>','</h5></div>',$thisDetails3);
+      $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup']=$thisDetails4;
 }
 
 }
