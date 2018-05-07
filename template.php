@@ -113,6 +113,35 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
     }
   }
 
+  // Adds view and download count to screen
+  module_load_include('inc', 'islandora', 'includes/utilities');
+
+  //Retrieve the object
+  $parsed_request = explode('/', $_SERVER['REQUEST_URI']);
+
+  // PID check to see if this is an object or not
+  if (islandora_is_valid_pid(urldecode(end($parsed_request)))) {
+    $variables['page']['islandora_object'] = islandora_object_load(urldecode(end($parsed_request)));
+    if(!isset($variables['page']['islandora_object']['COLLECTION_POLICY']))
+    {
+      $islandora_object = $variables['page']['islandora_object'];
+      if (module_exists('islandora_usage_stats_callbacks') && user_access('access usage stats callbacks api')) {
+        global $base_url;
+        $usage_stats_json = file_get_contents("{$base_url}/islandora_usage_stats_callbacks/object_stats/{$islandora_object->id}");
+        $usage_stats_array = json_decode($usage_stats_json, TRUE);
+        $views = count($usage_stats_array['views']) + $usage_stats_array['legacy-views'];
+        $downloads = count($usage_stats_array['downloads']) + $usage_stats_array['legacy-downloads'];
+        $usage_data = array('views' => $views, 'downloads' => $downloads);
+        $variables['page']['object_cmodel'] = $usage_stats_array['cmodel'];
+        $variables['page']['usage_views'] = $usage_data['views'];
+        $variables['page']['usage_downloads'] = $usage_data['downloads'];
+        $string_something = '<div id="usage-stats-box"><span class="usage-stats-views">' . $usage_data['views'] . ' views</span><br><span class="usage-stats-downloads">' . $usage_data['downloads'] . ' downloads</span></div>';
+        $variables['page']['content']['system_main']['citation.tab']['pdf_download']['#suffix'] = $string_something;
+      }
+    }
+  }
+  // End of view download count display
+
     // This is a temporary template correction to redirect non-migrated collections to their current locations.
     if (drupal_get_path_alias() == 'browse') {
         $new_markup="<ul class='islandora_nested_collection_0'>
