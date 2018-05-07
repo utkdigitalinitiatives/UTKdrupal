@@ -149,7 +149,7 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
       $variables['page']['content']['system_main']['citation.tab']['citation']['#markup']= $new_string;
       //$Revise for Abstract label display
       $thisDetails2 = str_replace('<h2>','<div class="citation_abstract_container"><h5>',$thisDetails);
-      $thisDetails3 = str_replace('<p property="description">','<p property="description" class="citation_abstract">',$thisDetails2);
+      $thisDetails3 = str_replace('<p property="description"><p>','<p property="description"><p class="citation_abstract">',$thisDetails2);
       $thisDetails4 = str_replace('</h2>','</h5></div>',$thisDetails3);
       $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup']=$thisDetails4;
 }
