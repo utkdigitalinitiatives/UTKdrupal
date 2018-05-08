@@ -168,13 +168,23 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
     if ( isset($variables['page']['content']['system_main']['citation.tab']['citation']['#markup'])) {
       unset($variables['page']['content']['system_main']['citation.tab']['citation']['#markup']);
       }
+      //Generate display of Author name in first line below title
       $thisDetails = $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup'];
-      $Author = extractStringValue($thisDetails,'utk_mods_etd_name_author_ms');
-      $prefix  = '<div class="csl-bib-body"><div class="citation_author_container"><div class="citation_author"><h4>';
-      $content  = $Author;
-      $suffix  = '</h4></div></div></div>';
-      $new_string = $prefix.$content.$suffix;
+      $Author      = extractStringValue($thisDetails,'utk_mods_etd_name_author_ms');
+      $prefix      = '<div class="csl-bib-body"><div class="citation_author_container"><div class="citation_author"><h4>';
+      $content     = $Author;
+      $suffix      = '</h4></div></div></div>';
+      $new_string  = $prefix.$content.$suffix;
       $variables['page']['content']['system_main']['citation.tab']['citation']['#markup']= $new_string;
+      //Change font size on Abstract Header, add citation div wrappers
+      $count1        = 1;
+      $count2        = 2;
+      $thisAbstract  = str_replace('h2>','h5>',$thisDetails,$count2);
+      $thisAbstract2 = str_replace('<h5>','<div class="citation_abstract_container"><h5>',$thisAbstract);
+      $thisAbstract3 = str_replace('<p property="description"><p>','<p property="description"><p class="citation_abstract">',$thisAbstract2);
+      $thisAbstract4 = str_replace('<!-- END','</div><!-- END',$thisAbstract3,$count1);
+      $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup']= $thisAbstract4;
+      
 }
 
 }
