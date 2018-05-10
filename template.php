@@ -113,19 +113,19 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
     }
   }
 
-  // Adds view and download count to screen
+  // Adds view and download count to screen.
   module_load_include('inc', 'islandora', 'includes/utilities');
 
-  //Retrieve the object
+  // Retrieve the object.
   $parsed_request = explode('/', $_SERVER['REQUEST_URI']);
 
-  // PID check to see if this is an object or not
-  if (islandora_is_valid_pid(urldecode(end($parsed_request)))) {
+  // PID check to see if this is an object or not.
+  if (islandora_is_valid_pid(urldecode(end($parsed_request))) && user_access('access usage stats callbacks api')) {
     $variables['page']['islandora_object'] = islandora_object_load(urldecode(end($parsed_request)));
     if(!isset($variables['page']['islandora_object']['COLLECTION_POLICY']))
     {
       $islandora_object = $variables['page']['islandora_object'];
-      if (module_exists('islandora_usage_stats_callbacks') && user_access('access usage stats callbacks api')) {
+      if (module_exists('islandora_usage_stats_callbacks') && $islandora_object->state == 'A') {
         global $base_url;
         $usage_stats_json = file_get_contents("{$base_url}/islandora_usage_stats_callbacks/object_stats/{$islandora_object->id}");
         $usage_stats_array = json_decode($usage_stats_json, TRUE);
@@ -140,7 +140,7 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
       }
     }
   }
-  // End of view download count display
+  // End of view download count display.
 
     // This is a temporary template correction to redirect non-migrated collections to their current locations.
     if (drupal_get_path_alias() == 'browse') {
@@ -217,8 +217,7 @@ function UTKdrupal_form_search_block_form_alter(&$form, &$form_state, $form_id) 
  * Implementation of hook_form_alter()
  */
 function UTKdrupal_form_alter(&$form, &$form_state, $form_id) {
-  // Use this to debug the form
-  // dsm($form_id);
+  // Use this to debug the form.
   $possibleForms = array('xml_form_builder_ingest_form', 'islandora_scholar_pdf_upload_form');
   if(in_array($form_id, $possibleForms, true)) {
     $formStage = "progress-current";
@@ -409,7 +408,7 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
         }
       }
     }
-    // Modify Manage Files Tab and child tabs
+    // Modify Manage Files Tab and child tabs.
     $possibleUrls = array('islandora/object/%/manage/datastreams', 'islandora/object/%', 'islandora/object/%/manage');
     if (in_array($root_path, $possibleUrls, true)) {
       if(isset($data['tabs'][0]) && is_array($data['tabs'][0])){
@@ -421,13 +420,13 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
             $data['tabs'][0]['output'][$key]['#link']['title'] = t('Manage Files');
             $data['tabs'][0]['output'][$key]['#link']['href'] = $router_item['href'] . '/manage/datastreams';
           }
-          // Renames Add additional files tab
+          // Renames Add additional files tab.
           if (($root_path == 'islandora/object/%/manage/datastreams') && $data['actions']['output'][0]['#link']['title'] == t('Add a Supplemental File')){
             $data['actions']['output'][0]['#link']['title'] = t('Add Additional files');
           }
         }
       }
-      // Removes the Overview Tab
+      // Removes the Overview Tab.
       if(isset($data['tabs'][1]) && is_array($data['tabs'][1])){
         foreach ($data['tabs'][1]['output'] as $key => $value) {
           if ($value['#link']['title'] == t('Overview')){
@@ -451,6 +450,5 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
   }
   if (in_array('authenticated user', $user->roles)) {
   //  dpm(get_defined_vars());
-  //  dsm($form_id);
   }
 }
