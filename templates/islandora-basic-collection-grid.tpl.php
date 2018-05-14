@@ -20,7 +20,7 @@
             <!--  Title -->
             <dd class="collection-value <?php print isset($associated_object['dc_array']['dc:title']['class']) ? $associated_object['dc_array']['dc:title']['class'] : ''; ?> <?php print $row_field == 0 ? ' first' : ''; ?>">
               <?php if (isset($associated_object['thumb_link'])): ?>
-                <strong><?php print filter_xss($associated_object['title_link']); ?></strong>
+                <strong><?php print check_markup($associated_object['title_link'], 'filtered_html'); ?></strong>
               <?php endif; ?>
             </dd>
 
