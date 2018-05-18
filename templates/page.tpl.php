@@ -113,7 +113,7 @@ if ($title == 'Access denied') {
       <!-- Begin Breadcrumb Region -->
         <?php if (!drupal_is_front_page()) : ?>
         <div class="breadcrumb">
-            <?php print strip_tags($breadcrumb, '<a><h2>') . ' » ' . $title;?>
+            <?php print strip_tags($breadcrumb, '<a><h2>') . ' » ' . html_entity_decode($title);?>
         </div>
         <?php endif; ?>
       <!-- End Breadcrumb Region -->
@@ -152,7 +152,7 @@ if ($title == 'Access denied') {
         <?php if ($title) : ?>
         <?php print render($title_prefix); ?>
         <h1 class="title" id="page-title">
-            <?php print $title; ?>
+            <?php print html_entity_decode($title); ?>
         </h1>
         <?php print render($title_suffix); ?>
         <?php endif; ?>
