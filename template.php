@@ -167,7 +167,7 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
   if (strpos(current_path(), 'utk.ir.td') !== false) {
     if ( isset($variables['page']['content']['system_main']['citation.tab']['citation']['#markup'])) {
       unset($variables['page']['content']['system_main']['citation.tab']['citation']['#markup']);
-      }
+
       //Generate display of Author name in first line below title
       $thisDetails = $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup'];
       $Author      = extractStringValue($thisDetails,'utk_mods_etd_name_author_ms');
@@ -184,8 +184,8 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
       $thisAbstract3 = str_replace('<p property="description"><p>','<p property="description"><p class="citation_abstract">',$thisAbstract2);
       $thisAbstract4 = str_replace('<!-- END','</div><!-- END',$thisAbstract3,$count1);
       $variables['page']['content']['system_main']['citation.tab']['metadata']['#markup']= $thisAbstract4;
-      
-}
+    }
+  }
 
 }
 
