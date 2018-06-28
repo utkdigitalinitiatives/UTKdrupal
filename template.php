@@ -125,7 +125,7 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
     if(!isset($variables['page']['islandora_object']['COLLECTION_POLICY']))
     {
       $islandora_object = $variables['page']['islandora_object'];
-      if (module_exists('islandora_usage_stats_callbacks') && $islandora_object->state == 'A') {
+      if (!is_null($islandora_object) && module_exists('islandora_usage_stats_callbacks') && $islandora_object->state == 'A') {
         global $base_url;
         $usage_stats_json = file_get_contents("{$base_url}/islandora_usage_stats_callbacks/object_stats/{$islandora_object->id}");
         $usage_stats_array = json_decode($usage_stats_json, TRUE);
