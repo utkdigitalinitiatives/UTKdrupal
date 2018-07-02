@@ -30,9 +30,7 @@
                     </dt>
                     <dd class="solr-value <?php print $value['class']; ?>">
   			<?php 
-				if (strpos($value['value'], 'thesisCModel') !== false) {
-		      		print "Graduate Theses and Dissertations";
-				} else if (strpos($value['value'],'PDF') !== false) {
+				if (strpos($value['value'],'PDF') !== false) {
 				$rawval = $value['value'];
 				$rawpid0 = str_replace("info:fedora/","",$rawval);
 				$rawpid1 = str_replace("/PDF","",$rawpid0);
