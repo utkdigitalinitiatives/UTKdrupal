@@ -1,0 +1,168 @@
+diff --git a/omega/js/jquery.formalize.js b/omega/js/jquery.formalize.js
+index ba5e491..8f25867 100644
+--- a/omega/js/jquery.formalize.js
++++ b/omega/js/jquery.formalize.js
+@@ -1,28 +1,52 @@
+ /*
+-  Formalize - version 1.1
+-
++  Formalize - version 1.2
+   Note: This file depends on the jQuery library.
+ */
+ 
+ // Module pattern:
+ // http://yuiblog.com/blog/2007/06/12/module-pattern
+ var FORMALIZE = (function($, window, document, undefined) {
++  // Internet Explorer detection.
++  function IE(version) {
++    var b = document.createElement('b');
++    b.innerHTML = '<!--[if IE ' + version + ']><br><![endif]-->';
++    return !!b.getElementsByTagName('br').length;
++  }
++
+   // Private constants.
+   var PLACEHOLDER_SUPPORTED = 'placeholder' in document.createElement('input');
+   var AUTOFOCUS_SUPPORTED = 'autofocus' in document.createElement('input');
+-  var IE6 = !!($.browser.msie && parseInt($.browser.version, 10) === 6);
+-  var IE7 = !!($.browser.msie && parseInt($.browser.version, 10) === 7);
++  var IE6 = IE(6);
++  var IE7 = IE(7);
+ 
+   // Expose innards of FORMALIZE.
+   return {
+     // FORMALIZE.go
+     go: function() {
+-      for (var i in FORMALIZE.init) {
+-        FORMALIZE.init[i]();
++      var i, j = this.init;
++
++      for (i in j) {
++        j.hasOwnProperty(i) && j[i]();
+       }
+     },
+     // FORMALIZE.init
+     init: {
++      // FORMALIZE.init.disable_link_button
++      disable_link_button: function() {
++        $(document.documentElement).on('click', 'a.button_disabled', function() {
++          return false;
++        });
++      },
++      // FORMALIZE.init.full_input_size
++      full_input_size: function() {
++        if (!IE7 || !$('textarea, input.input_full').length) {
++          return;
++        }
++
++        // This fixes width: 100% on <textarea> and class="input_full".
++        // It ensures that form elements don't go wider than container.
++        $('textarea, input.input_full').wrap('<span class="input_full_wrap"></span>');
++      },
+       // FORMALIZE.init.ie6_skin_inputs
+       ie6_skin_inputs: function() {
+         // Test for Internet Explorer 6.
+@@ -43,20 +67,20 @@ var FORMALIZE = (function($, window, document, undefined) {
+ 
+           // Is it a button?
+           if (this.getAttribute('type').match(button_regex)) {
+-            el.addClass('ie6-button');
++            el.addClass('ie6_button');
+ 
+             /* Is it disabled? */
+             if (this.disabled) {
+-              el.addClass('ie6-button-disabled');
++              el.addClass('ie6_button_disabled');
+             }
+           }
+           // Or is it a textual input?
+           else if (this.getAttribute('type').match(type_regex)) {
+-            el.addClass('ie6-input');
++            el.addClass('ie6_input');
+ 
+             /* Is it disabled? */
+             if (this.disabled) {
+-              el.addClass('ie6-input-disabled');
++              el.addClass('ie6_input_disabled');
+             }
+           }
+         });
+@@ -64,7 +88,7 @@ var FORMALIZE = (function($, window, document, undefined) {
+         $('textarea, select').each(function() {
+           /* Is it disabled? */
+           if (this.disabled) {
+-            $(this).addClass('ie6-input-disabled');
++            $(this).addClass('ie6_input_disabled');
+           }
+         });
+       },
+@@ -74,7 +98,11 @@ var FORMALIZE = (function($, window, document, undefined) {
+           return;
+         }
+ 
+-        $(':input[autofocus]:visible:first').focus();
++        var el = $('[autofocus]')[0];
++
++        if (!el.disabled) {
++          el.focus();
++        }
+       },
+       // FORMALIZE.init.placeholder
+       placeholder: function() {
+@@ -87,12 +115,18 @@ var FORMALIZE = (function($, window, document, undefined) {
+         FORMALIZE.misc.add_placeholder();
+ 
+         $(':input[placeholder]').each(function() {
++          // Placeholder obscured in older browsers,
++          // so there's no point adding to password.
++          if (this.type === 'password') {
++            return;
++          }
++
+           var el = $(this);
+           var text = el.attr('placeholder');
+ 
+           el.focus(function() {
+             if (el.val() === text) {
+-              el.val('').removeClass('placeholder-text');
++              el.val('').removeClass('placeholder_text');
+             }
+           }).blur(function() {
+             FORMALIZE.misc.add_placeholder();
+@@ -102,9 +136,9 @@ var FORMALIZE = (function($, window, document, undefined) {
+           // submitting the placeholder text.
+           el.closest('form').submit(function() {
+             if (el.val() === text) {
+-              el.val('').removeClass('placeholder-text');
++              el.val('').removeClass('placeholder_text');
+             }
+-          }).bind('reset', function() {
++          }).on('reset', function() {
+             setTimeout(FORMALIZE.misc.add_placeholder, 50);
+           });
+         });
+@@ -121,11 +155,17 @@ var FORMALIZE = (function($, window, document, undefined) {
+         }
+ 
+         $(':input[placeholder]').each(function() {
++          // Placeholder obscured in older browsers,
++          // so there's no point adding to password.
++          if (this.type === 'password') {
++            return;
++          }
++
+           var el = $(this);
+           var text = el.attr('placeholder');
+ 
+           if (!el.val() || el.val() === text) {
+-            el.val(text).addClass('placeholder-text');
++            el.val(text).addClass('placeholder_text');
+           }
+         });
+       }
+@@ -137,4 +177,4 @@ var FORMALIZE = (function($, window, document, undefined) {
+ // Automatically calls all functions in FORMALIZE.init
+ jQuery(document).ready(function() {
+   FORMALIZE.go();
+-});
++});
+\ No newline at end of file
