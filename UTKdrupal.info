@@ -1,6 +1,6 @@
 name = UTKdrupal
 description = UT Libraries Drupal theme
-version = Horiziontal
+version = digitial_collections_from_trace_template
 package = Core
 core = 7.x
 

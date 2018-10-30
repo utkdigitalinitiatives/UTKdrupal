@@ -1,6 +1,5 @@
 # README
-This theme is intended for the UTK institutional repository.
-
+This theme is intended for the UTK digital Collections with the new theme.
 
 ## About
 
