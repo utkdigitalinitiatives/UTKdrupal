@@ -146,15 +146,15 @@ function UTKdrupal_preprocess_page(&$variables, $hook) {
     if (drupal_get_path_alias() == 'browse') {
         $new_markup="<ul class='islandora_nested_collection_0'>
         <li><a href='/islandora/object/utk.ir%3Afg'>Datasets</a></li>
-        <li><a href='http://trace.tennessee.edu/submit_research.html'>Faculty and Graduate Student Research and Creative Work</a></li>
-        <li><a href='/islandora/object/utk.ir%3Atd'>Graduate Theses and Dissertations</a></li>
+        <li><a href='http://trace.tennessee.edu/communities.html'>Faculty and Graduate Student Research and Creative Work</a></li>
+        <li><a href='https://trace.tennessee.edu/utk-grad'>Graduate Theses and Dissertations</a></li>
         <li><a href='http://trace.tennessee.edu/submit_research.html'>Supervised Undergraduate Student Research and Creative Work</a></li>
         <ul class='islandora_nested_collection_1'>
-        <li><a href='http://trace.tennessee.edu/cgi/ir_submit.cgi?context=utk_bakerschol'>Baker Scholars Program</a></li>
-        <li><a href='http://trace.tennessee.edu/submit_research.html'>Chancellor’s Honors Program</a></li>
-        <li><a href='http://trace.tennessee.edu/cgi/ir_submit.cgi?context=utk_haslamschol'>College Scholars Program</a></li>
-        <li><a href='http://trace.tennessee.edu/cgi/ir_submit.cgi?context=utk_eureca'>EUReCA: Exhibition of Undergraduate Research and Creative Achievement</a></li>
-        <li><a href='http://trace.tennessee.edu/cgi/ir_submit.cgi?context=utk_haslamschol'>Haslam Scholars Program</a></li>
+        <li><a href='http://trace.tennessee.edu/utk_bakerschol/'>Baker Scholars Program</a></li>
+        <li><a href='http://trace.tennessee.edu/utk_chanhonoproj/'>Chancellor’s Honors Program</a></li>
+        <li><a href='http://trace.tennessee.edu/utk_intercsch/'>College Scholars Program</a></li>
+        <li><a href='http://trace.tennessee.edu/utk_eureca/'>EUReCA: Exhibition of Undergraduate Research and Creative Achievement</a></li>
+        <li><a href='http://trace.tennessee.edu/utk_haslamschol/'>Haslam Scholars Program</a></li>
         </ul>
         </ul>";
         if ( isset($variables['page']['content']['islandora_nested_collections_nested_collections_list']['#markup'])) {
