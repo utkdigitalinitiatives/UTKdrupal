@@ -75,7 +75,7 @@ foreach ($ri_search as $resultItem) {
         $approval_status = "<td>Approved!</td>";
         --$needs_approval;
     }
-    $islandora_user_submission_list .= "<tr><td><a href='/islandora/object/" . $resultItem['pid']['value'] . "'>" . $resultItem['label']['value'] . "</a></td>" . $approval_status . $publish_status . "</tr>";
+    $islandora_user_submission_list .= "<tr><td><a href='/islandora/object/" . $resultItem['pid']['value'] . "/manage/datastreams'>" . $resultItem['label']['value'] . "</a></td>" . $approval_status . $publish_status . "</tr>";
 }
 $islandora_user_submission_list .= "</table>\n";
 ?>

@@ -440,6 +440,12 @@ function UTKdrupal_menu_local_tasks_alter(&$data, $router_item, $root_path) {
           if (($root_path == 'islandora/object/%/manage/datastreams') && $data['actions']['output'][0]['#link']['title'] == t('Add a Supplemental File')){
             $data['actions']['output'][0]['#link']['title'] = t('Add Additional files');
           }
+          // Changes 'View' tab to 'View Public Version'
+          if ($value['#link']['title'] == t('View')){
+            $data['tabs'][0]['output'][$key]['#link']['title'] = t('View Public Version');
+            // Placeholder for updated digital commons/bpress URI
+            //$data['tabs'][0]['output'][$key]['#link']['href'] = $router_item['href'] . 'NEW_PUBLIC_URI';
+          }
         }
       }
       // Removes the Overview Tab.
