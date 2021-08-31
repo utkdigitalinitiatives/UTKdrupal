@@ -99,7 +99,7 @@ $islandora_user_submission_list .= "</table>\n";
       <div style="line-height: 2.0; font-size: larger;">
           <ul style="list-style: none;">
               <li style="padding-bottom:10px;"><a href='https://trace.tennessee.edu/submit_research.html'>Submit Faculty and Graduate Student Research and Creative Work</a></li>
-              <li style="padding-bottom:10px;"><a href='https://trace.tennessee.edu/utk_grad/'>Submit Graduate Theses and Dissertations</a></li>
+              <li style="padding-bottom:10px;"><a href='https://trace.tennessee.edu/utk-grad/'>Submit Graduate Theses and Dissertations</a></li>
               <li style="padding-bottom:10px;">Submit Supervised Undergraduate Student Research and Creative Work</li>
               <ul class='islandora_nested_collection_1'>
                   <li><a href='http://trace.tennessee.edu/cgi/ir_submit.cgi?context=utk_bakerschol'>Submit Baker Scholars Program</a></li>
