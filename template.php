@@ -43,9 +43,26 @@ function UTKdrupal_page_headers(){
   drupal_set_html_head('<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="NO-CACHE">');
 }
 
+/**
+ * Adds the CSS file for IE
+ * Check if the user (anonymous user) had access to the PDF (it shouldn't if it's anonymous or anyone not the owner)
+ * Check if the URL contains "/datastream/PDF/download/citation.pdf"
+ * Unsets the normal 404/403 redirects
+ * Redirects to the same URL excluding this string "/datastream/PDF/download/citation.pdf"
+ */
 function UTKdrupal_preprocess_html(&$vars) {
   drupal_add_css(path_to_theme() . '/ie.css', array('weight' => CSS_THEME, 'browsers' => array('IE' => 'lt IE 7', '!IE' => FALSE), 'preprocess' => FALSE));
+
+  $current_url = current_path();
+  if (!drupal_valid_path($current_url)) {
+    if (strpos($current_url, '/datastream/PDF/download/citation.pdf') !== false) {
+      $link = str_replace("/datastream/PDF/download/citation.pdf", "", 'https://trace.utk.edu' . $current_url);
+      unset($_GET['destination']);
+      drupal_goto($link);
+    }
+  }
 }
+
 /**
  * function extractStringValue($large_string,$unique_tag)
  * Small utility to parse out a field value from the Details section of an Object Level Page.
